@@ -54,8 +54,19 @@ public class InterfacePrincipaleLogin extends JFrame {
         interfacePrincipaleAdmin.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
     }
 
-    public void afficherConnexionEchouee() throws IOException {
+    public void afficherConnexionReussieEmploye() throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion avec utilsateur regulier");
+        dispose();
+        FlatLightLaf.setup();
+        InterfacePrincipaleEmploye interfacePrincipaleEmploye = new InterfacePrincipaleEmploye();
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        interfacePrincipaleEmploye.getRootPane().putClientProperty("JRootPane.titleBarBackground",
+                new Color(28, 28, 51));
+        interfacePrincipaleEmploye.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+    }
+
+    public void afficherConnexionReussieUser() throws IOException {
+        JOptionPane.showMessageDialog(null, "Connexion avec utilsateur simple");
         dispose();
         FlatLightLaf.setup();
         InterfacePrincipaleUser interfacePrincipaleUser = new InterfacePrincipaleUser();

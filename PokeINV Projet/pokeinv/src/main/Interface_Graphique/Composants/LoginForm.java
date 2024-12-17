@@ -67,11 +67,21 @@ public class LoginForm {
             public void actionPerformed(ActionEvent e) {
                 String username = userJTextField.getText();
                 String password = new String(passJTextField.getPassword());
+                if (username.isEmpty() || password.isEmpty()) {
+                    notification.setText("Veuillez remplir tous les champs.");
+                    notification.setForeground(Color.RED);
+                    notification.add(Box.createRigidArea(new Dimension(0, 10)));
+                    userJTextField.setText("");
+                    passJTextField.setText("");
+                    return;
+                }
                 try {
                     if (username.equals("admin") && password.equals("admin")) {
                         mainFrame.afficherConnexionReussieAdmin();
-                    } else {
-                        mainFrame.afficherConnexionEchouee();
+                    } else if (username.equals("employe") && password.equals("employe")) {
+                        mainFrame.afficherConnexionReussieEmploye();
+                    } else if (username.equals("user") && password.equals("user")) {
+                        mainFrame.afficherConnexionReussieUser();
                     }
                 } catch (IOException e1) {
                     e1.printStackTrace();
