@@ -37,9 +37,21 @@ public class InterfacePrincipaleLogin extends JFrame {
         loginPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         loginPanel.setLayout(new BoxLayout(loginPanel, BoxLayout.Y_AXIS));
 
+        // Images decoratives
+        ImageIcon ImagePika = new ImageIcon("src/main/donnees/Pikachu.png");
+        Image ImagePikaImage = ImagePika.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        JPanel bottomRightPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        JLabel ImagePikaLabel = new JLabel(new ImageIcon(ImagePikaImage));
+        ImagePikaLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        ImagePikaLabel.setBackground(new Color(28, 28, 51));
+        ImagePikaLabel.setOpaque(true);
+        bottomRightPanel.add(ImagePikaLabel);
+        bottomRightPanel.setBackground(new Color(28, 28, 51));
+
         centerPanel.add(loginPanel);
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);
+        mainPanel.add(bottomRightPanel, BorderLayout.SOUTH);
 
         add(mainPanel);
     }
