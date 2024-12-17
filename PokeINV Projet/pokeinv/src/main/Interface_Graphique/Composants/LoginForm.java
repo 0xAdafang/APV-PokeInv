@@ -67,14 +67,7 @@ public class LoginForm {
             public void actionPerformed(ActionEvent e) {
                 String username = userJTextField.getText();
                 String password = new String(passJTextField.getPassword());
-                if (username.isEmpty() || password.isEmpty()) {
-                    notification.setText("Veuillez remplir tous les champs.");
-                    notification.setForeground(Color.RED);
-                    notification.add(Box.createRigidArea(new Dimension(0, 10)));
-                    userJTextField.setText("");
-                    passJTextField.setText("");
-                    return;
-                }
+
                 try {
                     if (username.equals("admin") && password.equals("admin")) {
                         mainFrame.afficherConnexionReussieAdmin();
@@ -82,6 +75,19 @@ public class LoginForm {
                         mainFrame.afficherConnexionReussieEmploye();
                     } else if (username.equals("user") && password.equals("user")) {
                         mainFrame.afficherConnexionReussieUser();
+                    } else if (username.equals("") || password.equals("")) {
+                        notification.setText("Veuillez remplir tous les champs.");
+                        notification.setForeground(Color.RED);
+                        notification.add(Box.createRigidArea(new Dimension(0, 10)));
+                        userJTextField.setText("");
+                        passJTextField.setText("");
+                        return;
+                    } else {
+                        notification.setText("Nom d'utilisateur ou mot de passe incorrect.");
+                        notification.setForeground(Color.RED);
+                        notification.add(Box.createRigidArea(new Dimension(0, 10)));
+                        userJTextField.setText("");
+                        passJTextField.setText("");
                     }
                 } catch (IOException e1) {
                     e1.printStackTrace();
