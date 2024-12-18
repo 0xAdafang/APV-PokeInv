@@ -24,19 +24,22 @@ public class LoginForm {
         logoLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         logoLabel.setBackground(new Color(28, 28, 51));
         logoLabel.setOpaque(true);
-        logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        logoLabel.setAlignmentX(0.5f);
 
         JLabel userJLabel = new JLabel("Nom d'utilisateur");
         userJLabel.setOpaque(true);
         userJLabel.setBackground(new Color(28, 28, 51));
         userJLabel.setForeground(Color.WHITE);
         userJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        userJLabel.setAlignmentX(0.5f);
 
         JLabel passJLabel = new JLabel("Mot de passe");
         passJLabel.setOpaque(true);
+        passJLabel.setLayout(new FlowLayout(FlowLayout.CENTER));
         passJLabel.setBackground(new Color(28, 28, 51));
         passJLabel.setForeground(Color.WHITE);
         passJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        passJLabel.setAlignmentX(0.5f);
 
         userJTextField = new JTextField(15);
         passJTextField = new JPasswordField(15);
@@ -48,17 +51,32 @@ public class LoginForm {
         b1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         b1.setFocusPainted(false);
 
+        JButton b2 = new JButton("Inscription");
+        b2.setOpaque(true);
+        b2.setBackground(new Color(0, 94, 183));
+        b2.setForeground(Color.WHITE);
+        b2.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        b2.setFocusPainted(false);
+
+        // Organisation des boutons
+        JPanel labelButtons = new JPanel();
+        labelButtons.setLayout(new FlowLayout(FlowLayout.CENTER));
+        labelButtons.setBackground(new Color(28, 28, 51));
+        labelButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        labelButtons.add(b1);
+        labelButtons.add(b2);
+
         notification = new JLabel();
 
         // Organisation des composants
         panelLogin = new JPanel(new GridLayout(6, 2));
-        panelLogin.add(logoLabel);
-        panelLogin.add(userJLabel);
-        panelLogin.add(userJTextField);
-        panelLogin.add(passJLabel);
-        panelLogin.add(passJTextField);
+        panelLogin.add(logoLabel, BorderLayout.NORTH);
+        panelLogin.add(userJLabel, BorderLayout.CENTER);
+        panelLogin.add(userJTextField, BorderLayout.CENTER);
+        panelLogin.add(passJLabel, BorderLayout.CENTER);
+        panelLogin.add(passJTextField, BorderLayout.CENTER);
         panelLogin.add(Box.createRigidArea(new Dimension(0, 10)));
-        panelLogin.add(b1);
+        panelLogin.add(labelButtons, BorderLayout.SOUTH);
         panelLogin.add(notification);
         panelLogin.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
