@@ -40,13 +40,16 @@ public class InterfacePrincipaleLogin extends JFrame {
         // Images decoratives
         ImageIcon ImagePika = new ImageIcon("src/main/donnees/Pikachu.png");
         Image ImagePikaImage = ImagePika.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-        JPanel bottomRightPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+
+        JPanel bottomRightPanel = new JPanel(new BorderLayout());
+
         JLabel ImagePikaLabel = new JLabel(new ImageIcon(ImagePikaImage));
         ImagePikaLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         ImagePikaLabel.setBackground(new Color(28, 28, 51));
         ImagePikaLabel.setOpaque(true);
-        bottomRightPanel.add(ImagePikaLabel);
+        bottomRightPanel.add(ImagePikaLabel, BorderLayout.EAST);
         bottomRightPanel.setBackground(new Color(28, 28, 51));
+
 
         centerPanel.add(loginPanel);
 

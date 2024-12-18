@@ -97,6 +97,7 @@ public class LoginForm {
                         notification.setText("Veuillez remplir tous les champs.");
                         notification.setForeground(Color.RED);
                         notification.add(Box.createRigidArea(new Dimension(0, 10)));
+                        notification.setAlignmentX(0.5f);
                         userJTextField.setText("");
                         passJTextField.setText("");
                         return;
@@ -104,6 +105,7 @@ public class LoginForm {
                         notification.setText("Nom d'utilisateur ou mot de passe incorrect.");
                         notification.setForeground(Color.RED);
                         notification.add(Box.createRigidArea(new Dimension(0, 10)));
+                        notification.setAlignmentX(0.5f);
                         userJTextField.setText("");
                         passJTextField.setText("");
                     }

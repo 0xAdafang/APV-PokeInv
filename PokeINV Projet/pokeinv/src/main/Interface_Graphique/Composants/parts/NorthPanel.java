@@ -1,6 +1,7 @@
 package Interface_Graphique.Composants.parts;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 
 import Interface_Graphique.Composants.BoutonFiltrer;
 
@@ -9,9 +10,10 @@ import java.awt.*;
 public class NorthPanel extends JPanel {
 
     public NorthPanel() {
-        setLayout(new BorderLayout());
+        setLayout(new GridLayout());
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         setBackground(new Color(28, 28, 51));
+        setBorder(new LineBorder(Color.WHITE, 2));
 
         // Boutons
         BoutonFiltrer boutonFiltrer = new BoutonFiltrer();
