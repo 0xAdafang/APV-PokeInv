@@ -1,3 +1,4 @@
+package classes;
 public class Etat {
     private int idEtat;
     private boolean estDegradee;

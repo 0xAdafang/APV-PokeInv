@@ -1,3 +1,4 @@
+package classes;
 public class TypeCarte {
     private int idTypeCarte;
     private String type;

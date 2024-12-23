@@ -1,3 +1,5 @@
+package classes;
+
 public class Collection {
     private int idCollection;
     private String nomCollection;

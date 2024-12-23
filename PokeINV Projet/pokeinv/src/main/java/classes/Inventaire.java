@@ -1,3 +1,4 @@
+package classes;
 public class Inventaire 
 {
     private int idInventaire;

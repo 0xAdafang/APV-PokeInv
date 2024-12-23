@@ -1,3 +1,4 @@
+package classes;
 public class Qualite {
     private int idQualite;
     private String description;

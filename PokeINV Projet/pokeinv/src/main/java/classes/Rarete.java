@@ -1,3 +1,4 @@
+package classes;
 public class Rarete {
     private int idRarete;
     private String niveauRarete; // COMMUN, UNCOMMON, RARE, HOLO_RARE, ULTRA_RARE, SECRET_RARE, SECRET_ART_ILLUSTRATION
