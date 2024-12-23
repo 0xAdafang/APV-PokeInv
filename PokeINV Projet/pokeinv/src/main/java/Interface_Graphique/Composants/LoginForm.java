@@ -1,10 +1,23 @@
 package Interface_Graphique.Composants;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 import Interface_Graphique.InterfacePrincipaleLogin;
 
@@ -16,9 +29,8 @@ public class LoginForm {
     private ImageIcon Logo;
 
     public LoginForm(InterfacePrincipaleLogin mainFrame) {
-
         // Logo
-        Logo = new ImageIcon("src/main/donnees/IconApp.png");
+        Logo = new ImageIcon("src/main/java/donnees/IconApp.png");
         Image LogoImage = Logo.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
         JLabel logoLabel = new JLabel(new ImageIcon(LogoImage));
         logoLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -114,9 +126,23 @@ public class LoginForm {
                 }
             }
         });
+
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    mainFrame.afficherPanelInscription();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
-    public JPanel getPanel() {
-        return panelLogin;
+        public JPanel getPanel() {
+            return panelLogin;
+        }
     }
-}
+    
+
+

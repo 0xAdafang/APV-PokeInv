@@ -15,7 +15,7 @@ public class InterfacePrincipaleEmploye extends JFrame {
         setTitle("PokeINV USER");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        ImageIcon iconApp = new ImageIcon("src/main/donnees/IconApp.png");
+        ImageIcon iconApp = new ImageIcon("src/main/java/donnees/IconApp.png");
         setIconImage(iconApp.getImage());
         setLocationRelativeTo(null);
         initialiserComposantsEmploye();

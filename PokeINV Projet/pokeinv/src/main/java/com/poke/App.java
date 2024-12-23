@@ -1,9 +1,11 @@
+package com.poke;
 
 import java.awt.Color;
 
 import javax.swing.JFrame;
 
 import com.formdev.flatlaf.FlatLightLaf;
+
 import Interface_Graphique.InterfacePrincipaleLogin;
 
 public class App {

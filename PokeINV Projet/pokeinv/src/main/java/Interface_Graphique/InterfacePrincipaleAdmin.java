@@ -3,8 +3,6 @@ package Interface_Graphique;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagLayout;
-import java.awt.ScrollPane;
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
@@ -14,9 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
-import Interface_Graphique.Composants.parts.WestPanel;
-import Interface_Graphique.Composants.parts.NorthPanel;
 import com.formdev.flatlaf.FlatLightLaf;
+
+import Interface_Graphique.Composants.parts.NorthPanel;
+import Interface_Graphique.Composants.parts.WestPanel;
 
 public class InterfacePrincipaleAdmin extends JFrame {
 
@@ -24,7 +23,7 @@ public class InterfacePrincipaleAdmin extends JFrame {
         setTitle("PokeINV ADMIN");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        ImageIcon iconApp = new ImageIcon("src/main/donnees/IconApp.png");
+        ImageIcon iconApp = new ImageIcon("src/main/java/donnees/IconApp.png");
         setIconImage(iconApp.getImage());
         setLocationRelativeTo(null);
         initialiserComposantsAdmin();

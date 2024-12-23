@@ -1,13 +1,22 @@
 package Interface_Graphique;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.io.IOException;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import com.formdev.flatlaf.FlatLightLaf;
 
 import Interface_Graphique.Composants.LoginForm;
-
-import java.awt.*;
-import java.io.*;
 
 public class InterfacePrincipaleLogin extends JFrame {
 
@@ -15,7 +24,7 @@ public class InterfacePrincipaleLogin extends JFrame {
         setTitle("PokeINV");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        ImageIcon iconApp = new ImageIcon("src/main/donnees/IconApp.png");
+        ImageIcon iconApp = new ImageIcon("src/main/java/donnees/IconApp.png");
         setIconImage(iconApp.getImage());
         setLocationRelativeTo(null);
         initialiserComposantsLogin();
@@ -38,7 +47,7 @@ public class InterfacePrincipaleLogin extends JFrame {
         loginPanel.setLayout(new BoxLayout(loginPanel, BoxLayout.Y_AXIS));
 
         // Images decoratives
-        ImageIcon ImagePika = new ImageIcon("src/main/donnees/Pikachu.png");
+        ImageIcon ImagePika = new ImageIcon("src/main/java/donnees/Pikachu.png");
         Image ImagePikaImage = ImagePika.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 
         JPanel bottomRightPanel = new JPanel(new BorderLayout());
@@ -88,6 +97,15 @@ public class InterfacePrincipaleLogin extends JFrame {
         JFrame.setDefaultLookAndFeelDecorated(true);
         interfacePrincipaleUser.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
         interfacePrincipaleUser.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+    }
+
+    public void afficherPanelInscription() throws IOException {
+        dispose();
+        FlatLightLaf.setup();
+        InterfacePrincipaleInscription interfacePrincipaleInscription = new InterfacePrincipaleInscription();
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        interfacePrincipaleInscription.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
+        interfacePrincipaleInscription.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
     }
 
 }
