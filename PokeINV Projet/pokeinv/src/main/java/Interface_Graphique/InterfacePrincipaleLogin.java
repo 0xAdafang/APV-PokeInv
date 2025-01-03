@@ -59,7 +59,6 @@ public class InterfacePrincipaleLogin extends JFrame {
         bottomRightPanel.add(ImagePikaLabel, BorderLayout.EAST);
         bottomRightPanel.setBackground(new Color(28, 28, 51));
 
-
         centerPanel.add(loginPanel);
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);
@@ -79,7 +78,7 @@ public class InterfacePrincipaleLogin extends JFrame {
     }
 
     public void afficherConnexionReussieEmploye() throws IOException {
-        JOptionPane.showMessageDialog(null, "Connexion avec utilsateur regulier");
+        JOptionPane.showMessageDialog(null, "Connexion avec employe");
         dispose();
         FlatLightLaf.setup();
         InterfacePrincipaleEmploye interfacePrincipaleEmploye = new InterfacePrincipaleEmploye();
@@ -104,7 +103,8 @@ public class InterfacePrincipaleLogin extends JFrame {
         FlatLightLaf.setup();
         InterfacePrincipaleInscription interfacePrincipaleInscription = new InterfacePrincipaleInscription();
         JFrame.setDefaultLookAndFeelDecorated(true);
-        interfacePrincipaleInscription.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
+        interfacePrincipaleInscription.getRootPane().putClientProperty("JRootPane.titleBarBackground",
+                new Color(28, 28, 51));
         interfacePrincipaleInscription.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
     }
 

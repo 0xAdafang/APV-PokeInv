@@ -15,9 +15,9 @@ import javax.swing.border.LineBorder;
 import Interface_Graphique.Composants.BoutonAjouter;
 import Interface_Graphique.Composants.BoutonFiltrer;
 
-public class NorthPanel extends JPanel {
+public class NorthPanelAdmin extends JPanel {
 
-    public NorthPanel() {
+    public NorthPanelAdmin() {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         setBackground(new Color(28, 28, 51));

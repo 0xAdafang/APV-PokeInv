@@ -14,7 +14,7 @@ import javax.swing.border.LineBorder;
 
 import com.formdev.flatlaf.FlatLightLaf;
 
-import Interface_Graphique.Composants.parts.NorthPanel;
+import Interface_Graphique.Composants.parts.NorthPanelAdmin;
 import Interface_Graphique.Composants.parts.WestPanel;
 
 public class InterfacePrincipaleAdmin extends JFrame {
@@ -50,8 +50,8 @@ public class InterfacePrincipaleAdmin extends JFrame {
         WestPanel westPanel = new WestPanel();
 
         // Panel du nord
-        NorthPanel northPanel = new NorthPanel();
-        northPanel.setPreferredSize(new Dimension(100, 100));
+        NorthPanelAdmin northPanel = new NorthPanelAdmin();
+        northPanel.setPreferredSize(new Dimension(80, 100));
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);
         mainPanel.add(westPanel, BorderLayout.WEST);
