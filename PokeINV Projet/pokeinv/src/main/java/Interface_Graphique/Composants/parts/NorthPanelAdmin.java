@@ -2,6 +2,7 @@ package Interface_Graphique.Composants.parts;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -46,9 +47,8 @@ public class NorthPanelAdmin extends JPanel {
         buttonPanel.setBackground(new Color(28, 28, 51));
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
 
-        buttonPanel.add(Box.createVerticalStrut(0));
         buttonPanel.add(boutonFiltrer);
-        buttonPanel.add(Box.createHorizontalStrut(10));
+        buttonPanel.add(Box.createRigidArea(new Dimension(10, 0)));
         buttonPanel.add(boutonAjouter);
 
         add(buttonPanel, BorderLayout.SOUTH);
