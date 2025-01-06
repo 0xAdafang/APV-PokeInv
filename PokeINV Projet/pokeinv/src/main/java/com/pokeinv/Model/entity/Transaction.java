@@ -1,4 +1,4 @@
-package com.pokeinv.entity;
+package com.pokeinv.Model.entity;
 import java.sql.Date;
 
 public class Transaction {

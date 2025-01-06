@@ -124,6 +124,7 @@ public class InscriptionForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    
                     mainFrame.afficherPanelLogin();
                 } catch (IOException ex) {
                     ex.printStackTrace();

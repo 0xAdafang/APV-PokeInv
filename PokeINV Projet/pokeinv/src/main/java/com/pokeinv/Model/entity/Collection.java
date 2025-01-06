@@ -1,4 +1,4 @@
-package com.pokeinv.entity;
+package com.pokeinv.Model.entity;
 public class Collection extends Carte {
     private String nomCollection;
     
