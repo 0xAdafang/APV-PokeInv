@@ -23,7 +23,7 @@ public class InterfacePrincipaleAdmin extends JFrame {
         setTitle("PokeINV ADMIN");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        ImageIcon iconApp = new ImageIcon("src/main/java/donnees/IconApp.png");
+        ImageIcon iconApp = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
         setIconImage(iconApp.getImage());
         setLocationRelativeTo(null);
         initialiserComposantsAdmin();

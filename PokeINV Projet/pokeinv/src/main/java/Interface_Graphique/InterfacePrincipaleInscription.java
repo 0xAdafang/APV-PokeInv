@@ -25,7 +25,7 @@ public class InterfacePrincipaleInscription extends JFrame {
         setTitle("PokeINV");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        ImageIcon iconApp = new ImageIcon("src/main/java/donnees/IconApp.png");
+        ImageIcon iconApp = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
         setIconImage(iconApp.getImage());
         setLocationRelativeTo(null);
         initialiserComposantsLogin();
@@ -48,7 +48,7 @@ public class InterfacePrincipaleInscription extends JFrame {
         inscriptionPanel.setLayout(new BoxLayout(inscriptionPanel, BoxLayout.Y_AXIS));
 
         // Images decoratives
-        ImageIcon ImagePika = new ImageIcon("src/main/java/donnees/Pikachu.png");
+        ImageIcon ImagePika = new ImageIcon(getClass().getResource("/icons/Pikachu.png"));
         Image ImagePikaImage = ImagePika.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 
         JPanel bottomRightPanel = new JPanel(new BorderLayout());

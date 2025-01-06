@@ -30,7 +30,7 @@ public class LoginForm {
 
     public LoginForm(InterfacePrincipaleLogin mainFrame) {
         // Logo
-        Logo = new ImageIcon("src/main/java/donnees/IconApp.png");
+        Logo = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
         Image LogoImage = Logo.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
         JLabel logoLabel = new JLabel(new ImageIcon(LogoImage));
         logoLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
