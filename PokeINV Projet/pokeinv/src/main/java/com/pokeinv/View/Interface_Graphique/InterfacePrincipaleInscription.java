@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import com.formdev.flatlaf.FlatLightLaf;
 
@@ -109,12 +110,16 @@ public class InterfacePrincipaleInscription extends JPanel {
         interfacePrincipaleUser.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
     }
 
-    public void afficherPanelLogin() throws IOException {
+    public void afficherPanelLogin(InterfacePrincipaleInscription mainFrame) throws IOException {
+        if (mainFrame != null) {
+            JFrame main = (JFrame) SwingUtilities.getRootPane(mainFrame).getParent();
+            main.dispose();
+        }
+        FlatLightLaf.setup();
         InterfacePrincipaleLogin interfacePrincipaleLogin = new InterfacePrincipaleLogin();
         JFrame.setDefaultLookAndFeelDecorated(true);
         interfacePrincipaleLogin.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
         interfacePrincipaleLogin.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
 
     }
-
 }
