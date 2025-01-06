@@ -1,3 +1,4 @@
+package com.modeles;
 public class Carte extends Inventaire {
     private String nom;
     private String collection;
