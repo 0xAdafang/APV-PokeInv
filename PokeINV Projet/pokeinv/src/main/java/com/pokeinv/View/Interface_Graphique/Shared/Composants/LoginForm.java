@@ -1,4 +1,5 @@
-package com.pokeinv.View.Interface_Graphique.Composants;
+package com.pokeinv.View.Interface_Graphique.Shared.Composants;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import com.pokeinv.View.Interface_Graphique.InterfacePrincipaleLogin;
+import com.pokeinv.View.Interface_Graphique.Interface_Login.InterfacePrincipaleLogin;
 
 public class LoginForm {
     private JPanel panelLogin;
@@ -86,31 +87,42 @@ public class LoginForm {
                 String username = userJTextField.getText();
                 String password = new String(passJTextField.getPassword());
 
-                try {
-                    if (username.equals("admin") && password.equals("admin")) {
+                if (username.equals("admin") && password.equals("admin")) {
+                    try {
                         mainFrame.afficherConnexionReussieAdmin(mainFrame);
-                    } else if (username.equals("employe") && password.equals("employe")) {
-                        mainFrame.afficherConnexionReussieEmploye(mainFrame);
-                    } else if (username.equals("user") && password.equals("user")) {
-                        mainFrame.afficherConnexionReussieUser(mainFrame);
-                    } else if (username.equals("") || password.equals("")) {
-                        notification.setText("Veuillez remplir tous les champs.");
-                        notification.setForeground(Color.RED);
-                        notification.add(Box.createRigidArea(new Dimension(0, 10)));
-                        notification.setAlignmentX(0.5f);
-                        userJTextField.setText("");
-                        passJTextField.setText("");
-                        return;
-                    } else {
-                        notification.setText("Nom d'utilisateur ou mot de passe incorrect.");
-                        notification.setForeground(Color.RED);
-                        notification.add(Box.createRigidArea(new Dimension(0, 10)));
-                        notification.setAlignmentX(0.5f);
-                        userJTextField.setText("");
-                        passJTextField.setText("");
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
                     }
-                } catch (IOException e1) {
-                    e1.printStackTrace();
+
+                } else if (username.equals("employe") && password.equals("employe")) {
+                    try {
+                        mainFrame.afficherConnexionReussieEmploye(mainFrame);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
+                } else if (username.equals("user") && password.equals("user")) {
+                    try {
+                        mainFrame.afficherConnexionReussieUser(mainFrame);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
+                } else if (username.equals("") || password.equals("")) {
+                    notification.setText("Veuillez remplir tous les champs.");
+                    notification.setForeground(Color.RED);
+                    notification.add(Box.createRigidArea(new Dimension(0, 10)));
+                    notification.setAlignmentX(0.5f);
+                    userJTextField.setText("");
+                    passJTextField.setText("");
+                    return;
+                } else {
+                    notification.setText("Nom d'utilisateur ou mot de passe incorrect.");
+                    notification.setForeground(Color.RED);
+                    notification.add(Box.createRigidArea(new Dimension(0, 10)));
+                    notification.setAlignmentX(0.5f);
+                    userJTextField.setText("");
+                    passJTextField.setText("");
                 }
             }
         });
@@ -120,8 +132,8 @@ public class LoginForm {
             public void actionPerformed(ActionEvent e) {
                 try {
                     mainFrame.afficherPanelInscription(mainFrame);
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
                 }
             }
         });

@@ -1,5 +1,5 @@
 
-package com.pokeinv.View.Interface_Graphique;
+package com.pokeinv.View.Interface_Graphique.Interface_Inscription;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,15 +10,11 @@ import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
-import com.formdev.flatlaf.FlatLightLaf;
-
-import com.pokeinv.View.Interface_Graphique.Composants.InscriptionForm;
+import com.pokeinv.View.Interface_Graphique.Interface_Login.InterfacePrincipaleLogin;
+import com.pokeinv.View.Interface_Graphique.Shared.Composants.InscriptionForm;
 
 public class InterfacePrincipaleInscription extends JPanel {
 
@@ -82,44 +78,14 @@ public class InterfacePrincipaleInscription extends JPanel {
         add(mainPanel);
     }
 
-    public void afficherConnexionReussieAdmin() throws IOException {
-        JOptionPane.showMessageDialog(null, "Connexion réussie");
-        FlatLightLaf.setup();
-        InterfacePrincipaleAdmin interfacePrincipaleAdmin = new InterfacePrincipaleAdmin();
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        interfacePrincipaleAdmin.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
-        interfacePrincipaleAdmin.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
-    }
-
-    public void afficherConnexionReussieEmploye() throws IOException {
-        JOptionPane.showMessageDialog(null, "Connexion avec utilsateur regulier");
-        FlatLightLaf.setup();
-        InterfacePrincipaleEmploye interfacePrincipaleEmploye = new InterfacePrincipaleEmploye();
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        interfacePrincipaleEmploye.getRootPane().putClientProperty("JRootPane.titleBarBackground",
-                new Color(28, 28, 51));
-        interfacePrincipaleEmploye.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
-    }
-
-    public void afficherConnexionReussieUser() throws IOException {
-        JOptionPane.showMessageDialog(null, "Connexion avec utilsateur simple");
-        FlatLightLaf.setup();
-        InterfacePrincipaleUser interfacePrincipaleUser = new InterfacePrincipaleUser();
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        interfacePrincipaleUser.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
-        interfacePrincipaleUser.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
-    }
-
     public void afficherPanelLogin(InterfacePrincipaleInscription mainFrame) throws IOException {
-        if (mainFrame != null) {
-            JFrame main = (JFrame) SwingUtilities.getRootPane(mainFrame).getParent();
-            main.dispose();
-        }
-        FlatLightLaf.setup();
+
         InterfacePrincipaleLogin interfacePrincipaleLogin = new InterfacePrincipaleLogin();
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        interfacePrincipaleLogin.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
-        interfacePrincipaleLogin.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+
+        mainFrame.removeAll();
+        mainFrame.add(interfacePrincipaleLogin);
+        mainFrame.revalidate();
+        mainFrame.repaint();
 
     }
 }

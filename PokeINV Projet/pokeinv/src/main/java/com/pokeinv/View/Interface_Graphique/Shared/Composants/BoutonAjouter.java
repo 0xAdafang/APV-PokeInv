@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Composants;
+package com.pokeinv.View.Interface_Graphique.Shared.Composants;
 
 
 

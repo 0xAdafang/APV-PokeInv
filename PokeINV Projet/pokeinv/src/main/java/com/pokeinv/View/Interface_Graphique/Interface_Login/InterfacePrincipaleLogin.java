@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique;
+package com.pokeinv.View.Interface_Graphique.Interface_Login;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,25 +10,22 @@ import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import com.pokeinv.View.Interface_Graphique.Interface_Admin.InterfacePrincipaleAdmin;
+import com.pokeinv.View.Interface_Graphique.Interface_Employe.InterfacePrincipaleEmploye;
+import com.pokeinv.View.Interface_Graphique.Interface_Inscription.InterfacePrincipaleInscription;
+import com.pokeinv.View.Interface_Graphique.Interface_User.InterfacePrincipaleUser;
+import com.pokeinv.View.Interface_Graphique.Shared.Composants.LoginForm;
 
-import com.pokeinv.View.Interface_Graphique.Composants.LoginForm;
-
-public class InterfacePrincipaleLogin extends JFrame {
+public class InterfacePrincipaleLogin extends JPanel {
 
     public InterfacePrincipaleLogin() throws IOException {
-        setTitle("PokeINV");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        ImageIcon iconApp = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
-        setIconImage(iconApp.getImage());
-        setLocationRelativeTo(null);
         initialiserComposantsLogin();
+
         setVisible(true);
     }
 
@@ -83,49 +80,46 @@ public class InterfacePrincipaleLogin extends JFrame {
         mainPanel.add(centerPanel, BorderLayout.CENTER);
         mainPanel.add(bottomRightPanel, BorderLayout.SOUTH);
 
+        setLayout(new BorderLayout());
         add(mainPanel);
     }
 
-    public void afficherConnexionReussieAdmin(JFrame mainFrame) throws IOException {
+    public void afficherConnexionReussieAdmin(JPanel mainFrame) throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion réussie");
         FlatLightLaf.setup();
         InterfacePrincipaleAdmin interfacePrincipaleAdmin = new InterfacePrincipaleAdmin();
 
-        mainFrame.setTitle("PokeINV ADMIN");
-        mainFrame.getContentPane().removeAll();
-        mainFrame.setContentPane(interfacePrincipaleAdmin);
+        mainFrame.removeAll();
+        mainFrame.add(interfacePrincipaleAdmin);
         mainFrame.revalidate();
         mainFrame.repaint();
     }
 
-    public void afficherConnexionReussieEmploye(JFrame mainFrame) throws IOException {
+    public void afficherConnexionReussieEmploye(JPanel mainFrame) throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion avec employe");
         InterfacePrincipaleEmploye interfacePrincipaleEmploye = new InterfacePrincipaleEmploye();
 
-        mainFrame.setTitle("PokeINV EMPLOYE");
-        mainFrame.getContentPane().removeAll();
-        mainFrame.setContentPane(interfacePrincipaleEmploye);
+        mainFrame.removeAll();
+        mainFrame.add(interfacePrincipaleEmploye);
         mainFrame.revalidate();
         mainFrame.repaint();
     }
 
-    public void afficherConnexionReussieUser(JFrame mainFrame) throws IOException {
+    public void afficherConnexionReussieUser(JPanel mainFrame) throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion avec utilsateur simple");
         InterfacePrincipaleUser interfacePrincipaleUser = new InterfacePrincipaleUser();
 
-        mainFrame.setTitle("PokeINV USER");
-        mainFrame.getContentPane().removeAll();
-        mainFrame.setContentPane(interfacePrincipaleUser);
+        mainFrame.removeAll();
+        mainFrame.add(interfacePrincipaleUser);
         mainFrame.revalidate();
         mainFrame.repaint();
     }
 
-    public void afficherPanelInscription(JFrame mainFrame) throws IOException {
+    public void afficherPanelInscription(JPanel mainFrame) throws IOException {
         InterfacePrincipaleInscription interfacePrincipaleInscription = new InterfacePrincipaleInscription();
 
-        mainFrame.setTitle("PokeINV INSCRIPTION");
-        mainFrame.getContentPane().removeAll();
-        mainFrame.setContentPane(interfacePrincipaleInscription);
+        mainFrame.removeAll();
+        mainFrame.add(interfacePrincipaleInscription);
         mainFrame.revalidate();
         mainFrame.repaint();
     }

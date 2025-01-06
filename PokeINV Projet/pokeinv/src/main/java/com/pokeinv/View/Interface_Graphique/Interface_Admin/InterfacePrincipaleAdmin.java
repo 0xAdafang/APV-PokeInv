@@ -1,30 +1,32 @@
-package com.pokeinv.View.Interface_Graphique;
+package com.pokeinv.View.Interface_Graphique.Interface_Admin;
+
+
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
-
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import com.pokeinv.View.Interface_Graphique.Shared.Composants.parts.NorthPanelAdmin;
+import com.pokeinv.View.Interface_Graphique.Shared.Composants.parts.WestPanelAdmin;
 
-import com.pokeinv.View.Interface_Graphique.Composants.parts.NorthPanel;
-import com.pokeinv.View.Interface_Graphique.Composants.parts.WestPanel;
+public class InterfacePrincipaleAdmin extends JPanel {
 
-public class InterfacePrincipaleUser extends JPanel {
-    public InterfacePrincipaleUser() throws IOException {
-        initialiserComposantsUser();
+    public InterfacePrincipaleAdmin() throws IOException {
+        initialiserComposantsAdmin();
         setVisible(true);
+
     }
 
-    private void initialiserComposantsUser() throws IOException {
+    private void initialiserComposantsAdmin() throws IOException {
         setLayout(new BorderLayout());
+
 
         FlatLightLaf.setup();
 
@@ -40,10 +42,10 @@ public class InterfacePrincipaleUser extends JPanel {
         scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // Panel du west
-        WestPanel westPanel = new WestPanel();
+        WestPanelAdmin westPanel = new WestPanelAdmin();
 
         // Panel du nord
-        NorthPanel northPanel = new NorthPanel();
+        NorthPanelAdmin northPanel = new NorthPanelAdmin();
         northPanel.setPreferredSize(new Dimension(80, 100));
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);

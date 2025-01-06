@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Composants;
+package com.pokeinv.View.Interface_Graphique.Shared.Composants;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,12 +11,14 @@ import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import com.pokeinv.View.Interface_Graphique.InterfacePrincipaleInscription;
+import com.pokeinv.View.Interface_Graphique.Interface_Inscription.InterfacePrincipaleInscription;
+
 
 public class InscriptionForm {
     private JPanel panelInscription;
@@ -104,18 +106,9 @@ public class InscriptionForm {
                     notification.setForeground(Color.GREEN);
                     notification.add(Box.createRigidArea(new Dimension(0, 10)));
                     notification.setAlignmentX(0.5f);
-                    try {
-                        mainFrame.afficherConnexionReussieAdmin();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+                    System.out.println("Inscription réussie.");
                 } else {
                     notification.setText("Inscription réussie.");
-                    try {
-                        mainFrame.afficherConnexionReussieUser();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
                 }
             }
         });
@@ -124,7 +117,6 @@ public class InscriptionForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-
                     mainFrame.afficherPanelLogin(mainFrame);
                 } catch (IOException ex) {
                     ex.printStackTrace();

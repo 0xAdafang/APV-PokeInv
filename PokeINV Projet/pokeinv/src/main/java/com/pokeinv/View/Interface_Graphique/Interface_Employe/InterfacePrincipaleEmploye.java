@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique;
+package com.pokeinv.View.Interface_Graphique.Interface_Employe;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,8 +9,8 @@ import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import com.pokeinv.View.Interface_Graphique.Composants.parts.NorthPanel;
-import com.pokeinv.View.Interface_Graphique.Composants.parts.WestPanel;
+import com.pokeinv.View.Interface_Graphique.Shared.Composants.parts.NorthPanel;
+import com.pokeinv.View.Interface_Graphique.Shared.Composants.parts.WestPanel;
 
 public class InterfacePrincipaleEmploye extends JPanel {
     public InterfacePrincipaleEmploye() throws IOException {
