@@ -26,17 +26,8 @@ public class InscriptionForm {
     private JTextField userJTextField;
     private JPasswordField passJTextField;
     private JLabel notification;
-    private ImageIcon Logo;
 
     public InscriptionForm(InterfacePrincipaleInscription mainFrame) {
-    // Logo
-        Logo = new ImageIcon("src/main/java/donnees/IconApp.png");
-        Image LogoImage = Logo.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-        JLabel logoLabel = new JLabel(new ImageIcon(LogoImage));
-        logoLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        logoLabel.setBackground(new Color(28, 28, 51));
-        logoLabel.setOpaque(true);
-        logoLabel.setAlignmentX(0.5f);
 
         JLabel userJLabel = new JLabel("Nom d'utilisateur");
         userJLabel.setOpaque(true);
@@ -82,7 +73,6 @@ public class InscriptionForm {
 
         // Organisation des composants
         panelInscription = new JPanel(new GridLayout(6, 2));
-        panelInscription.add(logoLabel, BorderLayout.NORTH);
         panelInscription.add(userJLabel, BorderLayout.CENTER);
         panelInscription.add(userJTextField, BorderLayout.CENTER);
         panelInscription.add(passJLabel, BorderLayout.CENTER);
@@ -100,11 +90,11 @@ public class InscriptionForm {
 
                 if (user.isEmpty() || pass.isEmpty()) {
                     notification.setText("Veuillez remplir tous les champs.");
-                        notification.setForeground(Color.RED);
-                        notification.add(Box.createRigidArea(new Dimension(0, 10)));
-                        notification.setAlignmentX(0.5f);
-                        userJTextField.setText("");
-                        passJTextField.setText("");
+                    notification.setForeground(Color.RED);
+                    notification.add(Box.createRigidArea(new Dimension(0, 10)));
+                    notification.setAlignmentX(0.5f);
+                    userJTextField.setText("");
+                    passJTextField.setText("");
                 } else if (user.equals("admin") || user.equals("employe") || user.equals("user")) {
                     notification.setText("Nom d'utilisateur déjà utilisé.");
                     notification.setForeground(Color.RED);

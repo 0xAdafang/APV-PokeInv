@@ -14,19 +14,14 @@ import javax.swing.JPanel;
 import Interface_Graphique.Composants.parts.NorthPanel;
 import Interface_Graphique.Composants.parts.WestPanel;
 
-public class InterfacePrincipaleEmploye extends JFrame {
+public class InterfacePrincipaleEmploye extends JPanel {
     public InterfacePrincipaleEmploye() throws IOException {
-        setTitle("PokeINV USER");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        ImageIcon iconApp = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
-        setIconImage(iconApp.getImage());
-        setLocationRelativeTo(null);
         initialiserComposantsEmploye();
         setVisible(true);
     }
 
     private void initialiserComposantsEmploye() throws IOException {
+        setLayout(new BorderLayout());
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(new Color(28, 28, 51));
 

@@ -6,8 +6,6 @@ import java.awt.Dimension;
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
@@ -17,21 +15,17 @@ import com.formdev.flatlaf.FlatLightLaf;
 import Interface_Graphique.Composants.parts.NorthPanelAdmin;
 import Interface_Graphique.Composants.parts.WestPanel;
 
-public class InterfacePrincipaleAdmin extends JFrame {
+public class InterfacePrincipaleAdmin extends JPanel {
 
     public InterfacePrincipaleAdmin() throws IOException {
-        setTitle("PokeINV ADMIN");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        ImageIcon iconApp = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
-        setIconImage(iconApp.getImage());
-        setLocationRelativeTo(null);
         initialiserComposantsAdmin();
         setVisible(true);
 
     }
 
     private void initialiserComposantsAdmin() throws IOException {
+        setLayout(new BorderLayout());
+
 
         FlatLightLaf.setup();
 

@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -26,17 +28,8 @@ public class LoginForm {
     private JTextField userJTextField;
     private JPasswordField passJTextField;
     private JLabel notification;
-    private ImageIcon Logo;
 
     public LoginForm(InterfacePrincipaleLogin mainFrame) {
-        // Logo
-        Logo = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
-        Image LogoImage = Logo.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-        JLabel logoLabel = new JLabel(new ImageIcon(LogoImage));
-        logoLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        logoLabel.setBackground(new Color(28, 28, 51));
-        logoLabel.setOpaque(true);
-        logoLabel.setAlignmentX(0.5f);
 
         JLabel userJLabel = new JLabel("Nom d'utilisateur");
         userJLabel.setOpaque(true);
@@ -56,21 +49,21 @@ public class LoginForm {
         userJTextField = new JTextField(15);
         passJTextField = new JPasswordField(15);
 
-        JButton b1 = new JButton("Connexion");
+        JButton b1 = new JButton("Se connecter");
         b1.setOpaque(true);
         b1.setBackground(new Color(0, 94, 183));
         b1.setForeground(Color.WHITE);
         b1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         b1.setFocusPainted(false);
 
-        JButton b2 = new JButton("Inscription");
+        JButton b2 = new JButton("S'inscrire");
         b2.setOpaque(true);
         b2.setBackground(new Color(0, 94, 183));
         b2.setForeground(Color.WHITE);
         b2.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         b2.setFocusPainted(false);
 
-        // Organisation des boutons
+        // organisation des buttons
         JPanel labelButtons = new JPanel();
         labelButtons.setLayout(new FlowLayout(FlowLayout.CENTER));
         labelButtons.setBackground(new Color(28, 28, 51));
@@ -80,9 +73,8 @@ public class LoginForm {
 
         notification = new JLabel();
 
-        // Organisation des composants
+        // organisation des composants
         panelLogin = new JPanel(new GridLayout(6, 2));
-        panelLogin.add(logoLabel, BorderLayout.NORTH);
         panelLogin.add(userJLabel, BorderLayout.CENTER);
         panelLogin.add(userJTextField, BorderLayout.CENTER);
         panelLogin.add(passJLabel, BorderLayout.CENTER);
@@ -100,11 +92,11 @@ public class LoginForm {
 
                 try {
                     if (username.equals("admin") && password.equals("admin")) {
-                        mainFrame.afficherConnexionReussieAdmin();
+                        mainFrame.afficherConnexionReussieAdmin(mainFrame);
                     } else if (username.equals("employe") && password.equals("employe")) {
-                        mainFrame.afficherConnexionReussieEmploye();
+                        mainFrame.afficherConnexionReussieEmploye(mainFrame);
                     } else if (username.equals("user") && password.equals("user")) {
-                        mainFrame.afficherConnexionReussieUser();
+                        mainFrame.afficherConnexionReussieUser(mainFrame);
                     } else if (username.equals("") || password.equals("")) {
                         notification.setText("Veuillez remplir tous les champs.");
                         notification.setForeground(Color.RED);
@@ -131,7 +123,7 @@ public class LoginForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    mainFrame.afficherPanelInscription();
+                    mainFrame.afficherPanelInscription(mainFrame);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -139,10 +131,7 @@ public class LoginForm {
         });
     }
 
-        public JPanel getPanel() {
-            return panelLogin;
-        }
+    public JPanel getPanel() {
+        return panelLogin;
     }
-    
-
-
+}

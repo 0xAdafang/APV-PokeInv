@@ -2,6 +2,7 @@ package Interface_Graphique;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.io.IOException;
@@ -49,6 +50,8 @@ public class InterfacePrincipaleLogin extends JFrame {
         // Images decoratives
         ImageIcon ImagePika = new ImageIcon(getClass().getResource("/icons/Pikachu.png"));
         Image ImagePikaImage = ImagePika.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        ImageIcon logo = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
+        Image logoImage = logo.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 
         JPanel bottomRightPanel = new JPanel(new BorderLayout());
 
@@ -59,7 +62,23 @@ public class InterfacePrincipaleLogin extends JFrame {
         bottomRightPanel.add(ImagePikaLabel, BorderLayout.EAST);
         bottomRightPanel.setBackground(new Color(28, 28, 51));
 
-        centerPanel.add(loginPanel);
+        JLabel logoLabel = new JLabel(new ImageIcon(logoImage));
+        logoLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        logoLabel.setBackground(new Color(28, 28, 51));
+        logoLabel.setOpaque(true);
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.insets = new java.awt.Insets(0, 0, 0, 0);
+        gbc.anchor = GridBagConstraints.CENTER;
+        centerPanel.add(logoLabel, gbc);
+
+        gbc.gridy = 1;
+        gbc.insets = new java.awt.Insets(0, 0, 0, 0);
+        gbc.anchor = GridBagConstraints.CENTER;
+        centerPanel.add(loginPanel, gbc);
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);
         mainPanel.add(bottomRightPanel, BorderLayout.SOUTH);
@@ -67,45 +86,48 @@ public class InterfacePrincipaleLogin extends JFrame {
         add(mainPanel);
     }
 
-    public void afficherConnexionReussieAdmin() throws IOException {
+    public void afficherConnexionReussieAdmin(JFrame mainFrame) throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion réussie");
-        dispose();
         FlatLightLaf.setup();
         InterfacePrincipaleAdmin interfacePrincipaleAdmin = new InterfacePrincipaleAdmin();
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        interfacePrincipaleAdmin.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
-        interfacePrincipaleAdmin.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+
+        mainFrame.setTitle("PokeINV ADMIN");
+        mainFrame.getContentPane().removeAll();
+        mainFrame.setContentPane(interfacePrincipaleAdmin);
+        mainFrame.revalidate();
+        mainFrame.repaint();
     }
 
-    public void afficherConnexionReussieEmploye() throws IOException {
+    public void afficherConnexionReussieEmploye(JFrame mainFrame) throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion avec employe");
-        dispose();
-        FlatLightLaf.setup();
         InterfacePrincipaleEmploye interfacePrincipaleEmploye = new InterfacePrincipaleEmploye();
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        interfacePrincipaleEmploye.getRootPane().putClientProperty("JRootPane.titleBarBackground",
-                new Color(28, 28, 51));
-        interfacePrincipaleEmploye.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+
+        mainFrame.setTitle("PokeINV EMPLOYE");
+        mainFrame.getContentPane().removeAll();
+        mainFrame.setContentPane(interfacePrincipaleEmploye);
+        mainFrame.revalidate();
+        mainFrame.repaint();
     }
 
-    public void afficherConnexionReussieUser() throws IOException {
+    public void afficherConnexionReussieUser(JFrame mainFrame) throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion avec utilsateur simple");
-        dispose();
-        FlatLightLaf.setup();
         InterfacePrincipaleUser interfacePrincipaleUser = new InterfacePrincipaleUser();
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        interfacePrincipaleUser.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
-        interfacePrincipaleUser.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+
+        mainFrame.setTitle("PokeINV USER");
+        mainFrame.getContentPane().removeAll();
+        mainFrame.setContentPane(interfacePrincipaleUser);
+        mainFrame.revalidate();
+        mainFrame.repaint();
     }
 
-    public void afficherPanelInscription() throws IOException {
-        dispose();
-        FlatLightLaf.setup();
+    public void afficherPanelInscription(JFrame mainFrame) throws IOException {
         InterfacePrincipaleInscription interfacePrincipaleInscription = new InterfacePrincipaleInscription();
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        interfacePrincipaleInscription.getRootPane().putClientProperty("JRootPane.titleBarBackground",
-                new Color(28, 28, 51));
-        interfacePrincipaleInscription.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+
+        mainFrame.setTitle("PokeINV INSCRIPTION");
+        mainFrame.getContentPane().removeAll();
+        mainFrame.setContentPane(interfacePrincipaleInscription);
+        mainFrame.revalidate();
+        mainFrame.repaint();
     }
 
 }
