@@ -46,27 +46,27 @@ public class LoginForm {
         userJTextField = new JTextField(17);
         passJTextField = new JPasswordField(17);
 
-        JButton b1 = new JButton("Se connecter");
-        b1.setOpaque(true);
-        b1.setBackground(new Color(0, 94, 183));
-        b1.setForeground(Color.WHITE);
-        b1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        b1.setFocusPainted(false);
+        JButton buttonLogin = new JButton("Se connecter");
+        buttonLogin.setOpaque(true);
+        buttonLogin.setBackground(new Color(0, 94, 183));
+        buttonLogin.setForeground(Color.WHITE);
+        buttonLogin.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        buttonLogin.setFocusPainted(false);
 
-        JButton b2 = new JButton("S'inscrire");
-        b2.setOpaque(true);
-        b2.setBackground(new Color(0, 94, 183));
-        b2.setForeground(Color.WHITE);
-        b2.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        b2.setFocusPainted(false);
+        JButton buttonInscription = new JButton("S'inscrire");
+        buttonInscription.setOpaque(true);
+        buttonInscription.setBackground(new Color(0, 94, 183));
+        buttonInscription.setForeground(Color.WHITE);
+        buttonInscription.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        buttonInscription.setFocusPainted(false);
 
         // organisation des buttons
         JPanel labelButtons = new JPanel();
         labelButtons.setLayout(new FlowLayout(FlowLayout.CENTER));
         labelButtons.setBackground(new Color(28, 28, 51));
         labelButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        labelButtons.add(b1);
-        labelButtons.add(b2);
+        labelButtons.add(buttonLogin);
+        labelButtons.add(buttonInscription);
 
         notification = new JLabel();
 
@@ -81,7 +81,7 @@ public class LoginForm {
         panelLogin.add(notification);
         panelLogin.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        b1.addActionListener(new ActionListener() {
+        buttonLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String username = userJTextField.getText();
@@ -124,7 +124,7 @@ public class LoginForm {
             }
         });
 
-        b2.addActionListener(new ActionListener() {
+        buttonInscription.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {

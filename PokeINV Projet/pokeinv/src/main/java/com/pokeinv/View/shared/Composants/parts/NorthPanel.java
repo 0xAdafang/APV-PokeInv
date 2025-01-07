@@ -83,23 +83,32 @@ public class NorthPanel extends JPanel {
         buttonPanel.add(boutonUpdate);
 
         // gbc configuration nord
-        GridBagConstraints gbcNORTH = new GridBagConstraints();
-        gbcNORTH.gridx = 0;
-        gbcNORTH.gridy = 0;
-        gbcNORTH.insets = new java.awt.Insets(0, 1213, 0, 0);
-        gbcNORTH.anchor = GridBagConstraints.CENTER;
-        gbcNORTH.fill = GridBagConstraints.HORIZONTAL;
+        GridBagConstraints gbcTitle = new GridBagConstraints();
+        gbcTitle.gridx = 1;
+        gbcTitle.gridy = 0;
+        gbcTitle.weightx = 1.0;
+        gbcTitle.weighty = 1.0;
+        gbcTitle.anchor = GridBagConstraints.CENTER;
+        gbcTitle.fill = GridBagConstraints.NONE;
+
+        // gbc configuration nord buttons
+        GridBagConstraints gbcButtons = new GridBagConstraints();
+        gbcButtons.gridx = 1;
+        gbcButtons.gridy = 0;
+        gbcButtons.anchor = GridBagConstraints.EAST;
+        gbcButtons.insets = new java.awt.Insets(0, 0, 0, 0);
 
         // Label Titre de l'application
         JPanel titlePanel = new JPanel();
         titlePanel.setBackground(new Color(28, 28, 51));
         titlePanel.setLayout(new GridBagLayout());
-        JLabel title = new JLabel("    PokeINV");
+
+        JLabel title = new JLabel("PokeINV");
         title.setFont(new java.awt.Font("Arial", 1, 20));
         title.setForeground(Color.WHITE);
 
-        titlePanel.add(boutonMute, gbcNORTH);
-        titlePanel.add(title);
+        titlePanel.add(title, gbcTitle);
+        titlePanel.add(boutonMute, gbcButtons);
 
         add(titlePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.SOUTH);

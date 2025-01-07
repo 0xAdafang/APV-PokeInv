@@ -46,27 +46,27 @@ public class InscriptionForm {
         userJTextField = new JTextField(17);
         passJTextField = new JPasswordField(17);
 
-        JButton b1 = new JButton("Inscription");
-        b1.setOpaque(true);
-        b1.setBackground(new Color(0, 94, 183));
-        b1.setForeground(Color.WHITE);
-        b1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        b1.setFocusPainted(false);
+        JButton buttonInscription = new JButton("Inscription");
+        buttonInscription.setOpaque(true);
+        buttonInscription.setBackground(new Color(0, 94, 183));
+        buttonInscription.setForeground(Color.WHITE);
+        buttonInscription.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        buttonInscription.setFocusPainted(false);
 
-        JButton b2 = new JButton("Annuler");
-        b2.setOpaque(true);
-        b2.setBackground(new Color(0, 94, 183));
-        b2.setForeground(Color.WHITE);
-        b2.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        b2.setFocusPainted(false);
+        JButton buttonAnnuler = new JButton("Annuler");
+        buttonAnnuler.setOpaque(true);
+        buttonAnnuler.setBackground(new Color(0, 94, 183));
+        buttonAnnuler.setForeground(Color.WHITE);
+        buttonAnnuler.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        buttonAnnuler.setFocusPainted(false);
 
         // Organisation des boutons
         JPanel labelButtons = new JPanel();
         labelButtons.setLayout(new FlowLayout(FlowLayout.CENTER));
         labelButtons.setBackground(new Color(28, 28, 51));
         labelButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        labelButtons.add(b1);
-        labelButtons.add(b2);
+        labelButtons.add(buttonInscription);
+        labelButtons.add(buttonAnnuler);
 
         notification = new JLabel();
 
@@ -81,7 +81,7 @@ public class InscriptionForm {
         panelInscription.add(notification);
         panelInscription.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        b1.addActionListener(new ActionListener() {
+        buttonInscription.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String user = userJTextField.getText();
@@ -121,7 +121,7 @@ public class InscriptionForm {
             }
         });
 
-        b2.addActionListener(new ActionListener() {
+        buttonAnnuler.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
