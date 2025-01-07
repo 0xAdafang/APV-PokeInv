@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Shared.Composants.parts;
+package com.pokeinv.View.admin.parts;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;

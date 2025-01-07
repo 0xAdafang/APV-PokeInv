@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Shared.Composants.parts;
+package com.pokeinv.View.admin.parts;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,12 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
 
-import com.pokeinv.View.Interface_Graphique.Shared.Composants.BoutonAjouter;
-import com.pokeinv.View.Interface_Graphique.Shared.Composants.BoutonFiltrer;
+import com.pokeinv.View.shared.Composants.BoutonAjouter;
+import com.pokeinv.View.shared.Composants.BoutonFiltrer;
 
-public class NorthPanelAdmin extends JPanel {
+public class NorthPanel extends JPanel {
 
-    public NorthPanelAdmin() {
+    public NorthPanel() {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         setBackground(new Color(28, 28, 51));

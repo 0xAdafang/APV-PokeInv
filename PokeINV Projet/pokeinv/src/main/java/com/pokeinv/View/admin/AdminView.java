@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Interface_Admin;
+package com.pokeinv.View.admin;
 
 
 
@@ -13,12 +13,12 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import com.pokeinv.View.Interface_Graphique.Shared.Composants.parts.NorthPanelAdmin;
-import com.pokeinv.View.Interface_Graphique.Shared.Composants.parts.WestPanelAdmin;
+import com.pokeinv.View.admin.parts.NorthPanel;
+import com.pokeinv.View.admin.parts.WestPanel;
 
-public class InterfacePrincipaleAdmin extends JPanel {
+public class AdminView extends JPanel {
 
-    public InterfacePrincipaleAdmin() throws IOException {
+    public AdminView() throws IOException {
         initialiserComposantsAdmin();
         setVisible(true);
 
@@ -42,10 +42,10 @@ public class InterfacePrincipaleAdmin extends JPanel {
         scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // Panel du west
-        WestPanelAdmin westPanel = new WestPanelAdmin();
+        WestPanel westPanel = new WestPanel();
 
         // Panel du nord
-        NorthPanelAdmin northPanel = new NorthPanelAdmin();
+        NorthPanel northPanel = new NorthPanel();
         northPanel.setPreferredSize(new Dimension(80, 100));
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);

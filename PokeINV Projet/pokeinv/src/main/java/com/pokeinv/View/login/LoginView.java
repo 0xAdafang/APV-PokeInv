@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Interface_Login;
+package com.pokeinv.View.login;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,15 +15,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import com.pokeinv.View.Interface_Graphique.Interface_Admin.InterfacePrincipaleAdmin;
-import com.pokeinv.View.Interface_Graphique.Interface_Employe.InterfacePrincipaleEmploye;
-import com.pokeinv.View.Interface_Graphique.Interface_Inscription.InterfacePrincipaleInscription;
-import com.pokeinv.View.Interface_Graphique.Interface_User.InterfacePrincipaleUser;
-import com.pokeinv.View.Interface_Graphique.Shared.Composants.LoginForm;
+import com.pokeinv.View.admin.AdminView;
+import com.pokeinv.View.employe.EmployeView;
+import com.pokeinv.View.inscription.InscriptionView;
+import com.pokeinv.View.shared.Composants.LoginForm;
+import com.pokeinv.View.user.UserView;
 
-public class InterfacePrincipaleLogin extends JPanel {
+public class LoginView extends JPanel {
 
-    public InterfacePrincipaleLogin() throws IOException {
+    public LoginView() throws IOException {
         initialiserComposantsLogin();
 
         setVisible(true);
@@ -87,7 +87,7 @@ public class InterfacePrincipaleLogin extends JPanel {
     public void afficherConnexionReussieAdmin(JPanel mainFrame) throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion réussie");
         FlatLightLaf.setup();
-        InterfacePrincipaleAdmin interfacePrincipaleAdmin = new InterfacePrincipaleAdmin();
+        AdminView interfacePrincipaleAdmin = new AdminView();
 
         mainFrame.removeAll();
         mainFrame.add(interfacePrincipaleAdmin);
@@ -97,7 +97,7 @@ public class InterfacePrincipaleLogin extends JPanel {
 
     public void afficherConnexionReussieEmploye(JPanel mainFrame) throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion avec employe");
-        InterfacePrincipaleEmploye interfacePrincipaleEmploye = new InterfacePrincipaleEmploye();
+        EmployeView interfacePrincipaleEmploye = new EmployeView();
 
         mainFrame.removeAll();
         mainFrame.add(interfacePrincipaleEmploye);
@@ -107,7 +107,7 @@ public class InterfacePrincipaleLogin extends JPanel {
 
     public void afficherConnexionReussieUser(JPanel mainFrame) throws IOException {
         JOptionPane.showMessageDialog(null, "Connexion avec utilsateur simple");
-        InterfacePrincipaleUser interfacePrincipaleUser = new InterfacePrincipaleUser();
+        UserView interfacePrincipaleUser = new UserView();
 
         mainFrame.removeAll();
         mainFrame.add(interfacePrincipaleUser);
@@ -116,7 +116,7 @@ public class InterfacePrincipaleLogin extends JPanel {
     }
 
     public void afficherPanelInscription(JPanel mainFrame) throws IOException {
-        InterfacePrincipaleInscription interfacePrincipaleInscription = new InterfacePrincipaleInscription();
+        InscriptionView interfacePrincipaleInscription = new InscriptionView();
 
         mainFrame.removeAll();
         mainFrame.add(interfacePrincipaleInscription);

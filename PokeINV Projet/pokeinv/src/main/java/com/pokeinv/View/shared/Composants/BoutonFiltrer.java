@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Shared.Composants;
+package com.pokeinv.View.shared.Composants;
 
 import java.awt.Color;
 import javax.swing.JButton;

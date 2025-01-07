@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Shared.Composants;
+package com.pokeinv.View.shared.Composants;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import com.pokeinv.View.Interface_Graphique.Interface_Inscription.InterfacePrincipaleInscription;
+import com.pokeinv.View.inscription.InscriptionView;
 
 
 public class InscriptionForm {
@@ -26,7 +26,7 @@ public class InscriptionForm {
     private JPasswordField passJTextField;
     private JLabel notification;
 
-    public InscriptionForm(InterfacePrincipaleInscription mainFrame) {
+    public InscriptionForm(InscriptionView mainFrame) {
 
         JLabel userJLabel = new JLabel("Nom d'utilisateur");
         userJLabel.setOpaque(true);

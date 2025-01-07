@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Shared.Composants.parts;
+package com.pokeinv.View.shared.Composants.parts;
 
 import javax.swing.*;
 

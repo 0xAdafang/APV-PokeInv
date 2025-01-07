@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Interface_User;
+package com.pokeinv.View.user;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,11 +13,11 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import com.pokeinv.View.Interface_Graphique.Shared.Composants.parts.NorthPanel;
-import com.pokeinv.View.Interface_Graphique.Shared.Composants.parts.WestPanel;
+import com.pokeinv.View.shared.Composants.parts.NorthPanel;
+import com.pokeinv.View.shared.Composants.parts.WestPanel;
 
-public class InterfacePrincipaleUser extends JPanel {
-    public InterfacePrincipaleUser() throws IOException {
+public class UserView extends JPanel {
+    public UserView() throws IOException {
         initialiserComposantsUser();
         setVisible(true);
     }

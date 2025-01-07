@@ -1,13 +1,13 @@
-package com.pokeinv.View.Interface_Graphique.Shared.Composants.parts;
+package com.pokeinv.View.shared.Composants.parts;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import java.awt.*;
 
-public class WestPanelAdmin extends JPanel {
+public class WestPanel extends JPanel {
 
-    public WestPanelAdmin() {
+    public WestPanel() {
         setLayout(new BorderLayout());
         setSize(600, 600);
         setBackground(new Color(28, 28, 51));

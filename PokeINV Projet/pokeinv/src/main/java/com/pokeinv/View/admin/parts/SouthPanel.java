@@ -1,13 +1,13 @@
-package com.pokeinv.View.Interface_Graphique.Shared.Composants.parts;
+package com.pokeinv.View.admin.parts;
 
 import javax.swing.*;
 
 
 import java.awt.*;
 
-public class SouthPanelAdmin extends JPanel {
+public class SouthPanel extends JPanel {
 
-    public SouthPanelAdmin() {
+    public SouthPanel() {
         setLayout(new GridLayout());
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         setBackground(new Color(28, 28, 51));

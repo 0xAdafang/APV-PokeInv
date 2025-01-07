@@ -1,17 +1,17 @@
-package com.pokeinv.View.Interface_Graphique.Interface_Principale;
+package com.pokeinv.View;
 
 import javax.swing.*;
 
-import com.pokeinv.View.Interface_Graphique.Interface_Login.InterfacePrincipaleLogin;
+import com.pokeinv.View.login.LoginView;
 
 import java.awt.*;
 import java.io.IOException;
 
-public class InterfacePrincipale extends JFrame {
+public class MainView extends JFrame {
 
-    private InterfacePrincipaleLogin interfacePrincipaleLogin;
+    private LoginView interfacePrincipaleLogin;
 
-    public InterfacePrincipale() throws IOException {
+    public MainView() throws IOException {
         setTitle("PokeINV");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -23,7 +23,7 @@ public class InterfacePrincipale extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(new Color(28, 28, 51));
 
-        interfacePrincipaleLogin = new InterfacePrincipaleLogin();
+        interfacePrincipaleLogin = new LoginView();
 
         mainPanel.add(interfacePrincipaleLogin, BorderLayout.CENTER);
 

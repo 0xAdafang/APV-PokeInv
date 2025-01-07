@@ -1,4 +1,4 @@
-package com.pokeinv.View.Interface_Graphique.Shared.Composants;
+package com.pokeinv.View.shared.Composants;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import com.pokeinv.View.Interface_Graphique.Interface_Login.InterfacePrincipaleLogin;
+import com.pokeinv.View.login.LoginView;
 
 public class LoginForm {
     private JPanel panelLogin;
@@ -26,7 +26,7 @@ public class LoginForm {
     private JPasswordField passJTextField;
     private JLabel notification;
 
-    public LoginForm(InterfacePrincipaleLogin mainFrame) {
+    public LoginForm(LoginView mainFrame) {
 
         JLabel userJLabel = new JLabel("Nom d'utilisateur");
         userJLabel.setOpaque(true);

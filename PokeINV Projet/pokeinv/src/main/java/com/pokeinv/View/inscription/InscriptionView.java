@@ -1,5 +1,5 @@
 
-package com.pokeinv.View.Interface_Graphique.Interface_Inscription;
+package com.pokeinv.View.inscription;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,12 +13,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.pokeinv.View.Interface_Graphique.Interface_Login.InterfacePrincipaleLogin;
-import com.pokeinv.View.Interface_Graphique.Shared.Composants.InscriptionForm;
+import com.pokeinv.View.login.LoginView;
+import com.pokeinv.View.shared.Composants.InscriptionForm;
 
-public class InterfacePrincipaleInscription extends JPanel {
+public class InscriptionView extends JPanel {
 
-    public InterfacePrincipaleInscription() throws IOException {
+    public InscriptionView() throws IOException {
 
         initialiserComposantsLogin();
         setVisible(true);
@@ -78,9 +78,9 @@ public class InterfacePrincipaleInscription extends JPanel {
         add(mainPanel);
     }
 
-    public void afficherPanelLogin(InterfacePrincipaleInscription mainFrame) throws IOException {
+    public void afficherPanelLogin(InscriptionView mainFrame) throws IOException {
 
-        InterfacePrincipaleLogin interfacePrincipaleLogin = new InterfacePrincipaleLogin();
+        LoginView interfacePrincipaleLogin = new LoginView();
 
         mainFrame.removeAll();
         mainFrame.add(interfacePrincipaleLogin);
