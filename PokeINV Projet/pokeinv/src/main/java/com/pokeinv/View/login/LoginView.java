@@ -19,7 +19,6 @@ import com.pokeinv.View.admin.AdminView;
 import com.pokeinv.View.employe.EmployeView;
 import com.pokeinv.View.inscription.InscriptionView;
 import com.pokeinv.View.shared.Composants.LoginForm;
-import com.pokeinv.View.user.UserView;
 
 public class LoginView extends JPanel {
 
@@ -101,16 +100,6 @@ public class LoginView extends JPanel {
 
         mainFrame.removeAll();
         mainFrame.add(interfacePrincipaleEmploye);
-        mainFrame.revalidate();
-        mainFrame.repaint();
-    }
-
-    public void afficherConnexionReussieUser(JPanel mainFrame) throws IOException {
-        JOptionPane.showMessageDialog(null, "Connexion avec utilsateur simple");
-        UserView interfacePrincipaleUser = new UserView();
-
-        mainFrame.removeAll();
-        mainFrame.add(interfacePrincipaleUser);
         mainFrame.revalidate();
         mainFrame.repaint();
     }

@@ -29,7 +29,7 @@ public class EmployeView extends JPanel {
 
         // Panel du Nord
         NorthPanel northPanel = new NorthPanel();
-        northPanel.setPreferredSize(new Dimension(80, 100));
+        northPanel.setPreferredSize(new Dimension(80, 150));
 
         // Panel du West
         WestPanel westPanel = new WestPanel();

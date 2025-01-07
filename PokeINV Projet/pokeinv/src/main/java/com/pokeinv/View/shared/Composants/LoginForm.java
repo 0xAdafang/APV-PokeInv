@@ -101,13 +101,6 @@ public class LoginForm {
                         e1.printStackTrace();
                     }
 
-                } else if (username.equals("user") && password.equals("user")) {
-                    try {
-                        mainFrame.afficherConnexionReussieUser(mainFrame);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-
                 } else if (username.equals("") || password.equals("")) {
                     notification.setText("Veuillez remplir tous les champs.");
                     notification.setForeground(Color.RED);

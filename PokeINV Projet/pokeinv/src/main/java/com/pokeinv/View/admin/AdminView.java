@@ -46,7 +46,7 @@ public class AdminView extends JPanel {
 
         // Panel du nord
         NorthPanel northPanel = new NorthPanel();
-        northPanel.setPreferredSize(new Dimension(80, 100));
+        northPanel.setPreferredSize(new Dimension(80, 150));
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);
         mainPanel.add(westPanel, BorderLayout.WEST);
