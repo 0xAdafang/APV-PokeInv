@@ -15,7 +15,7 @@ import java.net.URL;
 
 public class MainView extends JFrame {
 
-    private AdminView interfacePrincipaleLogin;
+    private LoginView interfacePrincipaleLogin;
 
     public MainView() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         setTitle("PokeINV");
@@ -38,7 +38,7 @@ public class MainView extends JFrame {
         clip.start();
 
         // interfacePrincipaleLogin = new LoginView();
-        interfacePrincipaleLogin = new AdminView();
+        interfacePrincipaleLogin = new LoginView();
         mainPanel.add(interfacePrincipaleLogin, BorderLayout.CENTER);
 
         add(mainPanel);
