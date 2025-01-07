@@ -43,8 +43,8 @@ public class LoginForm {
         passJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         passJLabel.setAlignmentX(0.5f);
 
-        userJTextField = new JTextField(15);
-        passJTextField = new JPasswordField(15);
+        userJTextField = new JTextField(17);
+        passJTextField = new JPasswordField(17);
 
         JButton b1 = new JButton("Se connecter");
         b1.setOpaque(true);
@@ -114,7 +114,9 @@ public class LoginForm {
                     notification.add(Box.createRigidArea(new Dimension(0, 10)));
                     notification.setAlignmentX(0.5f);
                     userJTextField.setText("");
+                    userJTextField.setMaximumSize(userJTextField.getPreferredSize());
                     passJTextField.setText("");
+                    passJTextField.setMaximumSize(userJTextField.getPreferredSize());
                     return;
                 } else {
                     notification.setText("Nom d'utilisateur ou mot de passe incorrect.");
@@ -122,7 +124,9 @@ public class LoginForm {
                     notification.add(Box.createRigidArea(new Dimension(0, 10)));
                     notification.setAlignmentX(0.5f);
                     userJTextField.setText("");
+                    userJTextField.setMaximumSize(userJTextField.getPreferredSize());
                     passJTextField.setText("");
+                    passJTextField.setMaximumSize(userJTextField.getPreferredSize());
                 }
             }
         });

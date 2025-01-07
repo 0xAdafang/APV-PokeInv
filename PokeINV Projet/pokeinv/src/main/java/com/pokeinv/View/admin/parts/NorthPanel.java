@@ -13,6 +13,7 @@ import javax.swing.border.LineBorder;
 
 import com.pokeinv.View.shared.Composants.BoutonAjouter;
 import com.pokeinv.View.shared.Composants.BoutonFiltrer;
+import com.pokeinv.View.shared.Composants.BoutonUpdate;
 
 public class NorthPanel extends JPanel {
 
@@ -26,6 +27,8 @@ public class NorthPanel extends JPanel {
         BoutonFiltrer boutonFiltrer = new BoutonFiltrer();
         boutonFiltrer.setSize(20, 20);
         BoutonAjouter boutonAjouter = new BoutonAjouter();
+        BoutonUpdate boutonUpdate = new BoutonUpdate();
+        boutonUpdate.setSize(20, 20);
 
         // Text pour info de lapplication
         JPanel infoPanel = new JPanel();
@@ -48,6 +51,8 @@ public class NorthPanel extends JPanel {
         buttonPanel.add(boutonFiltrer);
         buttonPanel.add(Box.createRigidArea(new Dimension(10, 0)));
         buttonPanel.add(boutonAjouter);
+        buttonPanel.add(Box.createRigidArea(new Dimension(10, 0)));
+        buttonPanel.add(boutonUpdate);
 
         add(buttonPanel, BorderLayout.SOUTH);
     }

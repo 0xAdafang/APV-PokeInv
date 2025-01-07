@@ -13,12 +13,12 @@ import javax.swing.Box;
 import javax.swing.JButton;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.pokeinv.View.inscription.InscriptionView;
-
 
 public class InscriptionForm {
     private JPanel panelInscription;
@@ -43,8 +43,8 @@ public class InscriptionForm {
         passJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         passJLabel.setAlignmentX(0.5f);
 
-        userJTextField = new JTextField(15);
-        passJTextField = new JPasswordField(15);
+        userJTextField = new JTextField(17);
+        passJTextField = new JPasswordField(17);
 
         JButton b1 = new JButton("Inscription");
         b1.setOpaque(true);
@@ -93,20 +93,28 @@ public class InscriptionForm {
                     notification.add(Box.createRigidArea(new Dimension(0, 10)));
                     notification.setAlignmentX(0.5f);
                     userJTextField.setText("");
+                    userJTextField.setMaximumSize(userJTextField.getPreferredSize());
                     passJTextField.setText("");
+                    passJTextField.setMaximumSize(passJTextField.getPreferredSize());
                 } else if (user.equals("admin") || user.equals("employe") || user.equals("user")) {
                     notification.setText("Nom d'utilisateur déjà utilisé.");
                     notification.setForeground(Color.RED);
                     notification.add(Box.createRigidArea(new Dimension(0, 10)));
                     notification.setAlignmentX(0.5f);
                     userJTextField.setText("");
+                    userJTextField.setMaximumSize(userJTextField.getPreferredSize());
                     passJTextField.setText("");
+                    passJTextField.setMaximumSize(passJTextField.getPreferredSize());
                 } else if (user.equals("test1") || pass.equals("test1")) {
-                    notification.setText("Inscription réussie.");
+                    JOptionPane.showMessageDialog(null, "Inscription réussie.");
                     notification.setForeground(Color.GREEN);
                     notification.add(Box.createRigidArea(new Dimension(0, 10)));
                     notification.setAlignmentX(0.5f);
-                    System.out.println("Inscription réussie.");
+                    try {
+                        mainFrame.afficherPanelLogin(mainFrame);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 } else {
                     notification.setText("Inscription réussie.");
                 }
