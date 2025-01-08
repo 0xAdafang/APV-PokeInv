@@ -53,12 +53,6 @@ public class LoginForm {
         buttonLogin.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         buttonLogin.setFocusPainted(false);
 
-        JButton buttonInscription = new JButton("S'inscrire");
-        buttonInscription.setOpaque(true);
-        buttonInscription.setBackground(new Color(0, 94, 183));
-        buttonInscription.setForeground(Color.WHITE);
-        buttonInscription.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        buttonInscription.setFocusPainted(false);
 
         // organisation des buttons
         JPanel labelButtons = new JPanel();
@@ -66,7 +60,6 @@ public class LoginForm {
         labelButtons.setBackground(new Color(28, 28, 51));
         labelButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         labelButtons.add(buttonLogin);
-        labelButtons.add(buttonInscription);
 
         notification = new JLabel();
 
@@ -120,17 +113,6 @@ public class LoginForm {
                     userJTextField.setMaximumSize(userJTextField.getPreferredSize());
                     passJTextField.setText("");
                     passJTextField.setMaximumSize(userJTextField.getPreferredSize());
-                }
-            }
-        });
-
-        buttonInscription.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    mainFrame.afficherPanelInscription(mainFrame);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
                 }
             }
         });

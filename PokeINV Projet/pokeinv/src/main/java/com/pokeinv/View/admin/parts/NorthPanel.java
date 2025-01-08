@@ -31,14 +31,14 @@ public class NorthPanel extends JPanel {
 
         // Gif
         ImageIcon gifPika = new ImageIcon(getClass().getResource("/icons/PikaGif.gif"));
-        gifPika.setImage(gifPika.getImage().getScaledInstance(110, 110, Image.SCALE_SMOOTH));
+        gifPika.setImage(gifPika.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
         JLabel gifLabel = new JLabel(gifPika);
 
         // GridBagConstraints
         GridBagConstraints gbcWEST = new GridBagConstraints();
         gbcWEST.gridx = 0;
         gbcWEST.gridy = 0;
-        gbcWEST.insets = new java.awt.Insets(0, 0, 0, 0);
+        gbcWEST.insets = new java.awt.Insets(0, 25, 0, 0);
         gbcWEST.anchor = GridBagConstraints.CENTER;
 
         // Boutons
@@ -59,17 +59,9 @@ public class NorthPanel extends JPanel {
         JPanel infoPanel = new JPanel(
                 new GridBagLayout());
         infoPanel.setBackground(new Color(28, 28, 51));
-        JTextArea textArea = new JTextArea(
-                "Bienvenues!! \n ");
-        textArea.setEditable(false);
-        textArea.setOpaque(false);
-        textArea.setForeground(Color.WHITE);
-        textArea.setFont(new java.awt.Font("courier new", 1, 20));
         infoPanel.add(gifLabel, gbcWEST);
         gbcWEST.gridy = 1;
         gbcWEST.insets = new java.awt.Insets(10, 15, 20, 0);
-
-        infoPanel.add(textArea, gbcWEST);
 
         add(infoPanel, BorderLayout.WEST);
 
@@ -104,7 +96,7 @@ public class NorthPanel extends JPanel {
         titlePanel.setBackground(new Color(28, 28, 51));
         titlePanel.setLayout(new GridBagLayout());
 
-        JLabel title = new JLabel("PokeINV");
+        JLabel title = new JLabel(" PokeINV");
         title.setFont(new java.awt.Font("Arial", 1, 20));
         title.setForeground(Color.WHITE);
 

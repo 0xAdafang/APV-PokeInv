@@ -7,6 +7,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import com.pokeinv.View.admin.AdminView;
+import com.pokeinv.View.employe.EmployeView;
 import com.pokeinv.View.login.LoginView;
 
 import java.awt.*;
