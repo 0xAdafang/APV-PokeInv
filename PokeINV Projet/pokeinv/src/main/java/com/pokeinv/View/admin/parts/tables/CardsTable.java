@@ -1,6 +1,7 @@
 package com.pokeinv.View.admin.parts.tables;
 
 import com.pokeinv.Model.entity.Carte;
+import com.pokeinv.Model.tables.ActionsRenderer;
 import com.pokeinv.Model.tables.CardsTableModel;
 import com.pokeinv.Model.tables.ImageRenderer;
 import com.pokeinv.service.DataFixtures;
@@ -16,6 +17,7 @@ public class CardsTable extends JTable {
         CardsTableModel model = new CardsTableModel(cartes);
         this.setModel(model);
         this.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
+        this.getColumnModel().getColumn(5).setCellRenderer(new ActionsRenderer());
         this.setRowHeight(45);
 
     }
