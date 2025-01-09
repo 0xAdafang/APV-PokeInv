@@ -5,7 +5,6 @@ import javax.swing.border.LineBorder;
 
 import com.pokeinv.View.shared.Composants.BoutonAjouter;
 import com.pokeinv.View.shared.Composants.BoutonFiltrer;
-import com.pokeinv.View.shared.Composants.BoutonMute;
 import com.pokeinv.View.shared.Composants.BoutonSubscription;
 
 import java.awt.*;

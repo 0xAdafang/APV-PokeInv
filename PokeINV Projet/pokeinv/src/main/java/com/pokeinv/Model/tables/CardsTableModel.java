@@ -48,7 +48,7 @@ public class CardsTableModel extends AbstractTableModel {
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return columnIndex == 5;
+        return columnIndex == 7;
     }
 
     public void updateData(List<Carte> nouvelleCarte) {
