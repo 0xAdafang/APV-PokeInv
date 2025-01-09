@@ -1,4 +1,4 @@
-package com.pokeinv.controller;
+package com.pokeinv.Controller;
 
 import com.pokeinv.Model.entity.Carte;
 import com.pokeinv.Model.tables.CardsTableModel;

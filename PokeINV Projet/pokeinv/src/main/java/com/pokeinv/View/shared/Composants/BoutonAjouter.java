@@ -14,6 +14,9 @@ public class BoutonAjouter extends JButton {
         try {
             FlatSVGIcon icon = new FlatSVGIcon(getClass().getResource("/icons/ajoute.svg"));
             setIcon(icon);
+            setText("Ajouter");
+            setHorizontalAlignment(CENTER);
+            setVerticalAlignment(CENTER);
             setBackground(new Color(0xFFC107));
             setBounds(100, 100, 100, 100);
             setSize(100, 100);

@@ -13,9 +13,11 @@ public class BoutonFiltrer extends JButton {
         try {
             FlatSVGIcon icon = new FlatSVGIcon(getClass().getResource("/icons/filtreIcon.svg"));
             setIcon(icon);
+            setText("Filtrer");
+            setHorizontalAlignment(CENTER);
+            setVerticalAlignment(CENTER);
             setBackground(new Color(0xFFC107));
-            setBounds(100, 100, 100, 100);
-            setSize(100, 100);
+
         } catch (Exception e) {
             System.out.println("Error loading icon: " + e.getMessage());
         }

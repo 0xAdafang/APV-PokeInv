@@ -2,24 +2,19 @@ package com.pokeinv.View.shared.Composants.parts;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
+
 import javax.swing.border.LineBorder;
 
-import com.pokeinv.View.shared.Composants.BoutonAjouter;
-import com.pokeinv.View.shared.Composants.BoutonFiltrer;
 import com.pokeinv.View.shared.Composants.BoutonMute;
-import com.pokeinv.View.shared.Composants.BoutonUpdate;
 
 public class NorthPanel extends JPanel {
 
@@ -29,60 +24,67 @@ public class NorthPanel extends JPanel {
         setBackground(new Color(28, 28, 51));
         setBorder(new LineBorder(new Color(28, 28, 51), 2));
 
-        // Gif
-        ImageIcon gifPika = new ImageIcon(getClass().getResource("/icons/PikaGif.gif"));
-        gifPika.setImage(gifPika.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
-        JLabel gifLabel = new JLabel(gifPika);
-
         // GridBagConstraints
         GridBagConstraints gbcWEST = new GridBagConstraints();
         gbcWEST.gridx = 0;
         gbcWEST.gridy = 0;
-        gbcWEST.insets = new java.awt.Insets(0, 25, 0, 0);
+        gbcWEST.insets = new java.awt.Insets(0, 25, 10, 0);
         gbcWEST.anchor = GridBagConstraints.CENTER;
 
-        // Boutons
-        BoutonFiltrer boutonFiltrer = new BoutonFiltrer();
-        boutonFiltrer.setSize(20, 20);
-        boutonFiltrer.setBorderPainted(false);
-        BoutonAjouter boutonAjouter = new BoutonAjouter();
-        boutonAjouter.setSize(20, 20);
-        boutonAjouter.setBorderPainted(false);
-        BoutonUpdate boutonUpdate = new BoutonUpdate();
-        boutonUpdate.setSize(20, 20);
-        boutonUpdate.setBorderPainted(false);
-        BoutonMute boutonMute = new BoutonMute();
-        boutonMute.setSize(20, 20);
-        boutonMute.setBorderPainted(false);
+        // image pokeball
+        ImageIcon ImagePokeball = new ImageIcon(getClass().getResource("/icons/PokeballTrans.png"));
+        Image ImagePokeballImage = ImagePokeball.getImage().getScaledInstance(110, 110, Image.SCALE_SMOOTH);
+        JLabel ImagePokeballLabel = new JLabel(new ImageIcon(ImagePokeballImage));
+        ImagePokeballLabel.setBackground(new Color(28, 28, 51));
+        ImagePokeballLabel.setOpaque(true);
 
         // Text et Label pour info de lapplication
-        JPanel infoPanel = new JPanel(
+        JPanel logoPanel = new JPanel(
                 new GridBagLayout());
-        infoPanel.setBackground(new Color(28, 28, 51));
-        infoPanel.add(gifLabel, gbcWEST);
+        logoPanel.setBackground(new Color(28, 28, 51));
+        logoPanel.add(ImagePokeballLabel, gbcWEST);
         gbcWEST.gridy = 1;
         gbcWEST.insets = new java.awt.Insets(10, 15, 20, 0);
 
-        add(infoPanel, BorderLayout.WEST);
+        add(logoPanel, BorderLayout.WEST);
 
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(new Color(28, 28, 51));
-        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
+        // Text et Label pour info de lapplication
+        JPanel infoPanel = new JPanel();
+        infoPanel.setBackground(new Color(28, 28, 51));
+        infoPanel.setLayout(new GridBagLayout());
 
-        buttonPanel.add(boutonFiltrer);
-        buttonPanel.add(Box.createRigidArea(new Dimension(10, 0)));
-        buttonPanel.add(boutonAjouter);
-        buttonPanel.add(Box.createRigidArea(new Dimension(10, 0)));
-        buttonPanel.add(boutonUpdate);
+        JLabel title = new JLabel(" PokeINV", javax.swing.SwingConstants.CENTER);
+        title.setFont(new java.awt.Font("calibri", 1, 50));
+        title.setForeground(Color.WHITE);
+        title.setOpaque(true);
+        title.setBorder(null);
+        title.setBackground(new Color(28, 28, 51));
 
-        // gbc configuration nord
-        GridBagConstraints gbcTitle = new GridBagConstraints();
-        gbcTitle.gridx = 1;
-        gbcTitle.gridy = 0;
-        gbcTitle.weightx = 1.0;
-        gbcTitle.weighty = 1.0;
-        gbcTitle.anchor = GridBagConstraints.CENTER;
-        gbcTitle.fill = GridBagConstraints.NONE;
+        JLabel subtitle = new JLabel(" Admin");
+        subtitle.setFont(new java.awt.Font("calibri", 1, 20));
+        subtitle.setForeground(Color.WHITE);
+        subtitle.setOpaque(true);
+        subtitle.setBorder(null);
+        subtitle.setBackground(new Color(28, 28, 51));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weighty = 0;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.insets = new java.awt.Insets(0, 0, 0, 0);
+
+        infoPanel.add(title, gbc);
+        gbc.gridy = 1;
+        gbc.insets = new java.awt.Insets(0, 0, 0, 0);
+        infoPanel.add(subtitle, gbc);
+
+        add(infoPanel, BorderLayout.CENTER);
+
+        // Bouton Mute
+        BoutonMute boutonMute = new BoutonMute();
+        boutonMute.setSize(20, 20);
+        boutonMute.setBorderPainted(false);
 
         // gbc configuration nord buttons
         GridBagConstraints gbcButtons = new GridBagConstraints();
@@ -92,18 +94,12 @@ public class NorthPanel extends JPanel {
         gbcButtons.insets = new java.awt.Insets(0, 0, 0, 0);
 
         // Label Titre de l'application
-        JPanel titlePanel = new JPanel();
-        titlePanel.setBackground(new Color(28, 28, 51));
-        titlePanel.setLayout(new GridBagLayout());
+        JPanel mutePanel = new JPanel();
+        mutePanel.setBackground(new Color(28, 28, 51));
+        mutePanel.setLayout(new FlowLayout());
 
-        JLabel title = new JLabel(" PokeINV");
-        title.setFont(new java.awt.Font("Arial", 1, 20));
-        title.setForeground(Color.WHITE);
+        mutePanel.add(boutonMute);
 
-        titlePanel.add(title, gbcTitle);
-        titlePanel.add(boutonMute, gbcButtons);
-
-        add(titlePanel, BorderLayout.NORTH);
-        add(buttonPanel, BorderLayout.SOUTH);
+        add(mutePanel, BorderLayout.EAST);
     }
 }

@@ -1,4 +1,4 @@
-package com.pokeinv.View.admin.parts.tables;
+package com.pokeinv.View.employe.tables;
 
 import com.pokeinv.Model.entity.Carte;
 import com.pokeinv.Model.tables.ActionsEditor;
@@ -19,8 +19,8 @@ public class CardsTable extends JTable {
         CardController cardController = new CardController(model);
         this.setModel(model);
         this.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
-        this.getColumnModel().getColumn(7).setCellRenderer(new ActionsRenderer());
-        this.getColumnModel().getColumn(7).setCellEditor(new ActionsEditor(cardController));
+        this.getColumnModel().getColumn(6).setCellRenderer(new ActionsRenderer());
+        this.getColumnModel().getColumn(6).setCellEditor(new ActionsEditor(cardController));
         this.setRowHeight(45);
 
     }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CardsTableModel extends AbstractTableModel {
 
-    private final String[] nomsDesColonnes = {"image", "ID", "Nom", "Type", "État", "Actions"};
+    private final String[] nomsDesColonnes = { "image", "ID", "Nom", "Type", "État", "PSA", "Collection", "Actions" };
     private List<Carte> cardsList;
 
     public CardsTableModel(List<Carte> cardsList) {
@@ -39,7 +39,9 @@ public class CardsTableModel extends AbstractTableModel {
             case 2 -> carte.getName();
             case 3 -> carte.getTypeCarte();
             case 4 -> carte.getEtat();
-            case 5 -> "Actions";
+            case 5 -> carte.getGradePSA();
+            case 6 -> carte.getCollection();
+            case 7 -> "Actions";
             default -> null;
         };
     }
@@ -48,7 +50,6 @@ public class CardsTableModel extends AbstractTableModel {
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return columnIndex == 5;
     }
-
 
     public void updateData(List<Carte> nouvelleCarte) {
         this.cardsList = nouvelleCarte;
