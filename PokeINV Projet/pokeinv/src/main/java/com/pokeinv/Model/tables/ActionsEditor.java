@@ -28,7 +28,7 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
     private void initActions() {
         update.addActionListener(e -> {
             Carte card = model.getCardAt(rowIndex);
-            cardController.updateCard(card);
+            cardController.updateCardRequest(card);
         });
         delete.addActionListener(e -> {
             cardController.deleteCard(rowIndex);
