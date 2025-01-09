@@ -2,12 +2,13 @@ package com.pokeinv.Model.tables;
 
 import com.pokeinv.Model.entity.Carte;
 
+import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public class CardsTableModel extends AbstractTableModel {
 
-    private final String[] nomsDesColonnes = {"ID", "Nom", "Type", "État", "Actions"};
+    private final String[] nomsDesColonnes = {"image", "ID", "Nom", "Type", "État", "Actions"};
     private List<Carte> cardsList;
 
     public CardsTableModel(List<Carte> cardsList) {
@@ -33,18 +34,19 @@ public class CardsTableModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         Carte carte = cardsList.get(rowIndex);
         return switch (columnIndex) {
-            case 0 -> carte.getId();
-            case 1 -> carte.getName();
-            case 2 -> carte.getTypeCarte();
-            case 3 -> carte.getEtat();
-            case 4 -> "Actions";
+            case 0 -> new ImageIcon(getClass().getResource("/pokemons/" + carte.getImage()));
+            case 1 -> carte.getId();
+            case 2 -> carte.getName();
+            case 3 -> carte.getTypeCarte();
+            case 4 -> carte.getEtat();
+            case 5 -> "Actions";
             default -> null;
         };
     }
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return columnIndex == 4;
+        return columnIndex == 5;
     }
 
 
