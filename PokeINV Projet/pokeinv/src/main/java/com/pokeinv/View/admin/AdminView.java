@@ -1,20 +1,15 @@
 package com.pokeinv.View.admin;
 
 
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.io.IOException;
-
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.border.LineBorder;
-
 import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.View.admin.parts.NorthPanel;
 import com.pokeinv.View.admin.parts.WestPanel;
+import com.pokeinv.View.admin.parts.tables.CardsTable;
+
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
+import java.io.IOException;
 
 public class AdminView extends JPanel {
 
@@ -38,8 +33,12 @@ public class AdminView extends JPanel {
         centerPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         centerPanel.setBackground(new Color(28, 28, 51));
         centerPanel.setBorder(new LineBorder(Color.WHITE, 2));
-        JScrollPane scrollPane = new JScrollPane(centerPanel);
+
+        CardsTable table = new CardsTable();
+        JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        centerPanel.add(scrollPane);
 
         // Panel du west
         WestPanel westPanel = new WestPanel();
