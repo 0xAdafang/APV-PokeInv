@@ -65,5 +65,6 @@ public class CardsTableModel extends AbstractTableModel {
 
     public void removeCardAt(int row) {
         cardsList.remove(row);
+        fireTableDataChanged();
     }
 }
