@@ -10,7 +10,9 @@ public class Carte {
     private TypeCarte typeCarte;
     private Rarete rarete;
 
-    public Carte(Long id, String name, Collection collection, double price, GradePSA gradePSA, Etat etat, TypeCarte typeCarte, Rarete rarete) {
+    private String image;
+
+    public Carte(Long id, String name, Collection collection, double price, GradePSA gradePSA, Etat etat, TypeCarte typeCarte, Rarete rarete, String image) {
         this.id = id;
         this.name = name;
         this.collection = collection;
@@ -19,6 +21,7 @@ public class Carte {
         this.etat = etat;
         this.typeCarte = typeCarte;
         this.rarete = rarete;
+        this.image = image;
     }
 
     public Long getId() {
@@ -85,6 +88,14 @@ public class Carte {
         this.rarete = rarete;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "Carte{" +
@@ -96,6 +107,7 @@ public class Carte {
                 ", etat=" + etat +
                 ", typeCarte=" + typeCarte +
                 ", rarete=" + rarete +
+                ", image='" + image + '\'' +
                 '}';
     }
 }
