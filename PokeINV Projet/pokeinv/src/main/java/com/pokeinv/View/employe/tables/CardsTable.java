@@ -5,7 +5,7 @@ import com.pokeinv.Model.tables.ActionsEditor;
 import com.pokeinv.Model.tables.ActionsRenderer;
 import com.pokeinv.Model.tables.CardsTableModel;
 import com.pokeinv.Model.tables.ImageRenderer;
-import com.pokeinv.Controller.CardController;
+import com.pokeinv.controller.CardController;
 import com.pokeinv.service.DataFixtures;
 
 import javax.swing.*;

@@ -1,7 +1,7 @@
 package com.pokeinv.Model.tables;
 
 import com.pokeinv.Model.entity.Carte;
-import com.pokeinv.Controller.CardController;
+import com.pokeinv.controller.CardController;
 
 import javax.swing.*;
 import javax.swing.table.TableCellEditor;
