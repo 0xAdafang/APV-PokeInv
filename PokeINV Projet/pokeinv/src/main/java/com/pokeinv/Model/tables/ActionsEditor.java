@@ -1,5 +1,8 @@
 package com.pokeinv.Model.tables;
 
+import com.pokeinv.Model.entity.Carte;
+import com.pokeinv.controller.CardController;
+
 import javax.swing.*;
 import javax.swing.table.TableCellEditor;
 import java.awt.*;
@@ -9,11 +12,12 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
     private final JButton update = new JButton("UPDATE");
     private final JButton delete = new JButton("DELETE");
     private final JPanel panel = new JPanel();
-    //    private CardsTableModel model;
+    private final CardController cardController;
+    private CardsTableModel model;
     private int rowIndex;
 
-    public ActionsEditor() {
-
+    public ActionsEditor(CardController cardController) {
+        this.cardController = cardController;
         panel.add(update);
         panel.add(delete);
 
@@ -23,17 +27,17 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
 
     private void initActions() {
         update.addActionListener(e -> {
-            System.out.println("row to update : " + rowIndex);
+            Carte card = model.getCardAt(rowIndex);
+            cardController.updateCard(card);
         });
         delete.addActionListener(e -> {
-
-            System.out.println("row to delete : " + rowIndex);
+            cardController.deleteCard(rowIndex);
         });
     }
 
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-//        this.model = (CardsTableModel) table.getModel();
+        this.model = (CardsTableModel) table.getModel();
         this.rowIndex = table.convertRowIndexToModel(row);
         return panel;
     }

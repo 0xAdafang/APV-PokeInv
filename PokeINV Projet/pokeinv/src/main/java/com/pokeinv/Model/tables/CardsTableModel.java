@@ -50,12 +50,20 @@ public class CardsTableModel extends AbstractTableModel {
     }
 
 
-    public void updateData(List<Carte> nouveauxVols) {
-        this.cardsList = nouveauxVols;
+    public void updateData(List<Carte> nouvelleCarte) {
+        this.cardsList = nouvelleCarte;
         fireTableDataChanged();
     }
 
     public Carte getCardAt(int row) {
         return cardsList.get(row);
+    }
+
+    public void addCard(Carte card) {
+        cardsList.add(card);
+    }
+
+    public void removeCardAt(int row) {
+        cardsList.remove(row);
     }
 }
