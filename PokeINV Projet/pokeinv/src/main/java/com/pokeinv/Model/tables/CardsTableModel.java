@@ -55,7 +55,7 @@ public class CardsTableModel extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    public Carte getVolAt(int row) {
+    public Carte getCardAt(int row) {
         return cardsList.get(row);
     }
 }
