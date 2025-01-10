@@ -4,6 +4,9 @@ import com.pokeinv.Model.entity.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 public class CardForm extends JPanel {
 
@@ -116,6 +119,44 @@ public class CardForm extends JPanel {
         rareteField.setPreferredSize(new Dimension(164, 22));
         rareteField.setSelectedItem(rarete);
         form.add(rareteField, gbc);
+        // champs IMAGE
+        gbc.gridy = 7;
+        gbc.gridx = 0;
+
+        JLabel imageLabel = new JLabel();
+        form.add(imageLabel, gbc);
+        if (card != null) {
+            Image image = new ImageIcon(getClass().getResource("/pokemons/" + card.getImage())).getImage();
+            Image newImage = image.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            ImageIcon scaledImage = new ImageIcon(newImage);
+            imageLabel.setIcon(scaledImage);
+        }
+        gbc.gridx = 1;
+        JButton chooseImage = new JButton("Image");
+
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(".")); // Définir le répertoire par défaut
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY); // Définir le mode de sélection
+
+        // Ajouter un listener au bouton pour ouvrir le JFileChooser
+        chooseImage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    if (selectedFile != null) {
+                        System.out.println("Selected file: " + selectedFile.getPath());
+                        Image image = new ImageIcon(selectedFile.getPath()).getImage();
+                        Image newImage = image.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                        ImageIcon scaledImage = new ImageIcon(newImage);
+                        imageLabel.setIcon(scaledImage);
+
+                    }
+                }
+            }
+        });
+        form.add(chooseImage, gbc);
 
         add(form, BorderLayout.CENTER);
     }
