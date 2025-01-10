@@ -4,9 +4,9 @@ import com.pokeinv.Model.entity.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
 
-public class CardForm extends JDialog {
+public class CardForm extends JPanel {
+
     private Carte card;
     private String name;
     private double price;
@@ -16,29 +16,12 @@ public class CardForm extends JDialog {
     private Etat etat;
     private Rarete rarete;
 
-    public CardForm() {
-        setTitle("Nouvelle carte");
-        init();
-    }
-
     public CardForm(Carte card) {
         this.card = card;
-        setTitle("Modifier une carte " + this.card.getName());
-        init();
+        initForm();
     }
 
-    private void init() {
-        JButton enregistrer = new JButton("Enregistrer");
-        setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
-        setMinimumSize(new Dimension(600, 400));
-        setLayout(new BorderLayout());
-        setIconImage(new ImageIcon(Objects.requireNonNull(getClass()
-                .getResource("/icons/iconApp.png")))
-                .getImage()
-        );
-        setLocationRelativeTo(getParentFrame());
-        setVisible(false);
-        add(enregistrer, BorderLayout.SOUTH);
+    public CardForm() {
         initForm();
     }
 
@@ -147,13 +130,5 @@ public class CardForm extends JDialog {
             etat = card.getEtat();
             rarete = card.getRarete();
         }
-    }
-
-    private JFrame getParentFrame() {
-        Container parent = getParent();
-        while (parent != null && !(parent instanceof JFrame)) {
-            parent = parent.getParent();
-        }
-        return (JFrame) parent;
     }
 }

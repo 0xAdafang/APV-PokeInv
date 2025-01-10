@@ -3,7 +3,7 @@ package com.pokeinv.controller;
 import com.pokeinv.Model.entity.Carte;
 import com.pokeinv.Model.entity.TypeCarte;
 import com.pokeinv.Model.tables.CardsTableModel;
-import com.pokeinv.View.admin.parts.forms.CardForm;
+import com.pokeinv.View.admin.parts.forms.CardFormDialog;
 
 import javax.swing.*;
 
@@ -25,7 +25,7 @@ public class CardController {
     }
 
     public void updateCardRequest(Carte card) {
-        JDialog modal = new CardForm(card);
+        JDialog modal = new CardFormDialog(card);
         modal.setVisible(true);
     }
 
