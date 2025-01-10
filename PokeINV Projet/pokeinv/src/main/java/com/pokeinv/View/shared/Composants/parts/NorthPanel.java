@@ -62,7 +62,7 @@ public class NorthPanel extends JPanel {
         title.setBorder(null);
         title.setBackground(new Color(28, 28, 51));
 
-        JLabel subtitle = new JLabel(" Admin");
+        JLabel subtitle = new JLabel("");
         subtitle.setFont(new java.awt.Font("calibri", 1, 20));
         subtitle.setForeground(Color.WHITE);
         subtitle.setOpaque(true);
