@@ -6,7 +6,7 @@ import javax.swing.border.LineBorder;
 import com.pokeinv.View.shared.Composants.BoutonAjouter;
 import com.pokeinv.View.shared.Composants.BoutonFiltrer;
 import com.pokeinv.View.shared.Composants.BoutonSubscription;
-import com.pokeinv.events.ajouteEvent;
+import com.pokeinv.events.ajouteEventListener;
 import com.pokeinv.events.filtrerEvent;
 import com.pokeinv.events.subscriptionEvent;
 
@@ -74,7 +74,7 @@ public class WestPanel extends JPanel {
         BoutonAjouter boutonAjouter = new BoutonAjouter();
         boutonAjouter.addActionListener(e -> {
             try {
-                new ajouteEvent();
+                new ajouteEventListener();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
@@ -112,7 +112,7 @@ public class WestPanel extends JPanel {
         copyright.setForeground(Color.WHITE);
         copyright.setFont(new Font("Arial", Font.BOLD, 15));
 
-        // Añadir componentes al panelCopyright
+        // Ajoute du copyright au mainPanel dans le south
         panelCopyright.add(copyright);
         panelCopyright.add(Box.createRigidArea(new Dimension(0, 5)));
 

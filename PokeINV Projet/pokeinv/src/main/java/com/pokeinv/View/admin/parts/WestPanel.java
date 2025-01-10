@@ -7,7 +7,7 @@ import com.pokeinv.View.admin.AdminView;
 import com.pokeinv.View.shared.Composants.BoutonAjouter;
 import com.pokeinv.View.shared.Composants.BoutonFiltrer;
 import com.pokeinv.View.shared.Composants.BoutonSubscription;
-import com.pokeinv.events.ajouteEvent;
+import com.pokeinv.events.ajouteEventListener;
 import com.pokeinv.events.filtrerEvent;
 import com.pokeinv.events.subscriptionEvent;
 
@@ -80,7 +80,7 @@ public class WestPanel extends JPanel {
         BoutonAjouter boutonAjouter = new BoutonAjouter();
         boutonAjouter.addActionListener(e -> {
             try {
-                new ajouteEvent();
+                new ajouteEventListener();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
