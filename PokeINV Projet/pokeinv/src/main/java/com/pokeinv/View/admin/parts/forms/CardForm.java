@@ -8,15 +8,19 @@ import java.util.Objects;
 
 public class CardForm extends JDialog {
     private Carte card;
+    private String name;
+    private String collection;
+    private TypeCarte type;
+    private GradePSA grade;
+    private Etat etat;
+    private Rarete rarete;
 
     public CardForm() {
-        super();
         setTitle("Nouvelle carte");
         init();
     }
 
     public CardForm(Carte card) {
-        super();
         this.card = card;
         setTitle("Modifier une carte " + this.card.getName());
         init();
@@ -36,9 +40,13 @@ public class CardForm extends JDialog {
     }
 
     private void initForm() {
+        initFields();
         JPanel form = new JPanel(new GridBagLayout());
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10);
+
+        // champs NOM
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
@@ -46,30 +54,34 @@ public class CardForm extends JDialog {
         JLabel nameLabel = new JLabel("Nom :");
         form.add(nameLabel, gbc);
         gbc.gridx = 1;
-        JTextField name = new JTextField("", 15);
-        form.add(name, gbc);
+        JTextField nameField = new JTextField(name, 15);
+        form.add(nameField, gbc);
 
+        // champs COLLECTION
         gbc.gridy = 1;
         gbc.gridx = 0;
 
         JLabel collectionLabel = new JLabel("Collection :");
         form.add(collectionLabel, gbc);
         gbc.gridx = 1;
-        JTextField collection = new JTextField("", 15);
-        form.add(collection, gbc);
+        JTextField collectionField = new JTextField(collection, 15);
+        form.add(collectionField, gbc);
 
+
+        // champs TYPE_DE_CARTE
         gbc.gridy = 2;
         gbc.gridx = 0;
 
         JLabel typeLabel = new JLabel("Type de carte :");
         form.add(typeLabel, gbc);
 
-
         gbc.gridx = 1;
-        JComboBox<TypeCarte> type = new JComboBox<>(TypeCarte.values());
-        type.setPreferredSize(new Dimension(164, 22));
-        form.add(type, gbc);
+        JComboBox<TypeCarte> typeField = new JComboBox<>(TypeCarte.values());
+        typeField.setPreferredSize(new Dimension(164, 22));
+        typeField.setSelectedItem(type);
+        form.add(typeField, gbc);
 
+        // champs ÉTAT
         gbc.gridy = 3;
         gbc.gridx = 0;
 
@@ -77,10 +89,12 @@ public class CardForm extends JDialog {
         form.add(etatLabel, gbc);
 
         gbc.gridx = 1;
-        JComboBox<Etat> etat = new JComboBox<>(Etat.values());
-        etat.setPreferredSize(new Dimension(164, 22));
-        form.add(etat, gbc);
+        JComboBox<Etat> etatField = new JComboBox<>(Etat.values());
+        etatField.setPreferredSize(new Dimension(164, 22));
+        etatField.setSelectedItem(etat);
+        form.add(etatField, gbc);
 
+        // champs GRADE
         gbc.gridy = 4;
         gbc.gridx = 0;
 
@@ -88,10 +102,12 @@ public class CardForm extends JDialog {
         form.add(gradeLabel, gbc);
 
         gbc.gridx = 1;
-        JComboBox<GradePSA> grade = new JComboBox<>(GradePSA.values());
-        grade.setPreferredSize(new Dimension(164, 22));
-        form.add(grade, gbc);
+        JComboBox<GradePSA> gradeField = new JComboBox<>(GradePSA.values());
+        gradeField.setPreferredSize(new Dimension(164, 22));
+        gradeField.setSelectedItem(grade);
+        form.add(gradeField, gbc);
 
+        // champs RARETÉ
         gbc.gridy = 5;
         gbc.gridx = 0;
 
@@ -99,11 +115,23 @@ public class CardForm extends JDialog {
         form.add(rareteLabel, gbc);
 
         gbc.gridx = 1;
-        JComboBox<Rarete> rarete = new JComboBox<>(Rarete.values());
-        rarete.setPreferredSize(new Dimension(164, 22));
-        form.add(rarete, gbc);
+        JComboBox<Rarete> rareteField = new JComboBox<>(Rarete.values());
+        rareteField.setPreferredSize(new Dimension(164, 22));
+        rareteField.setSelectedItem(rarete);
+        form.add(rareteField, gbc);
 
         add(form, BorderLayout.CENTER);
+    }
+
+    private void initFields() {
+        if (card != null) {
+            name = card.getName();
+            collection = card.getCollection().getName();
+            type = card.getTypeCarte();
+            grade = card.getGradePSA();
+            etat = card.getEtat();
+            rarete = card.getRarete();
+        }
     }
 
     private JFrame getParentFrame() {
