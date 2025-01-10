@@ -111,7 +111,7 @@ public class InscriptionForm {
                     notification.add(Box.createRigidArea(new Dimension(0, 10)));
                     notification.setAlignmentX(0.5f);
                     try {
-                        mainFrame.afficherPanelLogin(mainFrame);
+                        mainFrame.afficherPanelAdmin(mainFrame);
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
@@ -125,7 +125,7 @@ public class InscriptionForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    mainFrame.afficherPanelLogin(mainFrame);
+                    mainFrame.afficherPanelAdmin(mainFrame);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }

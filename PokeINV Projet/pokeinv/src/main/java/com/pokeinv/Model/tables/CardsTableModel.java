@@ -1,6 +1,7 @@
 package com.pokeinv.Model.tables;
 
 import com.pokeinv.Model.entity.Carte;
+import com.pokeinv.Model.entity.TypeCarte;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class CardsTableModel extends AbstractTableModel {
 
-    private final String[] nomsDesColonnes = {"", "ID", "Nom", "Type", "État", "PSA", "Collection", "Actions"};
+    private final String[] nomsDesColonnes = { "", "ID", "Nom", "Type", "État", "PSA", "Collection", "Actions" };
     private List<Carte> cardsList;
 
     public CardsTableModel(List<Carte> cardsList) {
@@ -67,6 +68,18 @@ public class CardsTableModel extends AbstractTableModel {
 
     public void removeCardAt(int row) {
         cardsList.remove(row);
+        fireTableDataChanged();
+    }
+
+    public void filtrerCardsParNom(String nom) {
+        if (nom == "ASC") {
+            cardsList = cardsList.stream().filter(card -> card.getName() != null).toList();
+            fireTableDataChanged();
+        }
+    }
+
+    public void filtrerCardsParType(TypeCarte type) {
+        cardsList = cardsList.stream().filter(card -> card.getTypeCarte() == type).toList();
         fireTableDataChanged();
     }
 }

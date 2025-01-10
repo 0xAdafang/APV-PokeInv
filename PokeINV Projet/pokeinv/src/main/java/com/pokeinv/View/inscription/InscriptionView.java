@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.pokeinv.View.admin.AdminView;
 import com.pokeinv.View.login.LoginView;
 import com.pokeinv.View.shared.Composants.InscriptionForm;
 
@@ -78,12 +79,12 @@ public class InscriptionView extends JPanel {
         add(mainPanel);
     }
 
-    public void afficherPanelLogin(InscriptionView mainFrame) throws IOException {
+    public void afficherPanelAdmin(InscriptionView mainFrame) throws IOException {
 
-        LoginView interfacePrincipaleLogin = new LoginView();
+        AdminView interfacePrincipaleAdmin = new AdminView();
 
         mainFrame.removeAll();
-        mainFrame.add(interfacePrincipaleLogin);
+        mainFrame.add(interfacePrincipaleAdmin);
         mainFrame.revalidate();
         mainFrame.repaint();
 

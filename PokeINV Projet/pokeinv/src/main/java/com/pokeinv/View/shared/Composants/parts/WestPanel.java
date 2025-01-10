@@ -5,16 +5,20 @@ import javax.swing.border.LineBorder;
 
 import com.pokeinv.View.shared.Composants.BoutonAjouter;
 import com.pokeinv.View.shared.Composants.BoutonFiltrer;
+import com.pokeinv.View.shared.Composants.BoutonSubscription;
+import com.pokeinv.events.ajouteEvent;
+import com.pokeinv.events.filtrerEvent;
+import com.pokeinv.events.subscriptionEvent;
 
 import java.awt.*;
 
 public class WestPanel extends JPanel {
 
-    public WestPanel() {
+    public WestPanel(JPanel mainPanel) {
         setLayout(new BorderLayout());
         setSize(800, 800);
         setBackground(new Color(28, 28, 51));
-        setBorder(new LineBorder(new Color(0xFFC107), 10));
+        setBorder(new LineBorder(new Color(0xFFC107), 8));
 
         // Panel
         JPanel mainPanelWest = new JPanel();
@@ -41,11 +45,11 @@ public class WestPanel extends JPanel {
         textPanel.setBackground(new Color(28, 28, 51));
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
 
-        JLabel bienvenue = new JLabel("  Bienvenue, ", SwingConstants.CENTER);
+        JLabel bienvenue = new JLabel("  Bienvenue!! ", SwingConstants.CENTER);
         bienvenue.setForeground(Color.WHITE);
         bienvenue.setFont(new Font("Arial", Font.BOLD, 30));
 
-        JLabel pokeInv = new JLabel(" sur PokeInv! ", SwingConstants.CENTER);
+        JLabel pokeInv = new JLabel("", SwingConstants.CENTER);
         pokeInv.setForeground(Color.WHITE);
         pokeInv.setFont(new Font("Arial", Font.BOLD, 30));
 
@@ -57,10 +61,24 @@ public class WestPanel extends JPanel {
         Dimension dimensionBouton = new Dimension(180, 50);
 
         BoutonFiltrer boutonFiltrer = new BoutonFiltrer();
+        boutonFiltrer.addActionListener(e -> {
+            try {
+                new filtrerEvent();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        });
         boutonFiltrer.setPreferredSize(dimensionBouton);
         boutonFiltrer.setBorderPainted(false);
         boutonFiltrer.setFont(new Font("Arial", Font.BOLD, 15));
         BoutonAjouter boutonAjouter = new BoutonAjouter();
+        boutonAjouter.addActionListener(e -> {
+            try {
+                new ajouteEvent();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        });
         boutonAjouter.setPreferredSize(dimensionBouton);
         boutonAjouter.setBorderPainted(false);
         boutonAjouter.setFont(new Font("Arial", Font.BOLD, 15));
@@ -89,7 +107,7 @@ public class WestPanel extends JPanel {
 
         // Label copyright
         JLabel copyright = new JLabel(
-                "<html>© 2022 PokeInv. <br>Tous droits réservés.<br>Fait par: <br>Nait Sidena Djamel<br>Sionneau Terence<br>Espinoza Kevin </html>",
+                "<html>© 2025 PokeInv. <br>Tous droits réservés.<br>Fait par: <br>Nait Sidena Djamel<br>Sionneau Terence<br>Espinoza Kevin </html>",
                 SwingConstants.CENTER);
         copyright.setForeground(Color.WHITE);
         copyright.setFont(new Font("Arial", Font.BOLD, 15));
@@ -101,7 +119,7 @@ public class WestPanel extends JPanel {
         mainPanelWest.add(panelCopyright, BorderLayout.SOUTH);
 
         textPanel.add(bienvenue);
-        textPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+        textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         textPanel.add(pokeInv);
         textPanel.add(Box.createRigidArea(new Dimension(0, 10)));
         textPanel.add(linePanel);

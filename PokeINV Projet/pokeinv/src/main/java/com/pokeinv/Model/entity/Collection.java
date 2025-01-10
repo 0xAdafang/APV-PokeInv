@@ -27,7 +27,6 @@ public class Collection {
 
     @Override
     public String toString() {
-        return "Collection:" +
-                ", name: " + name;
+        return this.name;
     }
 }

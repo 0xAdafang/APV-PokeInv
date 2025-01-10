@@ -1,6 +1,7 @@
 package com.pokeinv.controller;
 
 import com.pokeinv.Model.entity.Carte;
+import com.pokeinv.Model.entity.TypeCarte;
 import com.pokeinv.Model.tables.CardsTableModel;
 import com.pokeinv.View.admin.parts.forms.CardForm;
 
@@ -17,7 +18,6 @@ public class CardController {
     public Carte getCard(int row) {
         return model.getCardAt(row);
     }
-
 
     public Carte createCard(Carte card) {
         model.addCard(card);
@@ -37,5 +37,12 @@ public class CardController {
         model.removeCardAt(row);
     }
 
+    public void filtrerCardsParNom(String nom) {
+        model.filtrerCardsParNom(nom);
+    }
+
+    public void filtrerCardsParType(TypeCarte type) {
+        model.filtrerCardsParType(type);
+    }
 
 }
