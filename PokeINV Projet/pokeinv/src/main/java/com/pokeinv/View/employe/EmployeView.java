@@ -43,13 +43,17 @@ public class EmployeView extends JPanel {
 
         // Panel du west
         WestPanel westPanel = new WestPanel(mainPanel);
+        JPanel westPanelWrapper = new JPanel(new BorderLayout());
+        westPanelWrapper.setBackground(new Color(28, 28, 51));
+        westPanelWrapper.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
+        westPanelWrapper.add(westPanel, BorderLayout.CENTER);
 
         // Panel du nord
         NorthPanel northPanel = new NorthPanel();
         northPanel.setPreferredSize(new Dimension(80, 150));
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);
-        mainPanel.add(westPanel, BorderLayout.WEST);
+        mainPanel.add(westPanelWrapper, BorderLayout.WEST);
         mainPanel.add(northPanel, BorderLayout.NORTH);
 
         add(mainPanel);
