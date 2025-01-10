@@ -5,10 +5,9 @@ import javax.swing.border.LineBorder;
 
 import com.pokeinv.View.shared.Composants.BoutonAjouter;
 import com.pokeinv.View.shared.Composants.BoutonFiltrer;
-import com.pokeinv.View.shared.Composants.BoutonSubscription;
 import com.pokeinv.events.ButtonAjouteListener;
-import com.pokeinv.events.filtrerEvent;
-import com.pokeinv.events.subscriptionEvent;
+import com.pokeinv.events.ButtonFiltrerListener;
+
 
 import java.awt.*;
 
@@ -63,7 +62,7 @@ public class WestPanel extends JPanel {
         BoutonFiltrer boutonFiltrer = new BoutonFiltrer();
         boutonFiltrer.addActionListener(e -> {
             try {
-                new filtrerEvent();
+                new ButtonFiltrerListener();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
