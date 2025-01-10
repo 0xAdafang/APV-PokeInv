@@ -34,12 +34,13 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
     }
 
     private void initActions() {
-        panel.setBackground(backgroudSelection);
         update.addActionListener(e -> {
+            panel.setBackground(backgroudSelection);
             Carte card = model.getCardAt(rowIndex);
             cardController.updateCardRequest(card);
         });
         delete.addActionListener(e -> {
+            panel.setBackground(backgroudSelection);
             cardController.deleteCard(rowIndex);
         });
     }
