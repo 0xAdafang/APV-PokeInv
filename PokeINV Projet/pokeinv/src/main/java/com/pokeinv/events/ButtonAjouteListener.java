@@ -8,7 +8,7 @@ import javax.swing.*;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.Model.entity.*;
 
-public class ajouteEventListener implements ActionListener {
+public class ButtonAjouteListener implements ActionListener {
 
     private JTextField nom, prix;
     private JComboBox<Collection> collection;
@@ -18,7 +18,7 @@ public class ajouteEventListener implements ActionListener {
     private JComboBox<Etat> etat;
     private JDialog dialog;
 
-    public ajouteEventListener() {
+    public ButtonAjouteListener() {
         FlatLightLaf.setup();
 
         // Panel dialog
