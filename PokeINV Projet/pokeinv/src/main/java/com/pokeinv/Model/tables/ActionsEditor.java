@@ -1,6 +1,8 @@
 package com.pokeinv.Model.tables;
 
 import com.pokeinv.Model.entity.Carte;
+import com.pokeinv.View.admin.components.DeleteButton;
+import com.pokeinv.View.admin.components.EditButton;
 import com.pokeinv.controller.CardController;
 
 import javax.swing.*;
@@ -11,8 +13,8 @@ import java.awt.event.MouseEvent;
 
 public class ActionsEditor extends AbstractCellEditor implements TableCellEditor {
 
-    private final JButton update = new JButton("UPDATE");
-    private final JButton delete = new JButton("DELETE");
+    private final JButton update;
+    private final JButton delete;
     private final JPanel panel = new JPanel();
     private final CardController cardController;
     private CardsTableModel model;
@@ -21,6 +23,8 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
 
     public ActionsEditor(CardController cardController) {
         this.cardController = cardController;
+        update = new EditButton();
+        delete = new DeleteButton();
         panel.add(update);
         panel.add(delete);
 
