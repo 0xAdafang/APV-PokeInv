@@ -9,6 +9,7 @@ import java.util.Objects;
 public class CardForm extends JDialog {
     private Carte card;
     private String name;
+    private double price;
     private String collection;
     private TypeCarte type;
     private GradePSA grade;
@@ -27,6 +28,7 @@ public class CardForm extends JDialog {
     }
 
     private void init() {
+        JButton enregistrer = new JButton("Enregistrer");
         setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
         setMinimumSize(new Dimension(600, 400));
         setLayout(new BorderLayout());
@@ -36,6 +38,7 @@ public class CardForm extends JDialog {
         );
         setLocationRelativeTo(getParentFrame());
         setVisible(false);
+        add(enregistrer, BorderLayout.SOUTH);
         initForm();
     }
 
@@ -68,8 +71,19 @@ public class CardForm extends JDialog {
         form.add(collectionField, gbc);
 
 
-        // champs TYPE_DE_CARTE
+        // champs PRIX
         gbc.gridy = 2;
+        gbc.gridx = 0;
+
+        JLabel priceLabel = new JLabel("Prix :");
+        form.add(priceLabel, gbc);
+        gbc.gridx = 1;
+        JTextField priceField = new JTextField(String.valueOf(price), 15);
+        form.add(priceField, gbc);
+
+
+        // champs TYPE_DE_CARTE
+        gbc.gridy = 3;
         gbc.gridx = 0;
 
         JLabel typeLabel = new JLabel("Type de carte :");
@@ -82,7 +96,7 @@ public class CardForm extends JDialog {
         form.add(typeField, gbc);
 
         // champs ÉTAT
-        gbc.gridy = 3;
+        gbc.gridy = 4;
         gbc.gridx = 0;
 
         JLabel etatLabel = new JLabel("État de la carte :");
@@ -95,7 +109,7 @@ public class CardForm extends JDialog {
         form.add(etatField, gbc);
 
         // champs GRADE
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         gbc.gridx = 0;
 
         JLabel gradeLabel = new JLabel("Grade PSA de la carte:");
@@ -108,7 +122,7 @@ public class CardForm extends JDialog {
         form.add(gradeField, gbc);
 
         // champs RARETÉ
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         gbc.gridx = 0;
 
         JLabel rareteLabel = new JLabel("Rareté de la carte:");
@@ -127,6 +141,7 @@ public class CardForm extends JDialog {
         if (card != null) {
             name = card.getName();
             collection = card.getCollection().getName();
+            price = card.getPrice();
             type = card.getTypeCarte();
             grade = card.getGradePSA();
             etat = card.getEtat();
