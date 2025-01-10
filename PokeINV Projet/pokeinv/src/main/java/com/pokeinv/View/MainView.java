@@ -2,7 +2,7 @@ package com.pokeinv.View;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import javax.sound.sampled.*;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
@@ -16,6 +16,7 @@ import java.net.URL;
 
 public class MainView extends JFrame {
 
+    private static Clip clip;
     private LoginView interfacePrincipaleLogin;
 
     public MainView() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
@@ -32,7 +33,7 @@ public class MainView extends JFrame {
 
         URL url = getClass().getResource("/musique/MusiqueCenter.wav");
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(url);
-        Clip clip = AudioSystem.getClip();
+        clip = AudioSystem.getClip();
         clip.open(audioStream);
 
         clip.loop(Clip.LOOP_CONTINUOUSLY);
@@ -47,6 +48,10 @@ public class MainView extends JFrame {
         repaint();
 
         setVisible(true);
+    }
+
+    public static Clip getClip() {
+        return clip;
     }
 
 }

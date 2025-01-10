@@ -7,6 +7,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 
+import javax.sound.sampled.Clip;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -14,6 +15,7 @@ import javax.swing.JPanel;
 
 import javax.swing.border.LineBorder;
 
+import com.pokeinv.View.MainView;
 import com.pokeinv.View.shared.Composants.BoutonMute;
 
 public class NorthPanel extends JPanel {
@@ -82,7 +84,8 @@ public class NorthPanel extends JPanel {
         add(infoPanel, BorderLayout.CENTER);
 
         // Bouton Mute
-        BoutonMute boutonMute = new BoutonMute();
+        Clip clip = MainView.getClip();
+        BoutonMute boutonMute = new BoutonMute(clip);
         boutonMute.setSize(20, 20);
         boutonMute.setBorderPainted(false);
 
