@@ -41,7 +41,7 @@ public class CardsTableModel extends AbstractTableModel {
             case 3 -> carte.getTypeCarte();
             case 4 -> carte.getEtat();
             case 5 -> carte.getGradePSA();
-            case 6 -> carte.getCollection();
+            case 6 -> carte.getCollection().getName();
             case 7 -> "Actions";
             default -> null;
         };
