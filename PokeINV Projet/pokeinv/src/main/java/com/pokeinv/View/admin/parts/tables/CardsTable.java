@@ -19,8 +19,8 @@ public class CardsTable extends JTable {
         this.getColumnModel().getColumn(0).setMaxWidth(50);
         this.getColumnModel().getColumn(1).setMaxWidth(50);
         this.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
-        this.getColumnModel().getColumn(7).setCellRenderer(new ActionsRenderer());
-        this.getColumnModel().getColumn(7).setCellEditor(new ActionsEditor(cardController));
+        this.getColumnModel().getColumn(8).setCellRenderer(new ActionsRenderer());
+        this.getColumnModel().getColumn(8).setCellEditor(new ActionsEditor(cardController));
         this.setRowHeight(45);
         this.setDefaultRenderer(Object.class, new TableRenderer());
         this.setBackground(new Color(19, 19, 38));

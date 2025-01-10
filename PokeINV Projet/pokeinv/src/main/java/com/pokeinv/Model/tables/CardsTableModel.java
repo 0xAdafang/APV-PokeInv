@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CardsTableModel extends AbstractTableModel {
 
-    private final String[] nomsDesColonnes = { "", "ID", "Nom", "Type", "État", "PSA", "Collection", "Actions" };
+    private final String[] nomsDesColonnes = {"", "ID", "Nom", "Prix ($)", "Type", "État", "PSA", "Collection", "Actions"};
     private List<Carte> cardsList;
 
     public CardsTableModel(List<Carte> cardsList) {
@@ -39,18 +39,19 @@ public class CardsTableModel extends AbstractTableModel {
             case 0 -> new ImageIcon(getClass().getResource("/pokemons/" + carte.getImage()));
             case 1 -> carte.getId();
             case 2 -> carte.getName();
-            case 3 -> carte.getTypeCarte();
-            case 4 -> carte.getEtat();
-            case 5 -> carte.getGradePSA();
-            case 6 -> carte.getCollection().getName();
-            case 7 -> "Actions";
+            case 3 -> carte.getPrice();
+            case 4 -> carte.getTypeCarte();
+            case 5 -> carte.getEtat();
+            case 6 -> carte.getGradePSA();
+            case 7 -> carte.getCollection().getName();
+            case 8 -> "Actions";
             default -> null;
         };
     }
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return columnIndex == 7;
+        return columnIndex == 8;
     }
 
     public void updateData(List<Carte> nouvelleCarte) {
