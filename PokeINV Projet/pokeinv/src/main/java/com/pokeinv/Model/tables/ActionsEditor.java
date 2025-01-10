@@ -6,6 +6,8 @@ import com.pokeinv.controller.CardController;
 import javax.swing.*;
 import javax.swing.table.TableCellEditor;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ActionsEditor extends AbstractCellEditor implements TableCellEditor {
 
@@ -15,6 +17,7 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
     private final CardController cardController;
     private CardsTableModel model;
     private int rowIndex;
+    private Color backgroudSelection;
 
     public ActionsEditor(CardController cardController) {
         this.cardController = cardController;
@@ -22,10 +25,12 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
         panel.add(delete);
 
         initActions();
+        initMouseListener();
 
     }
 
     private void initActions() {
+        panel.setBackground(backgroudSelection);
         update.addActionListener(e -> {
             Carte card = model.getCardAt(rowIndex);
             cardController.updateCardRequest(card);
@@ -35,10 +40,27 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
         });
     }
 
+    private void initMouseListener() {
+        panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.getButton() == MouseEvent.BUTTON1) {
+                    panel.setBackground(backgroudSelection);
+                }
+            }
+        });
+    }
+
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
         this.model = (CardsTableModel) table.getModel();
         this.rowIndex = table.convertRowIndexToModel(row);
+        this.backgroudSelection = table.getSelectionBackground();
+        if (isSelected) {
+            panel.setBackground(table.getSelectionBackground());
+        } else {
+            panel.setBackground(table.getBackground());
+        }
         return panel;
     }
 

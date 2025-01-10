@@ -8,11 +8,12 @@ import java.util.List;
 
 public class CardsTableModel extends AbstractTableModel {
 
-    private final String[] nomsDesColonnes = { "image", "ID", "Nom", "Type", "État", "PSA", "Collection", "Actions" };
+    private final String[] nomsDesColonnes = {"", "ID", "Nom", "Type", "État", "PSA", "Collection", "Actions"};
     private List<Carte> cardsList;
 
     public CardsTableModel(List<Carte> cardsList) {
         this.cardsList = cardsList;
+
     }
 
     @Override
