@@ -1,10 +1,7 @@
 package com.pokeinv.events;
 
 import java.io.IOException;
-
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
 import com.pokeinv.View.inscription.InscriptionView;
 
 public class subscriptionEvent {
