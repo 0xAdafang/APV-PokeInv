@@ -3,6 +3,7 @@ package com.pokeinv.View.admin.parts.forms;
 import com.pokeinv.Model.entity.*;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,8 @@ public class CardForm extends JPanel {
     private GradePSA grade;
     private Etat etat;
     private Rarete rarete;
+    private String imageName;
+    private JTextField imageField = new JTextField();
 
     public CardForm(Carte card) {
         this.card = card;
@@ -135,10 +138,9 @@ public class CardForm extends JPanel {
         JButton chooseImage = new JButton("Image");
 
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File(".")); // Définir le répertoire par défaut
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY); // Définir le mode de sélection
-
-        // Ajouter un listener au bouton pour ouvrir le JFileChooser
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setFileFilter(new FileNameExtensionFilter(
+                "Images (PNG, JPG, JPEG)", "png", "jpg", "jpeg"));
         chooseImage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,17 +148,23 @@ public class CardForm extends JPanel {
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
                     if (selectedFile != null) {
-                        System.out.println("Selected file: " + selectedFile.getPath());
                         Image image = new ImageIcon(selectedFile.getPath()).getImage();
                         Image newImage = image.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
                         ImageIcon scaledImage = new ImageIcon(newImage);
                         imageLabel.setIcon(scaledImage);
+                        imageField.setText(selectedFile.getName());
 
                     }
                 }
             }
         });
-        form.add(chooseImage, gbc);
+        imageField.setEnabled(false);
+
+        JPanel imageFieldPanel = new JPanel();
+        imageFieldPanel.add(chooseImage);
+        imageFieldPanel.add(imageField);
+
+        form.add(imageFieldPanel, gbc);
 
         add(form, BorderLayout.CENTER);
     }
@@ -170,6 +178,8 @@ public class CardForm extends JPanel {
             grade = card.getGradePSA();
             etat = card.getEtat();
             rarete = card.getRarete();
+            imageName = card.getImage();
+            imageField.setText(imageName);
         }
     }
 }
