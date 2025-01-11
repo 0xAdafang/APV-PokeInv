@@ -50,6 +50,8 @@ public class CardForm extends JPanel {
         error = new JLabel();
         error.setForeground(new Color(100, 1, 1));
         errorPanel.add(error);
+        errorPanel.setBackground(new Color(28, 28, 51));
+        errorPanel.setPreferredSize(new Dimension(errorPanel.getWidth(), 40));
         add(errorPanel, BorderLayout.NORTH);
         java.util.List<Collection> collections = DataFixtures.getCollections();
         form.setBackground(new Color(28, 28, 51));

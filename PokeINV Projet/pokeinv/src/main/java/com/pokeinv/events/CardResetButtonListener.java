@@ -11,7 +11,6 @@ public class CardResetButtonListener implements ActionListener {
     private Carte card;
 
     public CardResetButtonListener(CardForm form, Carte card) {
-        System.out.println(form);
         this.form = form;
         this.card = card;
 
@@ -19,6 +18,7 @@ public class CardResetButtonListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        form.error.setText("");
         if (card != null) {
             form.getNameField().setText(card.getName());
             form.getCollectionField().setSelectedItem(card.getCollection());
