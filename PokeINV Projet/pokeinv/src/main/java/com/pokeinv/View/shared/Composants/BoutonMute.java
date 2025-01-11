@@ -26,6 +26,7 @@ public class BoutonMute extends JButton {
                     clip.stop();
                 } else {
                     clip.start();
+                    clip.loop(Clip.LOOP_CONTINUOUSLY);
                 }
             });
         } catch (Exception e) {
