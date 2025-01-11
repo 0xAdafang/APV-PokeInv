@@ -2,19 +2,29 @@ package com.pokeinv.Model.tables;
 
 import com.pokeinv.Model.entity.Carte;
 import com.pokeinv.Model.entity.TypeCarte;
+import com.pokeinv.service.DataFixtures;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public class CardsTableModel extends AbstractTableModel {
-
+    
+    private static CardsTableModel instance;
     private final String[] nomsDesColonnes = {"", "ID", "Nom", "Prix ($)", "Type", "État", "PSA", "Collection", "Actions"};
     private List<Carte> cardsList;
 
-    public CardsTableModel(List<Carte> cardsList) {
-        this.cardsList = cardsList;
+    // Constructeur privé pour empêcher l'instanciation directe
+    private CardsTableModel() {
+        this.cardsList = DataFixtures.getCards();
+    }
 
+    // Méthode statique pour obtenir l'instance unique de la classe
+    public static CardsTableModel getInstance() {
+        if (instance == null) {
+            instance = new CardsTableModel();
+        }
+        return instance;
     }
 
     @Override
@@ -73,7 +83,7 @@ public class CardsTableModel extends AbstractTableModel {
     }
 
     public void filtrerCardsParNom(String nom) {
-        if (nom == "ASC") {
+        if (nom.equals("ASC")) {
             cardsList = cardsList.stream().filter(card -> card.getName() != null).toList();
             fireTableDataChanged();
         }
