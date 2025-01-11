@@ -12,14 +12,14 @@ public class CardFormDialog extends JDialog {
     private JButton process = new JButton();
 
     public CardFormDialog() {
-        process.setText("Mettre à jour");
+        process.setText("Ajouter");
         setTitle("Nouvelle carte");
         init();
     }
 
     public CardFormDialog(Carte card) {
         this.card = card;
-        process.setText("Ajouter");
+        process.setText("Mettre à jour");
         setTitle("Modifier une carte " + this.card.getName());
         init();
     }
