@@ -1,7 +1,9 @@
 package com.pokeinv.View.admin.parts.forms;
 
 import com.pokeinv.Model.entity.*;
+import com.pokeinv.Model.form.CollectionCellRenderer;
 import com.pokeinv.events.ChooseImageListener;
+import com.pokeinv.service.DataFixtures;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -11,9 +13,18 @@ public class CardForm extends JPanel {
 
     JPanel form;
     private Carte card;
+    private java.util.List<Collection> collections;
+    private JTextField nameField;
+    private JTextField priceField;
+    private JComboBox<Collection> collectionField;
+    private JComboBox<TypeCarte> typeField;
+    private JComboBox<Rarete> rareteField;
+    private JComboBox<GradePSA> gradeField;
+    private JComboBox<Etat> etatField;
     private JTextField imageField = new JTextField();
     private JLabel imageLabel = new JLabel();
     private JFileChooser fileChooser;
+
     private String name;
     private double price;
     private String collection;
@@ -35,6 +46,7 @@ public class CardForm extends JPanel {
     }
 
     private void initForm() {
+        collections = DataFixtures.getCollections();
         form.setBackground(new Color(28, 28, 51));
         form.setForeground(new Color(255, 255, 255));
 
@@ -51,7 +63,7 @@ public class CardForm extends JPanel {
         JLabel nameLabel = new JLabel("Nom :");
         form.add(nameLabel, gbc);
         gbc.gridx = 1;
-        JTextField nameField = new JTextField(name, 15);
+        nameField = new JTextField(name, 15);
         form.add(nameField, gbc);
 
         // champs COLLECTION
@@ -61,7 +73,9 @@ public class CardForm extends JPanel {
         JLabel collectionLabel = new JLabel("Collection :");
         form.add(collectionLabel, gbc);
         gbc.gridx = 1;
-        JTextField collectionField = new JTextField(collection, 15);
+        collectionField = new JComboBox<>(new DefaultComboBoxModel<>(collections.toArray(new Collection[0])));
+        collectionField.setRenderer(new CollectionCellRenderer());
+        collectionField.setPreferredSize(new Dimension(164, 22));
         form.add(collectionField, gbc);
 
 
@@ -72,7 +86,7 @@ public class CardForm extends JPanel {
         JLabel priceLabel = new JLabel("Prix :");
         form.add(priceLabel, gbc);
         gbc.gridx = 1;
-        JTextField priceField = new JTextField(String.valueOf(price), 15);
+        priceField = new JTextField(String.valueOf(price), 15);
         form.add(priceField, gbc);
 
 
@@ -84,7 +98,7 @@ public class CardForm extends JPanel {
         form.add(typeLabel, gbc);
 
         gbc.gridx = 1;
-        JComboBox<TypeCarte> typeField = new JComboBox<>(TypeCarte.values());
+        typeField = new JComboBox<>(TypeCarte.values());
         typeField.setPreferredSize(new Dimension(164, 22));
         typeField.setSelectedItem(type);
         form.add(typeField, gbc);
@@ -97,7 +111,7 @@ public class CardForm extends JPanel {
         form.add(etatLabel, gbc);
 
         gbc.gridx = 1;
-        JComboBox<Etat> etatField = new JComboBox<>(Etat.values());
+        etatField = new JComboBox<>(Etat.values());
         etatField.setPreferredSize(new Dimension(164, 22));
         etatField.setSelectedItem(etat);
         form.add(etatField, gbc);
@@ -110,7 +124,7 @@ public class CardForm extends JPanel {
         form.add(gradeLabel, gbc);
 
         gbc.gridx = 1;
-        JComboBox<GradePSA> gradeField = new JComboBox<>(GradePSA.values());
+        gradeField = new JComboBox<>(GradePSA.values());
         gradeField.setPreferredSize(new Dimension(164, 22));
         gradeField.setSelectedItem(grade);
         form.add(gradeField, gbc);
@@ -123,7 +137,7 @@ public class CardForm extends JPanel {
         form.add(rareteLabel, gbc);
 
         gbc.gridx = 1;
-        JComboBox<Rarete> rareteField = new JComboBox<>(Rarete.values());
+        rareteField = new JComboBox<>(Rarete.values());
         rareteField.setPreferredSize(new Dimension(164, 22));
         rareteField.setSelectedItem(rarete);
         form.add(rareteField, gbc);
@@ -188,5 +202,33 @@ public class CardForm extends JPanel {
 
     public JLabel getImageLabel() {
         return imageLabel;
+    }
+
+    public JTextField getNameField() {
+        return nameField;
+    }
+
+    public JTextField getPriceField() {
+        return priceField;
+    }
+
+    public JComboBox<Collection> getCollectionField() {
+        return collectionField;
+    }
+
+    public JComboBox<TypeCarte> getTypeField() {
+        return typeField;
+    }
+
+    public JComboBox<Rarete> getRareteField() {
+        return rareteField;
+    }
+
+    public JComboBox<GradePSA> getGradeField() {
+        return gradeField;
+    }
+
+    public JComboBox<Etat> getEtatField() {
+        return etatField;
     }
 }
