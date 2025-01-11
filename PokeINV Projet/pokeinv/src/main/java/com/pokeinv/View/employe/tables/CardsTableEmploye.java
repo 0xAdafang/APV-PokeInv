@@ -19,7 +19,6 @@ public class CardsTableEmploye extends JPanel {
     public CardsTableEmploye() {
         this.setLayout(new GridLayout(0, 6, 3, 3));
         this.setBackground(new Color(28, 28, 51));
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
         List<Carte> cards = CardController.getAllCards();
 
