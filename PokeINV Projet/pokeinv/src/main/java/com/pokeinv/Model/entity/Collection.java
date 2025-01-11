@@ -27,6 +27,9 @@ public class Collection {
 
     @Override
     public String toString() {
-        return "Collection:" + ", name: " + name;
+        return "Collection{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

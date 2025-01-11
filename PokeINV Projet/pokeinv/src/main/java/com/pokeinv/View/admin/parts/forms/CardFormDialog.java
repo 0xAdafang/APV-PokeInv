@@ -2,24 +2,26 @@ package com.pokeinv.View.admin.parts.forms;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.pokeinv.Model.entity.Carte;
+import com.pokeinv.events.ProcessButtonListener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
 public class CardFormDialog extends JDialog {
+    private final JButton processButton = new JButton();
     private Carte card;
-    private JButton process = new JButton();
+    private CardForm form;
 
     public CardFormDialog() {
-        process.setText("Ajouter");
+        processButton.setText("Ajouter");
         setTitle("Nouvelle carte");
         init();
     }
 
     public CardFormDialog(Carte card) {
         this.card = card;
-        process.setText("Mettre à jour");
+        processButton.setText("Mettre à jour");
         setTitle("Modifier une carte " + this.card.getName());
         init();
     }
@@ -43,14 +45,18 @@ public class CardFormDialog extends JDialog {
 
         JPanel bottomPanel = new JPanel();
         bottomPanel.setBackground(new Color(17, 17, 33));
-        process.setBackground(new Color(0, 94, 183));
-        process.setForeground(new Color(255, 255, 255));
+        processButton.setBackground(new Color(0, 94, 183));
+        processButton.setForeground(new Color(255, 255, 255));
         JButton effacer = new JButton("Effacer");
         bottomPanel.add(effacer);
-        bottomPanel.add(process);
+        bottomPanel.add(processButton);
 
-        add(new CardForm(card), BorderLayout.CENTER);
+
+        form = new CardForm(card);
+        add(form, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);
+
+        processButton.addActionListener(new ProcessButtonListener(form, card));
 
         setVisible(false);
 

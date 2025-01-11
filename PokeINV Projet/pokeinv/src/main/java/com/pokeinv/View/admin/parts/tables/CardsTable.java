@@ -1,20 +1,17 @@
 package com.pokeinv.View.admin.parts.tables;
 
-import com.pokeinv.Model.entity.Carte;
 import com.pokeinv.Model.tables.*;
 import com.pokeinv.controller.CardController;
-import com.pokeinv.service.DataFixtures;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class CardsTable extends JTable {
 
     public CardsTable() {
-        List<Carte> cartes = DataFixtures.getCards();
-        CardsTableModel model = new CardsTableModel(cartes);
-        CardController cardController = new CardController(model);
+
+        CardsTableModel model = CardsTableModel.getInstance();
+        CardController cardController = new CardController();
         this.setModel(model);
         this.getColumnModel().getColumn(0).setMaxWidth(50);
         this.getColumnModel().getColumn(1).setMaxWidth(50);

@@ -4,23 +4,23 @@ import com.pokeinv.Model.entity.Carte;
 import com.pokeinv.Model.entity.TypeCarte;
 import com.pokeinv.Model.tables.CardsTableModel;
 import com.pokeinv.View.admin.parts.forms.CardFormDialog;
+import com.pokeinv.service.DataFixtures;
 
 import javax.swing.*;
 
 public class CardController {
 
-    private final CardsTableModel model;
+    private CardsTableModel model;
 
-    public CardController(CardsTableModel model) {
-        this.model = model;
+    public CardController() {
+        this.model = CardsTableModel.getInstance();
     }
 
-    public Carte getCard(int row) {
-        return model.getCardAt(row);
+    public Carte getCard(int id) {
+        return DataFixtures.getCard(id);
     }
 
     public Carte createCard(Carte card) {
-        model.addCard(card);
         return card;
     }
 
@@ -29,20 +29,23 @@ public class CardController {
         modal.setVisible(true);
     }
 
-    public void updateCard(Carte card) {
-        System.out.println("card updated");
+    public void updateCard(Long id, Carte card) {
+        System.out.println("card controller updated");
+        System.out.println("id : " + id);
+        System.out.println("card : " + card);
     }
 
-    public void deleteCard(int row) {
-        model.removeCardAt(row);
+    public void deleteCard(Long id) {
+        DataFixtures.deleteCard(id);
+        model.fireTableDataChanged();
     }
 
     public void filtrerCardsParNom(String nom) {
-        model.filtrerCardsParNom(nom);
+//        model.filtrerCardsParNom(nom);
     }
 
     public void filtrerCardsParType(TypeCarte type) {
-        model.filtrerCardsParType(type);
+//        model.filtrerCardsParType(type);
     }
 
 }
