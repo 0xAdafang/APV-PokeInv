@@ -35,6 +35,9 @@ public class CardForm extends JPanel {
     }
 
     private void initForm() {
+        form.setBackground(new Color(28, 28, 51));
+        form.setForeground(new Color(255, 255, 255));
+
         setLayout(new BorderLayout());
         initFields();
         GridBagConstraints gbc = new GridBagConstraints();

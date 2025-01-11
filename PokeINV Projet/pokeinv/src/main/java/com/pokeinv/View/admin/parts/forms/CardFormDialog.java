@@ -1,5 +1,6 @@
 package com.pokeinv.View.admin.parts.forms;
 
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.pokeinv.Model.entity.Carte;
 
 import javax.swing.*;
@@ -11,6 +12,7 @@ public class CardFormDialog extends JDialog {
 
 
     public CardFormDialog() {
+
         setTitle("Nouvelle carte");
         init();
     }
@@ -22,6 +24,11 @@ public class CardFormDialog extends JDialog {
     }
 
     private void init() {
+        FlatDarkLaf.setup();
+        setDefaultLookAndFeelDecorated(true);
+        getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
+        getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+
         JButton enregistrer = new JButton("Enregistrer");
         setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
         setMinimumSize(new Dimension(600, 400));
