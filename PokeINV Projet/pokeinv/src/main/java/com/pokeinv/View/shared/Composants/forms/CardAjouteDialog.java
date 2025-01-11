@@ -2,15 +2,19 @@ package com.pokeinv.View.shared.Composants.forms;
 
 import java.awt.*;
 import java.awt.Desktop.Action;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.crypto.Data;
 
 import com.formdev.flatlaf.FlatLightLaf;
@@ -19,6 +23,7 @@ import com.pokeinv.Model.entity.Etat;
 import com.pokeinv.Model.entity.GradePSA;
 import com.pokeinv.Model.entity.Rarete;
 import com.pokeinv.Model.entity.TypeCarte;
+import com.pokeinv.events.ChooseImageListener;
 import com.pokeinv.service.DataFixtures;
 
 public class CardAjouteDialog extends JDialog {
@@ -137,6 +142,40 @@ public class CardAjouteDialog extends JDialog {
         prix = new JTextField(15);
         prix.setPreferredSize(dimension);
         panel.add(prix, constraints);
+
+        // Ajout de l'image
+        constraints.gridx = 0;
+        constraints.gridy = 7;
+        JLabel imageLabel = new JLabel("Image : ");
+        imageLabel.setForeground(Color.WHITE);
+        panel.add(imageLabel, constraints);
+        constraints.gridx = 1;
+        JButton imageButton = new JButton("Ajouter une image");
+        JTextField imageField = new JTextField(15);
+        imageField.setEditable(false);
+
+        // Choix de l'image
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setFileFilter(new FileNameExtensionFilter(
+                "Images (PNG, JPG, JPEG)", "png", "jpg", "jpeg"));
+        imageButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int returnVal = fileChooser.showOpenDialog(dialog);
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    File file = fileChooser.getSelectedFile();
+                    imageField.setText(file.getAbsolutePath());
+                }
+            }
+        });
+
+        JPanel imageFieldPanel = new JPanel();
+        imageFieldPanel.add(imageButton);
+        imageFieldPanel.add(imageField);
+
+        constraints.gridx = 1;
+        panel.add(imageFieldPanel, constraints);
 
         // Ajout des boutons
         JPanel panelBoutons = new JPanel(new GridBagLayout());
