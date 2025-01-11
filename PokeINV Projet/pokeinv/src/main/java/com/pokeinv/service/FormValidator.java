@@ -29,17 +29,17 @@ public class FormValidator {
         if (form.getCollectionField().getSelectedItem() == null) {
             throw new IllegalArgumentException("Le champs collection est obligatoire");
         }
-        if (form.getTypeField().getActionCommand() == null) {
+        if (form.getTypeField().getSelectedItem() == null) {
             throw new IllegalArgumentException("Le champs Type est obligatoire");
         }
-        if (form.getRareteField().getActionCommand() == null) {
+        if (form.getRareteField().getSelectedItem() == null) {
             throw new IllegalArgumentException("Le champs Rareté est obligatoire");
         }
-        if (form.getGradeField().getActionCommand() == null) {
+        if (form.getGradeField().getSelectedItem() == null) {
             throw new IllegalArgumentException("Le champs Rareté est obligatoire");
         }
-        if (form.getEtatField().getActionCommand() == null) {
-            throw new IllegalArgumentException("Le champs ?tat est obligatoire");
+        if (form.getEtatField().getSelectedItem() == null) {
+            throw new IllegalArgumentException("Le champs État est obligatoire");
         }
         if (form.getImageField().getText().isBlank()) {
             throw new IllegalArgumentException("Insérez une image à la carte");
