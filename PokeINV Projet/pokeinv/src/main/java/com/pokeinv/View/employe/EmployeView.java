@@ -12,6 +12,7 @@ import javax.swing.border.LineBorder;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.View.admin.parts.tables.CardsTable;
+import com.pokeinv.View.employe.tables.CardsTableEmploye;
 import com.pokeinv.View.shared.Composants.parts.NorthPanel;
 import com.pokeinv.View.shared.Composants.parts.WestPanel;
 
@@ -35,7 +36,7 @@ public class EmployeView extends JPanel {
         centerPanel.setBackground(new Color(28, 28, 51));
         centerPanel.setBorder(new LineBorder(new Color(0xFFC107), 8));
 
-        CardsTable table = new CardsTable();
+        CardsTableEmploye table = new CardsTableEmploye();
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
