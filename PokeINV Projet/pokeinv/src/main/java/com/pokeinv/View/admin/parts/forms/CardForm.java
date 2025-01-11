@@ -11,9 +11,11 @@ import java.awt.*;
 
 public class CardForm extends JPanel {
 
-    JPanel form;
+    private final JPanel form;
+    private final JTextField imageField = new JTextField();
+    private final JLabel imageLabel = new JLabel();
+    public JLabel error;
     private Carte card;
-    private java.util.List<Collection> collections;
     private JTextField nameField;
     private JTextField priceField;
     private JComboBox<Collection> collectionField;
@@ -21,13 +23,10 @@ public class CardForm extends JPanel {
     private JComboBox<Rarete> rareteField;
     private JComboBox<GradePSA> gradeField;
     private JComboBox<Etat> etatField;
-    private JTextField imageField = new JTextField();
-    private JLabel imageLabel = new JLabel();
     private JFileChooser fileChooser;
-
     private String name;
     private double price;
-    private String collection;
+    private Collection collection;
     private TypeCarte type;
     private GradePSA grade;
     private Etat etat;
@@ -46,11 +45,16 @@ public class CardForm extends JPanel {
     }
 
     private void initForm() {
-        collections = DataFixtures.getCollections();
+        setLayout(new BorderLayout());
+        JPanel errorPanel = new JPanel();
+        error = new JLabel();
+        error.setForeground(new Color(100, 1, 1));
+        errorPanel.add(error);
+        add(errorPanel, BorderLayout.NORTH);
+        java.util.List<Collection> collections = DataFixtures.getCollections();
         form.setBackground(new Color(28, 28, 51));
         form.setForeground(new Color(255, 255, 255));
 
-        setLayout(new BorderLayout());
         initFields();
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10);
@@ -75,6 +79,7 @@ public class CardForm extends JPanel {
         gbc.gridx = 1;
         collectionField = new JComboBox<>(new DefaultComboBoxModel<>(collections.toArray(new Collection[0])));
         collectionField.setRenderer(new CollectionCellRenderer());
+        collectionField.setSelectedItem(collection);
         collectionField.setPreferredSize(new Dimension(164, 22));
         form.add(collectionField, gbc);
 
@@ -165,7 +170,7 @@ public class CardForm extends JPanel {
     private void initFields() {
         if (card != null) {
             name = card.getName();
-            collection = card.getCollection().getName();
+            collection = card.getCollection();
             price = card.getPrice();
             type = card.getTypeCarte();
             grade = card.getGradePSA();

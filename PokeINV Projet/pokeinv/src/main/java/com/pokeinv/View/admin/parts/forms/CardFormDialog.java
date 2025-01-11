@@ -2,7 +2,8 @@ package com.pokeinv.View.admin.parts.forms;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.pokeinv.Model.entity.Carte;
-import com.pokeinv.events.ProcessButtonListener;
+import com.pokeinv.events.CardProcessButtonListener;
+import com.pokeinv.events.CardResetButtonListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,11 +11,13 @@ import java.util.Objects;
 
 public class CardFormDialog extends JDialog {
     private final JButton processButton = new JButton();
+    private final JButton resetButton = new JButton();
     private Carte card;
     private CardForm form;
 
     public CardFormDialog() {
         processButton.setText("Ajouter");
+        resetButton.setText("Effacer");
         setTitle("Nouvelle carte");
         init();
     }
@@ -22,6 +25,7 @@ public class CardFormDialog extends JDialog {
     public CardFormDialog(Carte card) {
         this.card = card;
         processButton.setText("Mettre à jour");
+        resetButton.setText("Réinitialiser");
         setTitle("Modifier une carte " + this.card.getName());
         init();
     }
@@ -43,20 +47,19 @@ public class CardFormDialog extends JDialog {
 
         setLocationRelativeTo(getParentFrame());
 
+        form = new CardForm(card);
+        add(form, BorderLayout.CENTER);
+
         JPanel bottomPanel = new JPanel();
         bottomPanel.setBackground(new Color(17, 17, 33));
         processButton.setBackground(new Color(0, 94, 183));
         processButton.setForeground(new Color(255, 255, 255));
-        JButton effacer = new JButton("Effacer");
-        bottomPanel.add(effacer);
+        processButton.addActionListener(new CardProcessButtonListener(form, card));
+        resetButton.addActionListener(new CardResetButtonListener(form, card));
+
+        bottomPanel.add(resetButton);
         bottomPanel.add(processButton);
-
-
-        form = new CardForm(card);
-        add(form, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);
-
-        processButton.addActionListener(new ProcessButtonListener(form, card));
 
         setVisible(false);
 

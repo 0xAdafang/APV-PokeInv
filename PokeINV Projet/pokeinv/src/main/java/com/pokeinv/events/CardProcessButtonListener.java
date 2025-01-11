@@ -8,13 +8,13 @@ import com.pokeinv.service.FormValidator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ProcessButtonListener implements ActionListener {
+public class CardProcessButtonListener implements ActionListener {
 
     private final CardForm form;
-    Carte card;
     CardController controller;
+    private Carte card;
 
-    public ProcessButtonListener(CardForm form, Carte card) {
+    public CardProcessButtonListener(CardForm form, Carte card) {
         this.form = form;
         this.card = card;
         controller = new CardController();
@@ -27,15 +27,12 @@ public class ProcessButtonListener implements ActionListener {
             System.out.println("ajouter");
         }
         if (e.getActionCommand().equalsIgnoreCase("mettre à jour")) {
-            System.out.println("Mise a jour ...");
             FormValidator validator = new FormValidator(form);
             try {
                 Carte newCard = validator.getValidatedCard();
                 controller.updateCard(card.getId(), newCard);
             } catch (IllegalArgumentException ex) {
-                System.out.println(ex.getMessage());
-            } catch (Exception exception) {
-                System.out.println(exception.getMessage());
+                form.error.setText(ex.getMessage());
             }
 
         }
