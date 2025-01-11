@@ -24,11 +24,18 @@ public class CardProcessButtonListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        FormValidator validator = new FormValidator(form);
         if (e.getActionCommand().equalsIgnoreCase("ajouter")) {
-            System.out.println("ajouter");
+            try {
+                Carte newCard = validator.getValidatedCard();
+                controller.createCard(newCard);
+                JDialog dialog = (JDialog) form.getTopLevelAncestor();
+                dialog.dispose();
+            } catch (IllegalArgumentException ex) {
+                form.error.setText(ex.getMessage());
+            }
         }
         if (e.getActionCommand().equalsIgnoreCase("mettre à jour")) {
-            FormValidator validator = new FormValidator(form);
             try {
                 Carte newCard = validator.getValidatedCard();
                 controller.updateCard(card.getId(), newCard);

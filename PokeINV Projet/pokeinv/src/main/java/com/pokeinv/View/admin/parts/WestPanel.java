@@ -1,17 +1,14 @@
 package com.pokeinv.View.admin.parts;
 
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-
-import com.pokeinv.View.admin.AdminView;
+import com.pokeinv.View.admin.parts.forms.CardFormDialog;
 import com.pokeinv.View.shared.Composants.BoutonAjouter;
 import com.pokeinv.View.shared.Composants.BoutonFiltrer;
 import com.pokeinv.View.shared.Composants.BoutonSubscription;
-import com.pokeinv.events.ButtonAjouteListener;
 import com.pokeinv.events.ButtonFiltrerListener;
 import com.pokeinv.events.subscriptionEvent;
 
-
+import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class WestPanel extends JPanel {
@@ -80,11 +77,8 @@ public class WestPanel extends JPanel {
         boutonFiltrer.setFont(new Font("Arial", Font.BOLD, 15));
         BoutonAjouter boutonAjouter = new BoutonAjouter();
         boutonAjouter.addActionListener(e -> {
-            try {
-                new ButtonAjouteListener();
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
+            CardFormDialog cardFormDialog = new CardFormDialog();
+            cardFormDialog.setVisible(true);
         });
         boutonAjouter.setPreferredSize(dimensionBouton);
         boutonAjouter.setBorderPainted(false);
