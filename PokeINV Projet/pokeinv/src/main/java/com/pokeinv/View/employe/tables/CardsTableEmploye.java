@@ -18,6 +18,7 @@ public class CardsTableEmploye extends JPanel {
 
     public CardsTableEmploye() {
         this.setLayout(new GridLayout(0, 6, 3, 3));
+        this.setPreferredSize(new Dimension(700, 700));
         this.setBackground(new Color(28, 28, 51));
 
         List<Carte> cards = CardController.getAllCards();
@@ -42,8 +43,11 @@ public class CardsTableEmploye extends JPanel {
             return null;
         } else {
             ImageIcon imageIcon = new ImageIcon(imageUrl);
-            Image image = imageIcon.getImage().getScaledInstance(350, 350, Image.SCALE_SMOOTH);
+            Image image = imageIcon.getImage().getScaledInstance(
+                    250, 250,
+                    Image.SCALE_SMOOTH);
             JLabel imageLabel = new JLabel(new ImageIcon(image));
+            
             imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
             imageLabel.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 3));
             cardPanel.add(imageLabel, BorderLayout.CENTER);
