@@ -1,5 +1,6 @@
 package com.pokeinv.View.shared.Composants.forms;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,13 +11,16 @@ import javax.swing.JTextField;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Objects;
+import java.util.List;
 
+import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.Model.entity.Collection;
 import com.pokeinv.Model.entity.Etat;
 import com.pokeinv.Model.entity.GradePSA;
 import com.pokeinv.Model.entity.Rarete;
 import com.pokeinv.Model.entity.TypeCarte;
+import com.pokeinv.service.DataFixtures;
 
 public class CardFiltreDialog extends JDialog {
     private JDialog dialog;
@@ -78,15 +82,14 @@ public class CardFiltreDialog extends JDialog {
         constraintsFiltrer.gridy = 1;
         constraintsFiltrer.anchor = GridBagConstraints.WEST;
 
-        // Ajout des collections Box
-        JComboBox<Collection> collection = new JComboBox<>();
-        collection.setPreferredSize(dimension);
-        ((JComboBox<Collection>) collection).addItem(new Collection(1L, "Base Set"));
-        ((JComboBox<Collection>) collection).addItem(new Collection(2L, "Fossil"));
-        ((JComboBox<Collection>) collection).addItem(new Collection(3L, "Base Set 2"));
-        ((JComboBox<Collection>) collection).addItem(new Collection(4L, "Jungle"));
-        ((JComboBox<Collection>) collection).addItem(new Collection(5L, "Team Rocket"));
-        panel.add(collection, constraintsFiltrer);
+       
+        // Ajout des collections
+
+        JComboBox<String> collectionBox = new JComboBox<>();
+        for (Collection collection : DataFixtures.getCollections()) {
+            collectionBox.addItem(collection.getName());
+        }
+        panel.add(collectionBox, constraintsFiltrer);
 
         constraintsFiltrer.gridx = 0;
         constraintsFiltrer.gridy = 2;
