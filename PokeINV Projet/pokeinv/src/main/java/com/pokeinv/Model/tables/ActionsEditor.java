@@ -41,7 +41,9 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
         });
         delete.addActionListener(e -> {
             panel.setBackground(backgroudSelection);
-            cardController.deleteCard(rowIndex);
+            Carte card = model.getCardAt(rowIndex);
+            cardController.deleteCard(card.getId());
+
         });
     }
 
