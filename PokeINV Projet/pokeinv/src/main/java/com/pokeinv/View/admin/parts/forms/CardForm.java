@@ -1,17 +1,19 @@
 package com.pokeinv.View.admin.parts.forms;
 
 import com.pokeinv.Model.entity.*;
+import com.pokeinv.events.ChooseImageListener;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 
 public class CardForm extends JPanel {
 
+    JPanel form;
     private Carte card;
+    private JTextField imageField = new JTextField();
+    private JLabel imageLabel = new JLabel();
+    private JFileChooser fileChooser;
     private String name;
     private double price;
     private String collection;
@@ -20,25 +22,25 @@ public class CardForm extends JPanel {
     private Etat etat;
     private Rarete rarete;
     private String imageName;
-    private JTextField imageField = new JTextField();
 
     public CardForm(Carte card) {
+        form = new JPanel(new GridBagLayout());
         this.card = card;
         initForm();
     }
 
     public CardForm() {
+        form = new JPanel(new GridBagLayout());
         initForm();
     }
 
     private void initForm() {
+        setLayout(new BorderLayout());
         initFields();
-        JPanel form = new JPanel(new GridBagLayout());
-
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10);
 
-        // champs NOM
+        // champs NAME
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
@@ -122,11 +124,12 @@ public class CardForm extends JPanel {
         rareteField.setPreferredSize(new Dimension(164, 22));
         rareteField.setSelectedItem(rarete);
         form.add(rareteField, gbc);
+
+
         // champs IMAGE
         gbc.gridy = 7;
         gbc.gridx = 0;
 
-        JLabel imageLabel = new JLabel();
         form.add(imageLabel, gbc);
         if (card != null) {
             Image image = new ImageIcon(getClass().getResource("/pokemons/" + card.getImage())).getImage();
@@ -135,39 +138,12 @@ public class CardForm extends JPanel {
             imageLabel.setIcon(scaledImage);
         }
         gbc.gridx = 1;
-        JButton chooseImage = new JButton("Image");
-
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        fileChooser.setFileFilter(new FileNameExtensionFilter(
-                "Images (PNG, JPG, JPEG)", "png", "jpg", "jpeg"));
-        chooseImage.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int returnValue = fileChooser.showOpenDialog(null);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    if (selectedFile != null) {
-                        Image image = new ImageIcon(selectedFile.getPath()).getImage();
-                        Image newImage = image.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-                        ImageIcon scaledImage = new ImageIcon(newImage);
-                        imageLabel.setIcon(scaledImage);
-                        imageField.setText(selectedFile.getName());
-
-                    }
-                }
-            }
-        });
-        imageField.setEnabled(false);
-
-        JPanel imageFieldPanel = new JPanel();
-        imageFieldPanel.add(chooseImage);
-        imageFieldPanel.add(imageField);
-
+        JPanel imageFieldPanel = getImagePanel();
         form.add(imageFieldPanel, gbc);
 
         add(form, BorderLayout.CENTER);
     }
+
 
     private void initFields() {
         if (card != null) {
@@ -181,5 +157,33 @@ public class CardForm extends JPanel {
             imageName = card.getImage();
             imageField.setText(imageName);
         }
+    }
+
+    private JPanel getImagePanel() {
+        JButton chooseImage = new JButton("Image");
+
+        fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setFileFilter(new FileNameExtensionFilter(
+                "Images (PNG, JPG, JPEG)", "png", "jpg", "jpeg"));
+        chooseImage.addActionListener(new ChooseImageListener(this));
+        imageField.setEnabled(false);
+
+        JPanel imageFieldPanel = new JPanel();
+        imageFieldPanel.add(chooseImage);
+        imageFieldPanel.add(imageField);
+        return imageFieldPanel;
+    }
+
+    public JFileChooser getFileChooser() {
+        return fileChooser;
+    }
+
+    public JTextField getImageField() {
+        return imageField;
+    }
+
+    public JLabel getImageLabel() {
+        return imageLabel;
     }
 }
