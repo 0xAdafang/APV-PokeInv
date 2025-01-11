@@ -9,16 +9,17 @@ import java.util.Objects;
 
 public class CardFormDialog extends JDialog {
     private Carte card;
-
+    private JButton process = new JButton();
 
     public CardFormDialog() {
-
+        process.setText("Mettre à jour");
         setTitle("Nouvelle carte");
         init();
     }
 
     public CardFormDialog(Carte card) {
         this.card = card;
+        process.setText("Ajouter");
         setTitle("Modifier une carte " + this.card.getName());
         init();
     }
@@ -29,18 +30,30 @@ public class CardFormDialog extends JDialog {
         getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
         getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
 
-        JButton enregistrer = new JButton("Enregistrer");
+
         setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
-        setMinimumSize(new Dimension(600, 400));
+        setMinimumSize(new Dimension(600, 500));
         setLayout(new BorderLayout());
         setIconImage(new ImageIcon(Objects.requireNonNull(getClass()
                 .getResource("/icons/iconApp.png")))
                 .getImage()
         );
+
         setLocationRelativeTo(getParentFrame());
-        setVisible(false);
-        add(enregistrer, BorderLayout.SOUTH);
+
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setBackground(new Color(17, 17, 33));
+        process.setBackground(new Color(0, 94, 183));
+        process.setForeground(new Color(255, 255, 255));
+        JButton effacer = new JButton("Effacer");
+        bottomPanel.add(effacer);
+        bottomPanel.add(process);
+
         add(new CardForm(card), BorderLayout.CENTER);
+        add(bottomPanel, BorderLayout.SOUTH);
+
+        setVisible(false);
+
     }
 
 
