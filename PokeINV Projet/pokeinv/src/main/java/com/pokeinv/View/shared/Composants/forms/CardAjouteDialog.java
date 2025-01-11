@@ -11,6 +11,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.xml.crypto.Data;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.Model.entity.Collection;
@@ -18,6 +19,7 @@ import com.pokeinv.Model.entity.Etat;
 import com.pokeinv.Model.entity.GradePSA;
 import com.pokeinv.Model.entity.Rarete;
 import com.pokeinv.Model.entity.TypeCarte;
+import com.pokeinv.service.DataFixtures;
 
 public class CardAjouteDialog extends JDialog {
     private JTextField nom, prix;
@@ -74,13 +76,11 @@ public class CardAjouteDialog extends JDialog {
         collectionLabel.setForeground(Color.WHITE);
         panel.add(collectionLabel, constraints);
         constraints.gridx = 1;
-        collection = new JComboBox<>();
+        JComboBox<String> collection = new JComboBox<>();
+        for (Collection c : DataFixtures.collections) {
+            collection.addItem(c.getName());
+        }
         collection.setPreferredSize(dimension);
-        collection.addItem(new Collection(1L, "Base Set"));
-        collection.addItem(new Collection(2L, "Fossil"));
-        collection.addItem(new Collection(3L, "Base Set 2"));
-        collection.addItem(new Collection(4L, "Jungle"));
-        collection.addItem(new Collection(5L, "Team Rocket"));
         panel.add(collection, constraints);
 
         // Ajout ComboBox de type
