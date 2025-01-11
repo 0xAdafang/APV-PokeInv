@@ -57,4 +57,14 @@ public class DataFixtures {
     public static void deleteCard(Long id) {
         cartes.removeIf(card -> Objects.equals(card.getId(), id));
     }
+
+    public static void updateCard(Long id, Carte card) {
+        for (int i = 0; i < cartes.size(); i++) {
+            if (cartes.get(i).getId().equals(id)) {
+                card.setId(id);
+                cartes.set(i, card);
+                break;
+            }
+        }
+    }
 }

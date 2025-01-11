@@ -5,6 +5,7 @@ import com.pokeinv.View.admin.parts.forms.CardForm;
 import com.pokeinv.controller.CardController;
 import com.pokeinv.service.FormValidator;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,6 +32,8 @@ public class CardProcessButtonListener implements ActionListener {
             try {
                 Carte newCard = validator.getValidatedCard();
                 controller.updateCard(card.getId(), newCard);
+                JDialog dialog = (JDialog) form.getTopLevelAncestor();
+                dialog.dispose();
             } catch (IllegalArgumentException ex) {
                 form.error.setText(ex.getMessage());
             }

@@ -10,10 +10,11 @@ import javax.swing.*;
 
 public class CardController {
 
-    private CardsTableModel model;
+    private final CardsTableModel model;
 
     public CardController() {
         this.model = CardsTableModel.getInstance();
+
     }
 
     public Carte getCard(int id) {
@@ -30,9 +31,8 @@ public class CardController {
     }
 
     public void updateCard(Long id, Carte card) {
-        System.out.println("card controller updated");
-        System.out.println("id : " + id);
-        System.out.println("card : " + card);
+        DataFixtures.updateCard(id, card);
+        model.fireTableDataChanged();
     }
 
     public void deleteCard(Long id) {
@@ -41,11 +41,11 @@ public class CardController {
     }
 
     public void filtrerCardsParNom(String nom) {
-//        model.filtrerCardsParNom(nom);
+        model.filtrerCardsParNom(nom);
     }
 
     public void filtrerCardsParType(TypeCarte type) {
-//        model.filtrerCardsParType(type);
+        model.filtrerCardsParType(type);
     }
 
 }
