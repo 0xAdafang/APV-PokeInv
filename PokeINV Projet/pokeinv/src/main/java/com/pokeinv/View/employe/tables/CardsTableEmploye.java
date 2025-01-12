@@ -17,22 +17,58 @@ import javax.swing.*;
 public class CardsTableEmploye extends JPanel {
 
     public CardsTableEmploye() {
-        this.setLayout(new GridLayout(0, 6, 3, 3));
-        this.setPreferredSize(new Dimension(700, 700));
+        this.setLayout(new BorderLayout());
+        this.setPreferredSize(new Dimension(500, 500));
         this.setBackground(new Color(28, 28, 51));
+
+        // North Panel
+        JPanel northPanel = new JPanel();
+        JLabel title = new JLabel("Liste des cartes");
+        title.setForeground(Color.WHITE);
+        title.setFont(new Font("Arial", Font.BOLD, 10));
+        northPanel.add(title);
+        northPanel.setBackground(new Color(12, 13, 30));
+        this.add(northPanel, BorderLayout.NORTH);
+
+        // Center Panel
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new BorderLayout());
+        centerPanel.setBackground(new Color(28, 28, 51));
+        centerPanel.add(createContainerPanel(), BorderLayout.CENTER);
+
+        this.add(centerPanel, BorderLayout.CENTER);
+
+    }
+
+    private JScrollPane createContainerPanel() {
+        JPanel containerPanel = new JPanel();
+        containerPanel.setLayout(new GridLayout(0, 5, 10, 10));
+        containerPanel.setBackground(new Color(28, 28, 51));
+        containerPanel.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
         List<Carte> cards = CardController.getAllCards();
 
         for (Carte card : cards) {
-            this.add(createCardPanel(card));
+            containerPanel.add(createCardPanel(card));
         }
+
+        // ScrollPane
+        JScrollPane scrollPane = new JScrollPane(containerPanel);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+
+        scrollPane.getViewport().setBackground(new Color(28, 28, 51));
+        scrollPane.getHorizontalScrollBar().setBackground(new Color(28, 28, 51));
+        scrollPane.getVerticalScrollBar().setBackground(new Color(50, 50, 50));
+
+        scrollPane.setBorder(BorderFactory.createLineBorder(getBackground(), 1));
+
+        return scrollPane;
     }
 
     private JPanel createCardPanel(Carte card) {
         JPanel cardPanel = new JPanel();
         cardPanel.setLayout(new BorderLayout());
-        cardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        cardPanel.setBackground(new Color(28, 28, 51));
+        cardPanel.setBackground(new Color(13, 13, 30));
 
         // image card
         String imagePath = "/pokemons/" + card.getImage();
@@ -47,9 +83,9 @@ public class CardsTableEmploye extends JPanel {
                     250, 250,
                     Image.SCALE_SMOOTH);
             JLabel imageLabel = new JLabel(new ImageIcon(image));
-            
+
+            imageLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
             imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            imageLabel.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 3));
             cardPanel.add(imageLabel, BorderLayout.CENTER);
         }
 
@@ -57,7 +93,7 @@ public class CardsTableEmploye extends JPanel {
         JLabel infoLabel = new JLabel(
                 "<html>" +
                         "<strong>Nom:</strong> " + card.getName() + "<br>" +
-                        "<strong>Collection:</strong> " + card.getCollection().getName() + "<br>" +
+                        "<strong>Collection:</strong> " + card.getCollection().getName() + "<br><br><br>" +
                         "<strong>GradePSA:</strong> " + card.getGradePSA() + "<br>" +
                         "<strong>Etat:</strong> " + card.getEtat() + "<br>" +
                         "<strong>Prix:</strong> " + card.getPrice() + "$" +
@@ -65,14 +101,13 @@ public class CardsTableEmploye extends JPanel {
         infoLabel.setHorizontalAlignment(SwingConstants.CENTER);
         infoLabel.setForeground(Color.WHITE);
         infoLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        infoLabel.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 3));
 
         // info wrapper
         JPanel infoWrapper = new JPanel();
         infoWrapper.setLayout(new BorderLayout());
         infoWrapper.add(infoLabel, BorderLayout.CENTER);
-        infoWrapper.setBackground(new Color(28, 28, 51));
-        infoWrapper.setBorder(BorderFactory.createEmptyBorder(1, 0, 0, 0));
+        infoWrapper.setBackground(new Color(13, 13, 30));
+        infoWrapper.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // ajouter les composants au panel
 
