@@ -20,7 +20,7 @@ public class CardsTable extends JTable {
         this.getColumnModel().getColumn(8).setCellEditor(new ActionsEditor(cardController));
         this.setRowHeight(45);
         this.setDefaultRenderer(Object.class, new TableRenderer());
-        this.setBackground(new Color(19, 19, 38));
+        this.setBackground(new Color(0, 26, 47));
         this.setSelectionBackground(new Color(38, 38, 65));
         this.setForeground(new Color(204, 204, 204));
         this.setSelectionForeground(new Color(204, 204, 204));
