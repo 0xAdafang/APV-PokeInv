@@ -8,10 +8,13 @@ import java.util.Objects;
 
 public class DataFixtures {
 
-    public static List<Carte> cartes = new ArrayList<>();
-    public static List<Collection> collections = new ArrayList<>();
+    public static List<Carte> cartes;
+    public static List<Collection> collections;
 
     public static List<Carte> getCards() {
+
+        cartes = new ArrayList<>();
+        collections = new ArrayList<>();
 
         Collection baseSet = new Collection(1L, "Base Set");
         Collection baseSet2 = new Collection(1L, "Base Set 2");
