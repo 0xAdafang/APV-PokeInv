@@ -1,6 +1,6 @@
-package com.pokeinv.View.admin;
+package com.pokeinv.View.admin.parts.pokemons;
 
-import com.pokeinv.View.admin.parts.WestPanel;
+import com.pokeinv.View.admin.AdminView;
 import com.pokeinv.View.admin.parts.tables.CardsTable;
 import com.pokeinv.View.shared.ColorManager;
 

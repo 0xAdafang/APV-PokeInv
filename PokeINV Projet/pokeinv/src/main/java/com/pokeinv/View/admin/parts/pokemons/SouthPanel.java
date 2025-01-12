@@ -1,9 +1,8 @@
-package com.pokeinv.View.admin.parts;
-
-import javax.swing.*;
+package com.pokeinv.View.admin.parts.pokemons;
 
 import com.pokeinv.View.shared.ColorManager;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class SouthPanel extends JPanel {

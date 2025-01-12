@@ -1,4 +1,4 @@
-package com.pokeinv.View.admin.parts;
+package com.pokeinv.View.admin.parts.dashboard;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.pokeinv.View.admin.AdminView;
