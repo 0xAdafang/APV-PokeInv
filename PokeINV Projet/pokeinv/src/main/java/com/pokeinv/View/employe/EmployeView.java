@@ -34,13 +34,11 @@ public class EmployeView extends JPanel {
         JPanel centerPanel = new JPanel(new BorderLayout());
         centerPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         centerPanel.setBackground(new Color(28, 28, 51));
-        centerPanel.setBorder(new LineBorder(new Color(0xFFC107), 8));
+
 
         CardsTableEmploye table = new CardsTableEmploye();
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        centerPanel.add(scrollPane);
+        centerPanel.add(table);
 
         // Panel du west
         WestPanel westPanel = new WestPanel(mainPanel);
@@ -51,7 +49,7 @@ public class EmployeView extends JPanel {
 
         // Panel du nord
         NorthPanel northPanel = new NorthPanel();
-        northPanel.setPreferredSize(new Dimension(80, 150));
+        northPanel.setPreferredSize(new Dimension(80, 130));
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);
         mainPanel.add(westPanelWrapper, BorderLayout.WEST);
