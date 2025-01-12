@@ -5,7 +5,6 @@ import com.pokeinv.View.admin.parts.DashboardView;
 import com.pokeinv.View.admin.parts.NorthPanel;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class AdminView extends JPanel {
@@ -31,7 +30,7 @@ public class AdminView extends JPanel {
         cardPanel = new JPanel(cardLayout);
         cardPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         cardPanel.setBackground(new Color(28, 28, 51));
-        cardPanel.setBorder(new LineBorder(new Color(2, 19, 33), 1));
+//        cardPanel.setBorder(new LineBorder(new Color(2, 19, 33), 1));
 
 
         dashboardView = new DashboardView(this);
