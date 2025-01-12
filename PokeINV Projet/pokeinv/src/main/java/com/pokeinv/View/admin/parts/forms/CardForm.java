@@ -51,11 +51,11 @@ public class CardForm extends JPanel {
         error = new JLabel();
         error.setForeground(ColorManager.customColor(100, 1, 1));
         errorPanel.add(error);
-        errorPanel.setBackground(ColorManager.ColorMiniPanels);
+        errorPanel.setBackground(ColorManager.BackgroundColor);
         errorPanel.setPreferredSize(new Dimension(errorPanel.getWidth(), 40));
         add(errorPanel, BorderLayout.NORTH);
         java.util.List<Collection> collections = DataFixtures.getCollections();
-        form.setBackground(ColorManager.ColorMiniPanels);
+        form.setBackground(ColorManager.BackgroundColor);
         form.setForeground(ColorManager.customColor(255, 255, 255));
 
         initFields();

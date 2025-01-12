@@ -35,7 +35,7 @@ public class DashboardWestPanel extends JPanel {
 
         JButton dashboardButton = new JButton("Dashboard");
         dashboardButton.setPreferredSize(dimensionBouton);
-        dashboardButton.setBackground(new Color(13, 13, 30));
+        dashboardButton.setBackground(ColorManager.ColorMiniPanels);
         dashboardButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/pokemon.svg")));
         dashboardButton.setForeground(ColorManager.customColor(150, 150, 150));
         dashboardButton.setBorder(new MatteBorder(0, 2, 0, 0, ColorManager.customColor(0, 145, 185)));
@@ -51,7 +51,7 @@ public class DashboardWestPanel extends JPanel {
         pokemonsButton.setBackground(ColorManager.ColorMiniPanels);
         pokemonsButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/pokemon.svg")));
         pokemonsButton.setForeground(ColorManager.customColor(150, 150, 150));
-        pokemonsButton.setBorder(new MatteBorder(1, 1, 1, 1, ColorManager.ColorMiniPanels));
+        pokemonsButton.setBorder(new MatteBorder(1, 1, 1, 1, ColorManager.BackgroundColor));
         pokemonsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,7 +68,7 @@ public class DashboardWestPanel extends JPanel {
 
         // Label bouton
         JLabel labelBouton = new JLabel();
-        labelBouton.setForeground(ColorManager.ColorMiniPanels);
+        labelBouton.setForeground(ColorManager.BackgroundColor);
         labelBouton.setLayout(new GridBagLayout());
 
         GridBagConstraints gbcWEST = new GridBagConstraints();

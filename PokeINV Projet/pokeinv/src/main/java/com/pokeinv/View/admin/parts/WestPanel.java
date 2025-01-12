@@ -25,16 +25,15 @@ public class WestPanel extends JPanel {
         mainPanelWest.setBackground(ColorManager.BackgroundColor);
         mainPanelWest.setLayout(new BorderLayout());
         mainPanelWest.setBackground(ColorManager.BackgroundColor);
-//        mainPanelWest.setSize(1000, 1000);
+        // mainPanelWest.setSize(1000, 1000);
 
-//        JPanel titlePanel = new JPanel();
-//        titlePanel.setBackground(new Color(28, 28, 51));
-//        titlePanel.setLayout(new BorderLayout());
-//
-//        mainPanelWest.add(titlePanel, BorderLayout.NORTH);
-//
+        // JPanel titlePanel = new JPanel();
+        // titlePanel.setBackground(new Color(28, 28, 51));
+        // titlePanel.setLayout(new BorderLayout());
+        //
+        // mainPanelWest.add(titlePanel, BorderLayout.NORTH);
+        //
         Dimension dimensionBouton = new Dimension(180, 50);
-
 
         JButton dashboardButton = new JButton("Dashboard");
         dashboardButton.setPreferredSize(dimensionBouton);
@@ -80,14 +79,13 @@ public class WestPanel extends JPanel {
 
         JPanel labelBouton = new JPanel();
         labelBouton.setForeground(ColorManager.customColor(150, 150, 150));
-        labelBouton.setBackground(ColorManager.ColorMiniPanels);
+        labelBouton.setBackground(ColorManager.BackgroundColor);
         labelBouton.setLayout(new GridBagLayout());
 
         GridBagConstraints gbcWEST = new GridBagConstraints();
         gbcWEST.gridx = 0;
         gbcWEST.gridy = 0;
         gbcWEST.insets = new Insets(0, 0, 10, 0);
-
 
         labelBouton.add(dashboardButton, gbcWEST);
         gbcWEST.gridy = 1;
