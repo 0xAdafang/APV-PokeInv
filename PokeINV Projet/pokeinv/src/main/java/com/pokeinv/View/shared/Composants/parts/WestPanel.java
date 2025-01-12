@@ -1,13 +1,11 @@
 package com.pokeinv.View.shared.Composants.parts;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
+import com.pokeinv.View.admin.parts.forms.CardFormDialog;
 import com.pokeinv.View.shared.Composants.BoutonAjouter;
 import com.pokeinv.View.shared.Composants.BoutonFiltrer;
-import com.pokeinv.events.ButtonAjouteListener;
 import com.pokeinv.events.ButtonFiltrerListener;
-
 
 import java.awt.*;
 
@@ -17,7 +15,6 @@ public class WestPanel extends JPanel {
         setLayout(new BorderLayout());
         setSize(800, 800);
         setBackground(new Color(28, 28, 51));
-        setBorder(new LineBorder(new Color(0xFFC107), 8));
 
         // Panel
         JPanel mainPanelWest = new JPanel();
@@ -73,7 +70,8 @@ public class WestPanel extends JPanel {
         BoutonAjouter boutonAjouter = new BoutonAjouter();
         boutonAjouter.addActionListener(e -> {
             try {
-                new ButtonAjouteListener();
+                CardFormDialog cardFormDialog = new CardFormDialog();
+                cardFormDialog.setVisible(true);
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
@@ -106,7 +104,7 @@ public class WestPanel extends JPanel {
 
         // Label copyright
         JLabel copyright = new JLabel(
-                "<html>© 2025 PokeInv. <br>Tous droits réservés.<br>Fait par: <br>Nait Sidena Djamel<br>Sionneau Terence<br>Espinoza Kevin </html>",
+                "<html>© 2025 PokeInv. <br>Tous droits réservés.<br>Fait par: <br>Nait Sidena Djamel<br>Sionneau Terence<br>Espinoza Kevin<br><br> </html>",
                 SwingConstants.CENTER);
         copyright.setForeground(Color.WHITE);
         copyright.setFont(new Font("Arial", Font.BOLD, 15));
