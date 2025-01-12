@@ -39,7 +39,6 @@ public class DataFixtures {
 
     public static List<Collection> getCollections() {
         if (cartes.isEmpty()) {
-            System.out.println("isEmpty");
             cartes = getCards();
         }
         return collections;
