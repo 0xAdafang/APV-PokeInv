@@ -4,6 +4,10 @@ import com.pokeinv.View.admin.components.DeleteButton;
 import com.pokeinv.View.admin.components.EditButton;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 
@@ -15,6 +19,10 @@ public class ActionsRenderer extends DefaultTableCellRenderer {
         JButton update = new EditButton();
         JButton delete = new DeleteButton();
         JPanel panel = new JPanel();
+        Border matteBorder = new MatteBorder(0, 0, 2, 0, new Color(3, 22, 38));
+        Border emptyBorder = new EmptyBorder(5, 20, 5, 5);
+        Border compoundBorder = new CompoundBorder(matteBorder, emptyBorder);
+        panel.setBorder(compoundBorder);
         if (isSelected || hasFocus) {
             panel.setBackground(table.getSelectionBackground());
         } else {

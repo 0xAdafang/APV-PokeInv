@@ -6,6 +6,10 @@ import com.pokeinv.View.admin.components.EditButton;
 import com.pokeinv.controller.CardController;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
 import javax.swing.table.TableCellEditor;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -27,7 +31,10 @@ public class ActionsEditor extends AbstractCellEditor implements TableCellEditor
         delete = new DeleteButton();
         panel.add(update);
         panel.add(delete);
-
+        Border matteBorder = new MatteBorder(0, 0, 2, 0, new Color(3, 22, 38));
+        Border emptyBorder = new EmptyBorder(5, 20, 5, 5);
+        Border compoundBorder = new CompoundBorder(matteBorder, emptyBorder);
+        panel.setBorder(compoundBorder);
         initActions();
         initMouseListener();
 

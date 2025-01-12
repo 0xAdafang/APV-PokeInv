@@ -21,7 +21,7 @@ public class CardsTable extends JTable {
         this.setRowHeight(45);
         this.setDefaultRenderer(Object.class, new TableRenderer());
         this.setBackground(new Color(0, 26, 47));
-        this.setSelectionBackground(new Color(38, 38, 65));
+        this.setSelectionBackground(new Color(38, 38, 65, 100));
         this.setForeground(new Color(204, 204, 204));
         this.setSelectionForeground(new Color(204, 204, 204));
         this.tableHeader.setBackground(new Color(28, 28, 51));

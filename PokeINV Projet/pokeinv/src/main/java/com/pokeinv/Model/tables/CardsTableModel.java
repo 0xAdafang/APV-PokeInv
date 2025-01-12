@@ -9,17 +9,15 @@ import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public class CardsTableModel extends AbstractTableModel {
-    
+
     private static CardsTableModel instance;
     private final String[] nomsDesColonnes = {"", "ID", "Nom", "Prix ($)", "Type", "État", "PSA", "Collection", "Actions"};
     private List<Carte> cardsList;
 
-    // Constructeur privé pour empêcher l'instanciation directe
     private CardsTableModel() {
         this.cardsList = DataFixtures.getCards();
     }
 
-    // Méthode statique pour obtenir l'instance unique de la classe
     public static CardsTableModel getInstance() {
         if (instance == null) {
             instance = new CardsTableModel();
