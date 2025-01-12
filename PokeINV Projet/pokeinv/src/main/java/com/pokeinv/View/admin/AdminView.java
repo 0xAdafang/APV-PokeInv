@@ -42,7 +42,7 @@ public class AdminView extends JPanel {
         mainPanel.add(cardPanel, BorderLayout.CENTER);
 
         NorthPanel northPanel = new NorthPanel();
-        northPanel.setPreferredSize(new Dimension(80, 150));
+        northPanel.setPreferredSize(new Dimension(80, 130));
 
         mainPanel.add(northPanel, BorderLayout.NORTH);
 
