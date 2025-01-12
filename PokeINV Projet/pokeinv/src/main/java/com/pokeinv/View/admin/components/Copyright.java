@@ -9,11 +9,7 @@ public class Copyright extends JPanel {
         setBackground(new Color(28, 28, 51));
 
         JLabel copyright = new JLabel(
-                """
-                    <html>© 2025 PokeInv. <br>Tous droits réservés.<br>
-                    Fait par: <br>Nait Sidena Djamel<br>
-                    Sionneau Terence<br>Espinoza Kevin </html>
-                """,
+                "<html>© 2025 PokeInv. <br>Tous droits réservés.<br> Fait par: <br>Nait Sidena Djamel<br> Sionneau Terence<br>Espinoza Kevin </html> ",
                 SwingConstants.CENTER);
         copyright.setForeground(Color.WHITE);
         copyright.setFont(new Font("Arial", Font.BOLD, 12));
