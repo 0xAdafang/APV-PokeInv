@@ -13,6 +13,7 @@ import javax.swing.border.LineBorder;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.View.admin.parts.tables.CardsTable;
 import com.pokeinv.View.employe.tables.CardsTableEmploye;
+import com.pokeinv.View.shared.ColorManager;
 import com.pokeinv.View.shared.Composants.parts.NorthPanel;
 import com.pokeinv.View.shared.Composants.parts.WestPanel;
 
@@ -28,12 +29,12 @@ public class EmployeView extends JPanel {
         FlatLightLaf.setup();
 
         JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBackground(new Color(28, 28, 51));
+        mainPanel.setBackground(ColorManager.BackgroundColor);
 
         // Panel du centre
         JPanel centerPanel = new JPanel(new BorderLayout());
         centerPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-        centerPanel.setBackground(new Color(28, 28, 51));
+        centerPanel.setBackground(ColorManager.BackgroundColor);
 
 
         CardsTableEmploye table = new CardsTableEmploye();
@@ -43,7 +44,7 @@ public class EmployeView extends JPanel {
         // Panel du west
         WestPanel westPanel = new WestPanel(mainPanel);
         JPanel westPanelWrapper = new JPanel(new BorderLayout());
-        westPanelWrapper.setBackground(new Color(28, 28, 51));
+        westPanelWrapper.setBackground(ColorManager.BackgroundColor);
         westPanelWrapper.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
         westPanelWrapper.add(westPanel, BorderLayout.CENTER);
 

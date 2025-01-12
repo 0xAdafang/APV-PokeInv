@@ -3,6 +3,7 @@ package com.pokeinv.View.admin;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.View.admin.parts.DashboardView;
 import com.pokeinv.View.admin.parts.NorthPanel;
+import com.pokeinv.View.shared.ColorManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,12 +25,12 @@ public class AdminView extends JPanel {
 
         FlatLightLaf.setup();
         JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBackground(new Color(28, 28, 51));
+        mainPanel.setBackground(ColorManager.BackgroundColor);
 
         cardLayout = new CardLayout();
         cardPanel = new JPanel(cardLayout);
         cardPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-        cardPanel.setBackground(new Color(28, 28, 51));
+        cardPanel.setBackground(ColorManager.BackgroundColor);
 //        cardPanel.setBorder(new LineBorder(new Color(2, 19, 33), 1));
 
 

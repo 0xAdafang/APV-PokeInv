@@ -2,6 +2,7 @@ package com.pokeinv.View.admin.components;
 
 import com.pokeinv.Model.entity.Carte;
 import com.pokeinv.Model.entity.Collection;
+import com.pokeinv.View.shared.ColorManager;
 import com.pokeinv.service.DataFixtures;
 import org.knowm.xchart.CategoryChart;
 import org.knowm.xchart.CategoryChartBuilder;
@@ -23,7 +24,7 @@ public class BarChartExemple extends JPanel {
         setLayout(new BorderLayout());
         Border cb =
                 new MatteBorder(1, 1, 1, 1,
-                        new Color(0, 94, 183, 100)
+                        ColorManager.customColorAlpha(0, 94, 183, 100)
                 );
         Border emtyBorder = new EmptyBorder(10, 10, 10, 10);
         Border border = new CompoundBorder(cb, emtyBorder);
@@ -43,20 +44,20 @@ public class BarChartExemple extends JPanel {
         CategoryChart chart = new CategoryChartBuilder().width(550).height(300).title("Nombre de cartes par collection")
                 .xAxisTitle("Collection").yAxisTitle("Nombre de carte").build();
         chart.addSeries("Cartes", new ArrayList<>(collectionCount.keySet()), new ArrayList<>(collectionCount.values()));
-        chart.getStyler().setChartBackgroundColor(new Color(3, 25, 44));
-        chart.getStyler().setPlotBackgroundColor(new Color(0, 0, 0, 0));
+        chart.getStyler().setChartBackgroundColor(ColorManager.customColor(3, 25, 44));
+        chart.getStyler().setPlotBackgroundColor(ColorManager.customColorAlpha(0, 0, 0, 0));
         chart.getStyler().setPlotBorderVisible(false);
 
         chart.getStyler().setAxisTickLabelsColor(Color.WHITE);
-        chart.getStyler().setLegendBackgroundColor(new Color(0, 0, 0, 0));
+        chart.getStyler().setLegendBackgroundColor(ColorManager.customColorAlpha(0, 0, 0, 0));
         chart.getStyler().setChartFontColor(Color.WHITE);
         chart.getStyler().setChartTitleFont(new Font("Verdana", Font.BOLD, 14));
         chart.getStyler().setPlotGridHorizontalLinesVisible(false);
         chart.getStyler().setPlotGridVerticalLinesVisible(false);
         chart.getStyler().setPlotBorderVisible(false);
         chart.getStyler().setToolTipsEnabled(true);
-        chart.getStyler().setToolTipBackgroundColor(new Color(3, 25, 44));
-        chart.getStyler().setToolTipHighlightColor(new Color(2, 79, 126));
+        chart.getStyler().setToolTipBackgroundColor(ColorManager.customColor(3, 25, 44));
+        chart.getStyler().setToolTipHighlightColor(ColorManager.customColor(2, 79, 126));
 
 
         return chart;

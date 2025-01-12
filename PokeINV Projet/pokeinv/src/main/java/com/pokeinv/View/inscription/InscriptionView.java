@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import com.pokeinv.View.admin.AdminView;
 import com.pokeinv.View.login.LoginView;
+import com.pokeinv.View.shared.ColorManager;
 import com.pokeinv.View.shared.Composants.InscriptionForm;
 
 public class InscriptionView extends JPanel {
@@ -28,16 +29,16 @@ public class InscriptionView extends JPanel {
     private void initialiserComposantsLogin() throws IOException {
         setLayout(new BorderLayout());
         JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBackground(new Color(28, 28, 51));
+        mainPanel.setBackground(ColorManager.BackgroundColor);
 
         JPanel centerPanel = new JPanel(new GridBagLayout());
         centerPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-        centerPanel.setBackground(new Color(28, 28, 51));
+        centerPanel.setBackground(ColorManager.BackgroundColor);
 
         InscriptionForm inscriptionForm = new InscriptionForm(this);
         JPanel inscriptionPanel = inscriptionForm.getPanel();
 
-        inscriptionPanel.setBackground(new Color(28, 28, 51));
+        inscriptionPanel.setBackground(ColorManager.BackgroundColor);
         inscriptionPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         inscriptionPanel.setLayout(new BoxLayout(inscriptionPanel, BoxLayout.Y_AXIS));
 
@@ -51,14 +52,14 @@ public class InscriptionView extends JPanel {
 
         JLabel ImagePikaLabel = new JLabel(new ImageIcon(ImagePikaImage));
         ImagePikaLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        ImagePikaLabel.setBackground(new Color(28, 28, 51));
+        ImagePikaLabel.setBackground(ColorManager.BackgroundColor);
         ImagePikaLabel.setOpaque(true);
         bottomRightPanel.add(ImagePikaLabel, BorderLayout.EAST);
-        bottomRightPanel.setBackground(new Color(28, 28, 51));
+        bottomRightPanel.setBackground(ColorManager.BackgroundColor);
 
         JLabel logoImageLabel = new JLabel(new ImageIcon(logoImage));
         logoImageLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        logoImageLabel.setBackground(new Color(28, 28, 51));
+        logoImageLabel.setBackground(ColorManager.BackgroundColor);
         logoImageLabel.setOpaque(true);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;

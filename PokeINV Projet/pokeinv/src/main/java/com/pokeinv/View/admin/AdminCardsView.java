@@ -2,6 +2,7 @@ package com.pokeinv.View.admin;
 
 import com.pokeinv.View.admin.parts.WestPanel;
 import com.pokeinv.View.admin.parts.tables.CardsTable;
+import com.pokeinv.View.shared.ColorManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,11 +25,11 @@ public class AdminCardsView extends JPanel {
         setLayout(new BorderLayout());
 
         JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBackground(new Color(28, 28, 51));
+        mainPanel.setBackground(ColorManager.BackgroundColor);
 
         JPanel centerPanel = new JPanel(new BorderLayout());
         centerPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-        centerPanel.setBackground(new Color(28, 28, 51));
+        centerPanel.setBackground(ColorManager.BackgroundColor);
 //        centerPanel.setBorder(new LineBorder(new Color(0xFFC107), 2));
 
         CardsTable table = new CardsTable();
@@ -39,7 +40,7 @@ public class AdminCardsView extends JPanel {
 //
         WestPanel menuPanel = new WestPanel(adminView);
         JPanel westPanelWrapper = new JPanel(new BorderLayout());
-        westPanelWrapper.setBackground(new Color(28, 28, 51));
+        westPanelWrapper.setBackground(ColorManager.BackgroundColor);
         westPanelWrapper.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
         westPanelWrapper.add(menuPanel, BorderLayout.CENTER);
 //

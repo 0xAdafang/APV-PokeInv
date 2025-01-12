@@ -1,6 +1,7 @@
 package com.pokeinv.View.employe.tables;
 
 import com.pokeinv.Model.entity.Carte;
+import com.pokeinv.View.shared.ColorManager;
 import com.pokeinv.controller.CardController;
 
 import java.awt.BorderLayout;
@@ -19,7 +20,7 @@ public class CardsTableEmploye extends JPanel {
     public CardsTableEmploye() {
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(500, 500));
-        this.setBackground(new Color(28, 28, 51));
+        this.setBackground(ColorManager.BackgroundColor);
 
         // North Panel
         JPanel northPanel = new JPanel();
@@ -27,13 +28,13 @@ public class CardsTableEmploye extends JPanel {
         title.setForeground(Color.WHITE);
         title.setFont(new Font("Arial", Font.BOLD, 10));
         northPanel.add(title);
-        northPanel.setBackground(new Color(12, 13, 30));
+        northPanel.setBackground(ColorManager.ColorMiniPanels);
         this.add(northPanel, BorderLayout.NORTH);
 
         // Center Panel
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BorderLayout());
-        centerPanel.setBackground(new Color(28, 28, 51));
+        centerPanel.setBackground(ColorManager.BackgroundColor);
         centerPanel.add(createContainerPanel(), BorderLayout.CENTER);
 
         this.add(centerPanel, BorderLayout.CENTER);
@@ -43,7 +44,7 @@ public class CardsTableEmploye extends JPanel {
     private JScrollPane createContainerPanel() {
         JPanel containerPanel = new JPanel();
         containerPanel.setLayout(new GridLayout(0, 5, 10, 10));
-        containerPanel.setBackground(new Color(28, 28, 51));
+        containerPanel.setBackground(ColorManager.BackgroundColor);
         containerPanel.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
         List<Carte> cards = CardController.getAllCards();
@@ -56,9 +57,9 @@ public class CardsTableEmploye extends JPanel {
         JScrollPane scrollPane = new JScrollPane(containerPanel);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-        scrollPane.getViewport().setBackground(new Color(28, 28, 51));
-        scrollPane.getHorizontalScrollBar().setBackground(new Color(28, 28, 51));
-        scrollPane.getVerticalScrollBar().setBackground(new Color(50, 50, 50));
+        scrollPane.getViewport().setBackground(ColorManager.BackgroundColor);
+        scrollPane.getHorizontalScrollBar().setBackground(ColorManager.ScrollPaneColor);
+        scrollPane.getVerticalScrollBar().setBackground(ColorManager.ScrollPaneColor);
 
         scrollPane.setBorder(BorderFactory.createLineBorder(getBackground(), 1));
 
@@ -68,7 +69,7 @@ public class CardsTableEmploye extends JPanel {
     private JPanel createCardPanel(Carte card) {
         JPanel cardPanel = new JPanel();
         cardPanel.setLayout(new BorderLayout());
-        cardPanel.setBackground(new Color(13, 13, 30));
+        cardPanel.setBackground(ColorManager.ColorMiniPanels);
 
         // image card
         String imagePath = "/pokemons/" + card.getImage();
@@ -106,7 +107,7 @@ public class CardsTableEmploye extends JPanel {
         JPanel infoWrapper = new JPanel();
         infoWrapper.setLayout(new BorderLayout());
         infoWrapper.add(infoLabel, BorderLayout.CENTER);
-        infoWrapper.setBackground(new Color(13, 13, 30));
+        infoWrapper.setBackground(ColorManager.ColorMiniPanels);
         infoWrapper.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // ajouter les composants au panel

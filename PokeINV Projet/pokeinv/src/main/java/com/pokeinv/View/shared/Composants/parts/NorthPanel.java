@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import com.pokeinv.View.MainView;
+import com.pokeinv.View.shared.ColorManager;
 import com.pokeinv.View.shared.Composants.BoutonMute;
 
 public class NorthPanel extends JPanel {
@@ -23,7 +24,7 @@ public class NorthPanel extends JPanel {
     public NorthPanel() {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-        setBackground(new Color(28, 28, 51));
+        setBackground(ColorManager.BackgroundColor);
         setBorder(new LineBorder(new Color(28, 28, 51), 2));
 
         // GridBagConstraints
@@ -37,13 +38,13 @@ public class NorthPanel extends JPanel {
         ImageIcon ImagePokeball = new ImageIcon(getClass().getResource("/icons/PokeballTrans.png"));
         Image ImagePokeballImage = ImagePokeball.getImage().getScaledInstance(110, 110, Image.SCALE_SMOOTH);
         JLabel ImagePokeballLabel = new JLabel(new ImageIcon(ImagePokeballImage));
-        ImagePokeballLabel.setBackground(new Color(28, 28, 51));
+        ImagePokeballLabel.setBackground(ColorManager.BackgroundColor);
         ImagePokeballLabel.setOpaque(true);
 
         // Text et Label pour info de lapplication
         JPanel logoPanel = new JPanel(
                 new GridBagLayout());
-        logoPanel.setBackground(new Color(28, 28, 51));
+        logoPanel.setBackground(ColorManager.BackgroundColor);
         logoPanel.add(ImagePokeballLabel, gbcWEST);
         gbcWEST.gridy = 1;
         gbcWEST.insets = new java.awt.Insets(10, 15, 20, 0);
@@ -52,7 +53,7 @@ public class NorthPanel extends JPanel {
 
         // Text et Label pour info de lapplication
         JPanel infoPanel = new JPanel();
-        infoPanel.setBackground(new Color(28, 28, 51));
+        infoPanel.setBackground(ColorManager.BackgroundColor);
         infoPanel.setLayout(new GridBagLayout());
 
         JLabel title = new JLabel(" PokeINV", javax.swing.SwingConstants.CENTER);
@@ -60,14 +61,14 @@ public class NorthPanel extends JPanel {
         title.setForeground(Color.WHITE);
         title.setOpaque(true);
         title.setBorder(null);
-        title.setBackground(new Color(28, 28, 51));
+        title.setBackground(ColorManager.BackgroundColor);
 
         JLabel subtitle = new JLabel("");
         subtitle.setFont(new java.awt.Font("calibri", 1, 20));
         subtitle.setForeground(Color.WHITE);
         subtitle.setOpaque(true);
         subtitle.setBorder(null);
-        subtitle.setBackground(new Color(28, 28, 51));
+        subtitle.setBackground(ColorManager.BackgroundColor);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -98,7 +99,7 @@ public class NorthPanel extends JPanel {
 
         // Label Titre de l'application
         JPanel mutePanel = new JPanel();
-        mutePanel.setBackground(new Color(28, 28, 51));
+        mutePanel.setBackground(ColorManager.BackgroundColor);
         mutePanel.setLayout(new FlowLayout());
 
         mutePanel.add(boutonMute);

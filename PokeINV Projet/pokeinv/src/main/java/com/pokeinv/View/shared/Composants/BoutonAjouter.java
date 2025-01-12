@@ -5,8 +5,7 @@ package com.pokeinv.View.shared.Composants;
 import javax.swing.JButton;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-
-import java.awt.*;
+import com.pokeinv.View.shared.ColorManager;
 
 public class BoutonAjouter extends JButton {
 
@@ -17,7 +16,7 @@ public class BoutonAjouter extends JButton {
             setText("Ajouter");
             setHorizontalAlignment(CENTER);
             setVerticalAlignment(CENTER);
-            setBackground(new Color(0xFFC107));
+            setBackground(ColorManager.ColorButtons);
             setBounds(100, 100, 100, 100);
             setSize(100, 100);
         } catch (Exception e) {

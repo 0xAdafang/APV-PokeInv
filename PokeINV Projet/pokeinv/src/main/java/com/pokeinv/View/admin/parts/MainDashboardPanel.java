@@ -4,6 +4,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import com.pokeinv.View.admin.components.BarChartExemple;
 import com.pokeinv.View.admin.components.DashboardCard;
 import com.pokeinv.View.admin.components.PieChartExemple;
+import com.pokeinv.View.shared.ColorManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ public class MainDashboardPanel extends JPanel {
     public MainDashboardPanel() {
         FlatDarkLaf.setup();
         setLayout(new BorderLayout());
-        setBackground(new Color(19, 19, 38));
+        setBackground(ColorManager.customColor(19, 19, 38));
 
         /*
          * NORTH PANEL
@@ -21,14 +22,14 @@ public class MainDashboardPanel extends JPanel {
         JPanel northPanel = new JPanel();
         JLabel title = new JLabel("DASHBOARD");
         northPanel.add(title);
-        northPanel.setBackground(new Color(12, 13, 30));
+        northPanel.setBackground(ColorManager.ColorMiniPanels);
         add(northPanel, BorderLayout.NORTH);
 
         FlowLayout flowLayout = new FlowLayout();
         flowLayout.setHgap(20);
         flowLayout.setVgap(20);
 
-        Color statColorBackground = new Color(0, 26, 47);
+        Color statColorBackground = ColorManager.ColorStat;
 
         JPanel statPanel = new JPanel(flowLayout);
         statPanel.setBackground(statColorBackground);
@@ -37,7 +38,7 @@ public class MainDashboardPanel extends JPanel {
                 "120",
                 "Entre le 23 et le 30 Janvier");
 
-        Color cardColor = new Color(3, 22, 38);
+        Color cardColor = ColorManager.customColor(3, 22, 38);
         Dimension cardDimension = new Dimension(200, 200);
         carte.setPreferredSize(cardDimension);
         carte.setBackground(cardColor);
@@ -71,9 +72,9 @@ public class MainDashboardPanel extends JPanel {
         JPanel chartsPanel = new JPanel(flowLayout);
         chartsPanel.setBackground(statColorBackground);
         BarChartExemple chart1 = new BarChartExemple();
-        chart1.setBackground(new Color(3, 22, 38));
+        chart1.setBackground(ColorManager.ColorCharts);
         PieChartExemple char2 = new PieChartExemple();
-        char2.setBackground(new Color(3, 22, 38));
+        char2.setBackground(ColorManager.ColorCharts);
         chartsPanel.add(chart1);
         chartsPanel.add(char2);
         JPanel container = new JPanel();

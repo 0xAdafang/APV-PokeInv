@@ -19,6 +19,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.pokeinv.View.login.LoginView;
+import com.pokeinv.View.shared.ColorManager;
 
 public class LoginForm {
     private JPanel panelLogin;
@@ -30,7 +31,7 @@ public class LoginForm {
 
         JLabel userJLabel = new JLabel("Nom d'utilisateur");
         userJLabel.setOpaque(true);
-        userJLabel.setBackground(new Color(28, 28, 51));
+        userJLabel.setBackground(ColorManager.BackgroundColor);
         userJLabel.setForeground(Color.WHITE);
         userJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         userJLabel.setAlignmentX(0.5f);
@@ -38,7 +39,7 @@ public class LoginForm {
         JLabel passJLabel = new JLabel("Mot de passe");
         passJLabel.setOpaque(true);
         passJLabel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        passJLabel.setBackground(new Color(28, 28, 51));
+        passJLabel.setBackground(ColorManager.BackgroundColor);
         passJLabel.setForeground(Color.WHITE);
         passJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         passJLabel.setAlignmentX(0.5f);
@@ -48,7 +49,7 @@ public class LoginForm {
 
         JButton buttonLogin = new JButton("Se connecter");
         buttonLogin.setOpaque(true);
-        buttonLogin.setBackground(new Color(0, 94, 183));
+        buttonLogin.setBackground(ColorManager.ColorButtonsBlue);
         buttonLogin.setForeground(Color.WHITE);
         buttonLogin.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         buttonLogin.setFocusPainted(false);
@@ -57,7 +58,7 @@ public class LoginForm {
         // organisation des buttons
         JPanel labelButtons = new JPanel();
         labelButtons.setLayout(new FlowLayout(FlowLayout.CENTER));
-        labelButtons.setBackground(new Color(28, 28, 51));
+        labelButtons.setBackground(ColorManager.BackgroundColor);
         labelButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         labelButtons.add(buttonLogin);
 

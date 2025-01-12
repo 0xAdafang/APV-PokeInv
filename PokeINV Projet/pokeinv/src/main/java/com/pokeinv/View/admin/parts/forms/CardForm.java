@@ -2,6 +2,7 @@ package com.pokeinv.View.admin.parts.forms;
 
 import com.pokeinv.Model.entity.*;
 import com.pokeinv.Model.form.CollectionCellRenderer;
+import com.pokeinv.View.shared.ColorManager;
 import com.pokeinv.events.ChooseImageListener;
 import com.pokeinv.service.DataFixtures;
 
@@ -48,14 +49,14 @@ public class CardForm extends JPanel {
         setLayout(new BorderLayout());
         JPanel errorPanel = new JPanel();
         error = new JLabel();
-        error.setForeground(new Color(100, 1, 1));
+        error.setForeground(ColorManager.customColor(100, 1, 1));
         errorPanel.add(error);
-        errorPanel.setBackground(new Color(28, 28, 51));
+        errorPanel.setBackground(ColorManager.ColorMiniPanels);
         errorPanel.setPreferredSize(new Dimension(errorPanel.getWidth(), 40));
         add(errorPanel, BorderLayout.NORTH);
         java.util.List<Collection> collections = DataFixtures.getCollections();
-        form.setBackground(new Color(28, 28, 51));
-        form.setForeground(new Color(255, 255, 255));
+        form.setBackground(ColorManager.ColorMiniPanels);
+        form.setForeground(ColorManager.customColor(255, 255, 255));
 
         initFields();
         GridBagConstraints gbc = new GridBagConstraints();

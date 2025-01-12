@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import com.pokeinv.View.shared.ColorManager;
 
 
 
@@ -16,7 +17,7 @@ public class BoutonFiltrer extends JButton {
             setText("Filtrer");
             setHorizontalAlignment(CENTER);
             setVerticalAlignment(CENTER);
-            setBackground(new Color(0xFFC107));
+            setBackground(ColorManager.ColorButtons);
 
         } catch (Exception e) {
             System.out.println("Error loading icon: " + e.getMessage());

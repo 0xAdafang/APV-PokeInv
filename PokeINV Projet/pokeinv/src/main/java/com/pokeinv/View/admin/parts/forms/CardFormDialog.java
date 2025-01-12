@@ -2,6 +2,7 @@ package com.pokeinv.View.admin.parts.forms;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.pokeinv.Model.entity.Carte;
+import com.pokeinv.View.shared.ColorManager;
 import com.pokeinv.events.CardProcessButtonListener;
 import com.pokeinv.events.CardResetButtonListener;
 
@@ -33,7 +34,7 @@ public class CardFormDialog extends JDialog {
     private void init() {
         FlatDarkLaf.setup();
         setDefaultLookAndFeelDecorated(true);
-        getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(28, 28, 51));
+        getRootPane().putClientProperty("JRootPane.titleBarBackground", ColorManager.TitleBarBackground);
         getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
 
 
@@ -51,9 +52,9 @@ public class CardFormDialog extends JDialog {
         add(form, BorderLayout.CENTER);
 
         JPanel bottomPanel = new JPanel();
-        bottomPanel.setBackground(new Color(17, 17, 33));
-        processButton.setBackground(new Color(0, 94, 183));
-        processButton.setForeground(new Color(255, 255, 255));
+        bottomPanel.setBackground(ColorManager.ColorMiniPanels);
+        processButton.setBackground(ColorManager.customColor(0, 94, 183));
+        processButton.setForeground(ColorManager.customColor(255, 255, 255));
         processButton.addActionListener(new CardProcessButtonListener(form, card));
         resetButton.addActionListener(new CardResetButtonListener(form, card));
 

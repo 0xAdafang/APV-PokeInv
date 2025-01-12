@@ -3,6 +3,7 @@ package com.pokeinv.View.shared.Composants.parts;
 import javax.swing.*;
 
 import com.pokeinv.View.admin.parts.forms.CardFormDialog;
+import com.pokeinv.View.shared.ColorManager;
 import com.pokeinv.View.shared.Composants.BoutonAjouter;
 import com.pokeinv.View.shared.Composants.BoutonFiltrer;
 import com.pokeinv.events.ButtonFiltrerListener;
@@ -14,17 +15,17 @@ public class WestPanel extends JPanel {
     public WestPanel(JPanel mainPanel) {
         setLayout(new BorderLayout());
         setSize(800, 800);
-        setBackground(new Color(28, 28, 51));
+        setBackground(ColorManager.BackgroundColor);
 
         // Panel
         JPanel mainPanelWest = new JPanel();
-        mainPanelWest.setBackground(new Color(28, 28, 51));
+        mainPanelWest.setBackground(ColorManager.BackgroundColor);
         mainPanelWest.setLayout(new BorderLayout());
         mainPanelWest.setSize(1000, 1000);
 
         // Panel pour le title et image
         JPanel titlePanel = new JPanel();
-        titlePanel.setBackground(new Color(28, 28, 51));
+        titlePanel.setBackground(ColorManager.BackgroundColor);
         titlePanel.setLayout(new BorderLayout());
 
         // Ajoute du titlePanel au mainPanel dans le north
@@ -38,7 +39,7 @@ public class WestPanel extends JPanel {
 
         // Text Bienvenue
         JPanel textPanel = new JPanel();
-        textPanel.setBackground(new Color(28, 28, 51));
+        textPanel.setBackground(ColorManager.BackgroundColor);
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
 
         JLabel bienvenue = new JLabel("  Bienvenue!! ", SwingConstants.CENTER);
@@ -51,7 +52,7 @@ public class WestPanel extends JPanel {
 
         JPanel linePanel = new JPanel();
         linePanel.setPreferredSize(new Dimension(10, 5));
-        linePanel.setBackground(new Color(0xFFC107));
+        linePanel.setBackground(ColorManager.ColorMiniPanels);
 
         // Boutons
         Dimension dimensionBouton = new Dimension(180, 50);
@@ -82,7 +83,7 @@ public class WestPanel extends JPanel {
 
         // Label bouton
         JLabel labelBouton = new JLabel();
-        labelBouton.setForeground(new Color(28, 28, 51));
+        labelBouton.setForeground(ColorManager.BackgroundColor);
         labelBouton.setLayout(new GridBagLayout());
 
         GridBagConstraints gbcWEST = new GridBagConstraints();
@@ -100,7 +101,7 @@ public class WestPanel extends JPanel {
         // Panel copyright
         JPanel panelCopyright = new JPanel();
         panelCopyright.setLayout(new BoxLayout(panelCopyright, BoxLayout.Y_AXIS));
-        panelCopyright.setBackground(new Color(28, 28, 51));
+        panelCopyright.setBackground(ColorManager.BackgroundColor);
 
         // Label copyright
         JLabel copyright = new JLabel(

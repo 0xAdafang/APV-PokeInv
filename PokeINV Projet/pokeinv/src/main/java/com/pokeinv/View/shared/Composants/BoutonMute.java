@@ -7,6 +7,7 @@ import javax.swing.JButton;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.pokeinv.View.MainView;
+import com.pokeinv.View.shared.ColorManager;
 
 public class BoutonMute extends JButton {
 
@@ -17,7 +18,7 @@ public class BoutonMute extends JButton {
         try {
             FlatSVGIcon icon = new FlatSVGIcon(getClass().getResource("/icons/MusiqueIcon.svg"));
             setIcon(icon);
-            setBackground(new Color(0xFFC107));
+            setBackground(ColorManager.ColorButtons);
             setBounds(100, 100, 100, 100);
             setSize(100, 100);
 

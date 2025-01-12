@@ -2,6 +2,9 @@ package com.pokeinv.View.admin.components;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
+
+import com.pokeinv.View.shared.ColorManager;
+
 import java.awt.*;
 
 public class DashboardCard extends JPanel {
@@ -35,7 +38,7 @@ public class DashboardCard extends JPanel {
         statPanel.setOpaque(false);
         statPanel.setBorder(
                 new MatteBorder(1, 0, 1, 0,
-                        new Color(0, 94, 183, 100)
+                        ColorManager.customColorAlpha(0, 94, 183, 100)
                 ));
         add(statPanel, BorderLayout.CENTER);
 
@@ -64,7 +67,7 @@ public class DashboardCard extends JPanel {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        g2.setColor(new Color(0, 94, 183, 120));
+        g2.setColor(ColorManager.customColorAlpha(0, 94, 183, 120));
         g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 20, 20);
 
         g2.dispose();

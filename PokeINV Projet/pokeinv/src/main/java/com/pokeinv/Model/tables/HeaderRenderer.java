@@ -5,6 +5,9 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableCellRenderer;
+
+import com.pokeinv.View.shared.ColorManager;
+
 import java.awt.*;
 
 public class HeaderRenderer extends DefaultTableCellRenderer {
@@ -14,8 +17,8 @@ public class HeaderRenderer extends DefaultTableCellRenderer {
 
         if (c instanceof JComponent) {
 
-            c.setBackground(new Color(19, 19, 38));
-            c.setForeground(new Color(204, 204, 204));
+            c.setBackground(ColorManager.customColor(19, 19, 38));
+            c.setForeground(ColorManager.customColor(204, 204, 204));
             Border bottomBorder = new MatteBorder(0, 0, 1, 1, new Color(255, 255, 255, 10));
             Border paddingBorder = BorderFactory.createEmptyBorder(5, 20, 5, 5);
             ((JComponent) c).setBorder(new CompoundBorder(bottomBorder, paddingBorder));

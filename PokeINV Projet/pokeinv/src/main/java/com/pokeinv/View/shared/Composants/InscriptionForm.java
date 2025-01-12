@@ -19,6 +19,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.pokeinv.View.inscription.InscriptionView;
+import com.pokeinv.View.shared.ColorManager;
 
 public class InscriptionForm {
     private JPanel panelInscription;
@@ -30,7 +31,7 @@ public class InscriptionForm {
 
         JLabel userJLabel = new JLabel("Nom d'utilisateur");
         userJLabel.setOpaque(true);
-        userJLabel.setBackground(new Color(28, 28, 51));
+        userJLabel.setBackground(ColorManager.BackgroundColor);
         userJLabel.setForeground(Color.WHITE);
         userJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         userJLabel.setAlignmentX(0.5f);
@@ -38,7 +39,7 @@ public class InscriptionForm {
         JLabel passJLabel = new JLabel("Mot de passe");
         passJLabel.setOpaque(true);
         passJLabel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        passJLabel.setBackground(new Color(28, 28, 51));
+        passJLabel.setBackground(ColorManager.BackgroundColor);
         passJLabel.setForeground(Color.WHITE);
         passJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         passJLabel.setAlignmentX(0.5f);
@@ -48,14 +49,14 @@ public class InscriptionForm {
 
         JButton buttonInscription = new JButton("Inscription");
         buttonInscription.setOpaque(true);
-        buttonInscription.setBackground(new Color(0, 94, 183));
+        buttonInscription.setBackground(ColorManager.ColorButtonsBlue);
         buttonInscription.setForeground(Color.WHITE);
         buttonInscription.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         buttonInscription.setFocusPainted(false);
 
         JButton buttonAnnuler = new JButton("Annuler");
         buttonAnnuler.setOpaque(true);
-        buttonAnnuler.setBackground(new Color(0, 94, 183));
+        buttonAnnuler.setBackground(ColorManager.ColorButtonsBlue);
         buttonAnnuler.setForeground(Color.WHITE);
         buttonAnnuler.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         buttonAnnuler.setFocusPainted(false);
@@ -63,7 +64,7 @@ public class InscriptionForm {
         // Organisation des boutons
         JPanel labelButtons = new JPanel();
         labelButtons.setLayout(new FlowLayout(FlowLayout.CENTER));
-        labelButtons.setBackground(new Color(28, 28, 51));
+        labelButtons.setBackground(ColorManager.BackgroundColor);
         labelButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         labelButtons.add(buttonInscription);
         labelButtons.add(buttonAnnuler);
