@@ -2,6 +2,7 @@ package com.pokeinv.View.admin.parts.dashboard;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.pokeinv.View.admin.AdminView;
+import com.pokeinv.View.admin.components.Copyright;
 import com.pokeinv.View.shared.ColorManager;
 
 import javax.swing.*;
@@ -86,20 +87,7 @@ public class DashboardWestPanel extends JPanel {
         mainPanelWest.add(labelBouton, BorderLayout.CENTER);
 
         // Panel copyright
-        JPanel panelCopyright = new JPanel();
-        panelCopyright.setLayout(new BoxLayout(panelCopyright, BoxLayout.Y_AXIS));
-        panelCopyright.setBackground(ColorManager.BackgroundColor);
-
-        // Label copyright
-        JLabel copyright = new JLabel(
-                "<html>© 2025 PokeInv. <br>Tous droits réservés.<br>Fait par: <br>Nait Sidena Djamel<br>Sionneau Terence<br>Espinoza Kevin </html>",
-                SwingConstants.CENTER);
-        copyright.setForeground(Color.WHITE);
-        copyright.setFont(new Font("Arial", Font.BOLD, 12));
-
-        panelCopyright.add(copyright);
-        panelCopyright.add(Box.createRigidArea(new Dimension(0, 5)));
-
+        JPanel panelCopyright = new Copyright();
         mainPanelWest.add(panelCopyright, BorderLayout.SOUTH);
 
         add(mainPanelWest);
