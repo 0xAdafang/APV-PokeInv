@@ -37,7 +37,7 @@ public class WestPanel extends JPanel {
 
         JButton dashboardButton = new JButton("Dashboard");
         dashboardButton.setPreferredSize(dimensionBouton);
-        dashboardButton.setBackground(ColorManager.BackgroundColor);
+        dashboardButton.setBackground(ColorManager.ColorMiniPanels);
         dashboardButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/pokemon.svg")));
         dashboardButton.setForeground(ColorManager.customColor(150, 150, 150));
         dashboardButton.setBorder(new MatteBorder(1, 1, 1, 1, ColorManager.ColorMiniPanels));
