@@ -1,134 +1,107 @@
 package com.pokeinv.View.admin.parts;
 
+import com.formdev.flatlaf.extras.FlatSVGIcon;
+import com.pokeinv.View.admin.AdminView;
+import com.pokeinv.View.admin.components.Copyright;
 import com.pokeinv.View.admin.parts.forms.CardFormDialog;
-import com.pokeinv.View.shared.Composants.BoutonAjouter;
-import com.pokeinv.View.shared.Composants.BoutonFiltrer;
-import com.pokeinv.View.shared.Composants.BoutonSubscription;
 import com.pokeinv.events.ButtonFiltrerListener;
-import com.pokeinv.events.subscriptionEvent;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class WestPanel extends JPanel {
 
-    public WestPanel(JPanel mainPanel) {
-        setLayout(new BorderLayout());
-        setSize(800, 800);
-        setBackground(new Color(28, 28, 51));
-        setBorder(new LineBorder(new Color(0xFFC107), 8));
+    private AdminView adminView;
 
-        // Panel
+    public WestPanel(AdminView adminView) {
+        this.adminView = adminView;
+        setLayout(new BorderLayout());
+        setBackground(new Color(28, 28, 51));
+        setPreferredSize(new Dimension(200, 200));
+
         JPanel mainPanelWest = new JPanel();
         mainPanelWest.setBackground(new Color(28, 28, 51));
         mainPanelWest.setLayout(new BorderLayout());
-        mainPanelWest.setSize(1000, 1000);
+        mainPanelWest.setBackground(new Color(28, 28, 51));
+//        mainPanelWest.setSize(1000, 1000);
 
-        // Panel pour le title et image
-        JPanel titlePanel = new JPanel();
-        titlePanel.setBackground(new Color(28, 28, 51));
-        titlePanel.setLayout(new BorderLayout());
-
-        // Ajoute du titlePanel au mainPanel dans le north
-        mainPanelWest.add(titlePanel, BorderLayout.NORTH);
-
-        // Gif
-        ImageIcon gifPika = new ImageIcon(getClass().getResource("/icons/PikaGif.gif"));
-        gifPika.setImage(gifPika.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
-        JLabel gifLabel = new JLabel(gifPika);
-        titlePanel.add(gifLabel, BorderLayout.NORTH);
-
-        // Text Bienvenue
-        JPanel textPanel = new JPanel();
-        textPanel.setBackground(new Color(28, 28, 51));
-        textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
-
-        JLabel bienvenue = new JLabel("  Bienvenue!! ", SwingConstants.CENTER);
-        bienvenue.setForeground(Color.WHITE);
-        bienvenue.setFont(new Font("Arial", Font.BOLD, 30));
-
-        JLabel pokeInv = new JLabel("", SwingConstants.CENTER);
-        pokeInv.setForeground(Color.WHITE);
-        pokeInv.setFont(new Font("Arial", Font.BOLD, 30));
-
-        JPanel linePanel = new JPanel();
-        linePanel.setPreferredSize(new Dimension(10, 5));
-        linePanel.setBackground(new Color(0xFFC107));
-
-        // Boutons
+//        JPanel titlePanel = new JPanel();
+//        titlePanel.setBackground(new Color(28, 28, 51));
+//        titlePanel.setLayout(new BorderLayout());
+//
+//        mainPanelWest.add(titlePanel, BorderLayout.NORTH);
+//
         Dimension dimensionBouton = new Dimension(180, 50);
 
-        BoutonSubscription boutonSubscription = new BoutonSubscription();
-        boutonSubscription.addActionListener(e -> new subscriptionEvent().subscriptionEvent(mainPanel));
-        boutonSubscription.setFont(new Font("Arial", Font.BOLD, 15));
-        boutonSubscription.setPreferredSize(dimensionBouton);
-        boutonSubscription.setBorderPainted(false);
-        BoutonFiltrer boutonFiltrer = new BoutonFiltrer();
-        boutonFiltrer.addActionListener(e -> {
+
+        JButton dashboardButton = new JButton("Dashboard");
+        dashboardButton.setPreferredSize(dimensionBouton);
+        dashboardButton.setBackground(new Color(13, 13, 30));
+        dashboardButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/pokemon.svg")));
+        dashboardButton.setForeground(new Color(150, 150, 150));
+        dashboardButton.setBorder(new MatteBorder(0, 2, 0, 0, new Color(0, 145, 185)));
+        dashboardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                adminView.showDashboard();
+            }
+        });
+
+        JButton addButton = new JButton("Ajouter");
+        addButton.setPreferredSize(dimensionBouton);
+        addButton.setBackground(new Color(13, 13, 30));
+        addButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/plus-square.svg")));
+        addButton.setBorder(new MatteBorder(0, 2, 0, 0, new Color(0, 145, 185)));
+        addButton.setForeground(new Color(150, 150, 150));
+
+        addButton.addActionListener(e -> {
+            CardFormDialog cardFormDialog = new CardFormDialog();
+            cardFormDialog.setVisible(true);
+        });
+
+        JButton filterButton = new JButton("Filtrer");
+        filterButton.setPreferredSize(dimensionBouton);
+        filterButton.setBackground(new Color(13, 13, 30));
+        filterButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/filter-square.svg")));
+        filterButton.setBorder(new MatteBorder(0, 2, 0, 0, new Color(0, 145, 185)));
+        filterButton.setForeground(new Color(150, 150, 150));
+
+        filterButton.addActionListener(e -> {
             try {
                 new ButtonFiltrerListener();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
         });
-        boutonFiltrer.setPreferredSize(dimensionBouton);
-        boutonFiltrer.setBorderPainted(false);
-        boutonFiltrer.setFont(new Font("Arial", Font.BOLD, 15));
-        BoutonAjouter boutonAjouter = new BoutonAjouter();
-        boutonAjouter.addActionListener(e -> {
-            CardFormDialog cardFormDialog = new CardFormDialog();
-            cardFormDialog.setVisible(true);
-        });
-        boutonAjouter.setPreferredSize(dimensionBouton);
-        boutonAjouter.setBorderPainted(false);
-        boutonAjouter.setFont(new Font("Arial", Font.BOLD, 15));
 
-        // Label bouton
-        JLabel labelBouton = new JLabel();
-        labelBouton.setForeground(new Color(28, 28, 51));
+        JPanel labelBouton = new JPanel();
+        labelBouton.setForeground(new Color(150, 150, 150));
+        labelBouton.setBackground(new Color(28, 28, 51));
         labelBouton.setLayout(new GridBagLayout());
 
         GridBagConstraints gbcWEST = new GridBagConstraints();
         gbcWEST.gridx = 0;
         gbcWEST.gridy = 0;
-        gbcWEST.insets = new java.awt.Insets(0, 0, 10, 0);
-        labelBouton.add(boutonSubscription, gbcWEST);
+        gbcWEST.insets = new Insets(0, 0, 10, 0);
+
+
+        labelBouton.add(dashboardButton, gbcWEST);
         gbcWEST.gridy = 1;
-        labelBouton.add(boutonFiltrer, gbcWEST);
+        labelBouton.add(addButton, gbcWEST);
         gbcWEST.gridy = 2;
-        labelBouton.add(boutonAjouter, gbcWEST);
+        labelBouton.add(filterButton, gbcWEST);
         gbcWEST.gridy = 3;
 
         mainPanelWest.add(labelBouton, BorderLayout.CENTER);
 
-        // Panel copyright
-        JPanel panelCopyright = new JPanel();
-        panelCopyright.setLayout(new BoxLayout(panelCopyright, BoxLayout.Y_AXIS));
-        panelCopyright.setBackground(new Color(28, 28, 51));
-
-        // Label copyright
-        JLabel copyright = new JLabel(
-                "<html>© 2025 PokeInv. <br>Tous droits réservés.<br>Fait par: <br>Nait Sidena Djamel<br>Sionneau Terence<br>Espinoza Kevin </html>",
-                SwingConstants.CENTER);
-        copyright.setForeground(Color.WHITE);
-        copyright.setFont(new Font("Arial", Font.BOLD, 15));
-
-        // Añadir componentes al panelCopyright
-        panelCopyright.add(copyright);
-        panelCopyright.add(Box.createRigidArea(new Dimension(0, 5)));
-
+        JPanel panelCopyright = new Copyright();
         mainPanelWest.add(panelCopyright, BorderLayout.SOUTH);
 
-        textPanel.add(bienvenue);
-        textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        textPanel.add(pokeInv);
-        textPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-        textPanel.add(linePanel);
-
-        titlePanel.add(textPanel, BorderLayout.SOUTH);
-
         add(mainPanelWest);
+        setVisible(true);
     }
 
 }

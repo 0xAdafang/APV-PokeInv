@@ -1,59 +1,60 @@
 package com.pokeinv.View.admin;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import com.pokeinv.View.admin.parts.DashboardView;
 import com.pokeinv.View.admin.parts.NorthPanel;
-import com.pokeinv.View.admin.parts.WestPanel;
-import com.pokeinv.View.admin.parts.tables.CardsTable;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.io.IOException;
 
 public class AdminView extends JPanel {
 
-    public AdminView() throws IOException {
+    public DashboardView dashboardView;
+    public AdminCardsView adminCardsView;
+    private CardLayout cardLayout;
+    private JPanel cardPanel;
+
+    public AdminView() {
         initialiserComposantsAdmin();
         setVisible(true);
-
     }
 
-    private void initialiserComposantsAdmin() throws IOException {
+    private void initialiserComposantsAdmin() {
         setLayout(new BorderLayout());
 
         FlatLightLaf.setup();
-
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(new Color(28, 28, 51));
 
-        // Panel du centre
-        JPanel centerPanel = new JPanel(new BorderLayout());
-        centerPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-        centerPanel.setBackground(new Color(28, 28, 51));
-        centerPanel.setBorder(new LineBorder(new Color(0xFFC107), 8));
+        cardLayout = new CardLayout();
+        cardPanel = new JPanel(cardLayout);
+        cardPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
+        cardPanel.setBackground(new Color(28, 28, 51));
+        cardPanel.setBorder(new LineBorder(new Color(2, 19, 33), 1));
 
-        CardsTable table = new CardsTable();
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        centerPanel.add(scrollPane);
+        dashboardView = new DashboardView(this);
+        adminCardsView = new AdminCardsView(this);
 
-        // Panel du west
-        WestPanel westPanel = new WestPanel(mainPanel);
-        JPanel westPanelWrapper = new JPanel(new BorderLayout());
-        westPanelWrapper.setBackground(new Color(28, 28, 51));
-        westPanelWrapper.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
-        westPanelWrapper.add(westPanel, BorderLayout.CENTER);
+        cardPanel.add(dashboardView, "DASHBOARD");
+        cardPanel.add(adminCardsView, "CARDS");
 
-        // Panel du nord
+        mainPanel.add(cardPanel, BorderLayout.CENTER);
+
         NorthPanel northPanel = new NorthPanel();
         northPanel.setPreferredSize(new Dimension(80, 150));
 
-        mainPanel.add(centerPanel, BorderLayout.CENTER);
-        mainPanel.add(westPanelWrapper, BorderLayout.WEST);
         mainPanel.add(northPanel, BorderLayout.NORTH);
 
         add(mainPanel);
     }
 
+    public void showDashboard() {
+        cardLayout.show(cardPanel, "DASHBOARD");
+    }
+
+    public void showCards() {
+        cardLayout.show(cardPanel, "CARDS");
+    }
 }
