@@ -9,8 +9,6 @@ import com.pokeinv.events.ButtonFiltrerListener;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class WestPanel extends JPanel {
 
@@ -42,19 +40,21 @@ public class WestPanel extends JPanel {
         dashboardButton.setBackground(new Color(13, 13, 30));
         dashboardButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/pokemon.svg")));
         dashboardButton.setForeground(new Color(150, 150, 150));
-        dashboardButton.setBorder(new MatteBorder(0, 2, 0, 0, new Color(0, 145, 185)));
-        dashboardButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                adminView.showDashboard();
-            }
-        });
+        dashboardButton.setBorder(new MatteBorder(1, 1, 1, 1, new Color(13, 13, 30)));
+        dashboardButton.addActionListener(e -> adminView.showDashboard());
+
+        JButton pokemonsButton = new JButton("Gestion Pokemons");
+        pokemonsButton.setPreferredSize(dimensionBouton);
+        pokemonsButton.setBackground(new Color(13, 13, 30));
+        pokemonsButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/pokemon.svg")));
+        pokemonsButton.setForeground(new Color(150, 150, 150));
+        pokemonsButton.setBorder(new MatteBorder(0, 2, 0, 0, new Color(0, 145, 185)));
 
         JButton addButton = new JButton("Ajouter");
         addButton.setPreferredSize(dimensionBouton);
         addButton.setBackground(new Color(13, 13, 30));
         addButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/plus-square.svg")));
-        addButton.setBorder(new MatteBorder(0, 2, 0, 0, new Color(0, 145, 185)));
+        addButton.setBorder(new MatteBorder(0, 2, 0, 0, new Color(234, 185, 24)));
         addButton.setForeground(new Color(150, 150, 150));
 
         addButton.addActionListener(e -> {
@@ -66,7 +66,7 @@ public class WestPanel extends JPanel {
         filterButton.setPreferredSize(dimensionBouton);
         filterButton.setBackground(new Color(13, 13, 30));
         filterButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/filter-square.svg")));
-        filterButton.setBorder(new MatteBorder(0, 2, 0, 0, new Color(0, 145, 185)));
+        filterButton.setBorder(new MatteBorder(0, 2, 0, 0, new Color(234, 185, 24)));
         filterButton.setForeground(new Color(150, 150, 150));
 
         filterButton.addActionListener(e -> {
@@ -90,10 +90,12 @@ public class WestPanel extends JPanel {
 
         labelBouton.add(dashboardButton, gbcWEST);
         gbcWEST.gridy = 1;
-        labelBouton.add(addButton, gbcWEST);
+        labelBouton.add(pokemonsButton, gbcWEST);
         gbcWEST.gridy = 2;
-        labelBouton.add(filterButton, gbcWEST);
+        labelBouton.add(addButton, gbcWEST);
         gbcWEST.gridy = 3;
+        labelBouton.add(filterButton, gbcWEST);
+        gbcWEST.gridy = 4;
 
         mainPanelWest.add(labelBouton, BorderLayout.CENTER);
 
