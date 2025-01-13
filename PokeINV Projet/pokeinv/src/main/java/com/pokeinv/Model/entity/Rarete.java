@@ -1,10 +1,10 @@
 package com.pokeinv.Model.entity;
 public enum Rarete {
-    COMMON,
-    UNCOMMON,
-    RARE,
-    HOLO_RARE,
-    ULTRA_RARE,
-    SECRET_RARE,
-    SECRET_ART_ILLUSTRATION
+    Common,
+    Uncommon,
+    Rare,
+    HoloRare,
+    UltraRare,
+    SecretRare,
+    SecretArtIllustration
 }
