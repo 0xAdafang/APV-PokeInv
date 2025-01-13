@@ -20,6 +20,7 @@ import com.pokeinv.Model.entity.Etat;
 import com.pokeinv.Model.entity.GradePSA;
 import com.pokeinv.Model.entity.Rarete;
 import com.pokeinv.Model.entity.TypeCarte;
+import com.pokeinv.View.shared.ColorManager;
 import com.pokeinv.service.DataFixtures;
 
 public class CardFiltreDialog extends JDialog {
@@ -156,7 +157,7 @@ public class CardFiltreDialog extends JDialog {
         panel.add(prixField, constraintsFiltrer);
 
         JPanel panelBoutons = new JPanel(new GridBagLayout());
-        panelBoutons.setBackground(new Color(28, 28, 51));
+        panelBoutons.setBackground(ColorManager.ColorMiniPanels);
         GridBagConstraints constraintsBoutons = new GridBagConstraints();
         constraintsBoutons.gridx = 0;
         constraintsBoutons.gridy = 0;
@@ -172,6 +173,8 @@ public class CardFiltreDialog extends JDialog {
         constraintsBoutons.anchor = GridBagConstraints.CENTER;
         constraintsBoutons.insets = new Insets(5, 10, 5, 10);
         JButton annuler = new JButton("Annuler");
+        annuler.setBackground(ColorManager.ColorButtonsBlue);
+        annuler.setForeground(Color.WHITE);
         annuler.addActionListener(listener);
         panelBoutons.add(annuler, constraintsBoutons);
 
