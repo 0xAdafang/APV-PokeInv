@@ -22,6 +22,7 @@ public class MainView extends JFrame {
         setIconImage(iconApp.getImage());
         setLocationRelativeTo(null);
         setVisible(true);
+        setMinimumSize(new Dimension(800, 600));
 
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(new Color(28, 28, 51));
