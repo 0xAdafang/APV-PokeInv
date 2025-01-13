@@ -43,7 +43,7 @@ public class LeftMenuButton extends JButton {
         ));
 
         if (selected) {
-            setBackground(new Color(0, 26, 47));
+            setBackground(new Color(0, 56, 102));
             setBorder(new CompoundBorder(
                     new MatteBorder(0, 2, 0, 0, ColorManager.customColor(0, 145, 185)),
                     new EmptyBorder(0, 15, 0, 0)
