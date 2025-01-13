@@ -4,6 +4,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.pokeinv.View.admin.AdminView;
 import com.pokeinv.View.admin.components.buttons.LeftMenuButton;
 import com.pokeinv.View.shared.ColorManager;
+import com.pokeinv.events.subscriptionEvent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,11 +28,13 @@ public class EmployeesLeftMenu extends JPanel {
 
         JButton addButton = new LeftMenuButton("Ajouter", false, true);
         addButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/plus-square.svg")));
-
+        addButton.addActionListener(e -> {
+            subscriptionEvent subscriptionEvent = new subscriptionEvent();
+            subscriptionEvent.subscriptionEvent(adminView);
+        });
 
         JButton filterButton = new LeftMenuButton("Filtrer", false, true);
         filterButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/filter-square.svg")));
-
 
         setForeground(ColorManager.customColor(150, 150, 150));
         setBackground(ColorManager.BackgroundColor);
