@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.View.admin.AdminView;
 import com.pokeinv.View.login.LoginView;
 import com.pokeinv.View.shared.ColorManager;
@@ -27,6 +28,7 @@ public class InscriptionView extends JPanel {
     }
 
     private void initialiserComposantsLogin() throws IOException {
+        FlatLightLaf.setup();
         setLayout(new BorderLayout());
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(ColorManager.BackgroundColor);
