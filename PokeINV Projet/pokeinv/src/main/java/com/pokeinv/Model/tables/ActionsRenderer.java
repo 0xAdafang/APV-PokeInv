@@ -1,7 +1,7 @@
 package com.pokeinv.Model.tables;
 
-import com.pokeinv.View.admin.components.DeleteButton;
-import com.pokeinv.View.admin.components.EditButton;
+import com.pokeinv.View.admin.components.buttons.DeleteButton;
+import com.pokeinv.View.admin.components.buttons.EditButton;
 
 import javax.swing.*;
 import javax.swing.border.Border;

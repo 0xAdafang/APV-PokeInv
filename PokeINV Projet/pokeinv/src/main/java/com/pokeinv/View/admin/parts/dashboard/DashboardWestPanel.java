@@ -1,96 +1,37 @@
 package com.pokeinv.View.admin.parts.dashboard;
 
-import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.pokeinv.View.admin.AdminView;
 import com.pokeinv.View.admin.components.Copyright;
+import com.pokeinv.View.admin.components.DashboardLeftMenu;
 import com.pokeinv.View.shared.ColorManager;
 
 import javax.swing.*;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class DashboardWestPanel extends JPanel {
 
-    private AdminView adminView;
 
     public DashboardWestPanel(AdminView adminView) {
-        this.adminView = adminView;
         setLayout(new BorderLayout());
         setBackground(ColorManager.BackgroundColor);
-        setPreferredSize(new Dimension(200, 200));
-
-        JPanel mainPanelWest = new JPanel();
-        mainPanelWest.setBackground(ColorManager.BackgroundColor);
-        mainPanelWest.setLayout(new BorderLayout());
-        mainPanelWest.setSize(1000, 1000);
-
         JPanel titlePanel = new JPanel();
-        titlePanel.setBackground(ColorManager.BackgroundColor);
-        titlePanel.setLayout(new BorderLayout());
+        titlePanel.setBackground(new Color(3, 22, 38));
+        JLabel title = new JLabel("MENU");
+        title.setForeground(new Color(255, 255, 255));
+        titlePanel.add(title);
 
-        mainPanelWest.add(titlePanel, BorderLayout.NORTH);
+        JPanel buttonsPanel = new DashboardLeftMenu(adminView);
 
-        Dimension dimensionBouton = new Dimension(180, 50);
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new FlowLayout());
+        centerPanel.setBackground(ColorManager.BackgroundColor);
+        centerPanel.add(buttonsPanel);
 
-        JButton dashboardButton = new JButton("Dashboard");
-        dashboardButton.setPreferredSize(dimensionBouton);
-        dashboardButton.setBackground(ColorManager.ColorMiniPanels);
-        dashboardButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/pokemon.svg")));
-        dashboardButton.setForeground(ColorManager.customColor(150, 150, 150));
-        dashboardButton.setBorder(new MatteBorder(0, 2, 0, 0, ColorManager.customColor(0, 145, 185)));
-        dashboardButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                adminView.showDashboard();
-            }
-        });
+        add(titlePanel, BorderLayout.NORTH);
+        add(centerPanel, BorderLayout.CENTER);
 
-        JButton pokemonsButton = new JButton("Gestion Pokemons");
-        pokemonsButton.setPreferredSize(dimensionBouton);
-        pokemonsButton.setBackground(ColorManager.ColorMiniPanels);
-        pokemonsButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/pokemon.svg")));
-        pokemonsButton.setForeground(ColorManager.customColor(150, 150, 150));
-        pokemonsButton.setBorder(new MatteBorder(1, 1, 1, 1, ColorManager.BackgroundColor));
-        pokemonsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                adminView.showCards();
-            }
-        });
-
-        JButton employeesButton = new JButton("Gestion Employés");
-        employeesButton.setPreferredSize(dimensionBouton);
-        employeesButton.setBackground(ColorManager.ColorMiniPanels);
-        employeesButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/people.svg")));
-        employeesButton.setForeground(ColorManager.customColor(150, 150, 150));
-        employeesButton.setBorder(new MatteBorder(1, 1, 1, 1, ColorManager.ColorMiniPanels));
-
-        // Label bouton
-        JLabel labelBouton = new JLabel();
-        labelBouton.setForeground(ColorManager.BackgroundColor);
-        labelBouton.setLayout(new GridBagLayout());
-
-        GridBagConstraints gbcWEST = new GridBagConstraints();
-        gbcWEST.gridx = 0;
-        gbcWEST.gridy = 0;
-        gbcWEST.insets = new Insets(0, 0, 10, 0);
-
-        labelBouton.add(dashboardButton, gbcWEST);
-        gbcWEST.gridy = 1;
-        labelBouton.add(pokemonsButton, gbcWEST);
-        gbcWEST.gridy = 2;
-        labelBouton.add(employeesButton, gbcWEST);
-        gbcWEST.gridy = 3;
-
-        mainPanelWest.add(labelBouton, BorderLayout.CENTER);
-
-        // Panel copyright
         JPanel panelCopyright = new Copyright();
-        mainPanelWest.add(panelCopyright, BorderLayout.SOUTH);
-
-        add(mainPanelWest);
+        add(panelCopyright, BorderLayout.SOUTH);
         setVisible(true);
     }
 }
