@@ -1,82 +1,112 @@
-CREATE DATABASE PokeINV;
-USE PokeINV;
+CREATE DATABASE PokeINVDB;
+USE PokeINVDB
 
 
 CREATE TABLE Collection (
-    idCollection INT PRIMARY KEY AUTO_INCREMENT,
-    nomCollection VARCHAR(255) NOT NULL
-);
-
-
-CREATE TABLE Rarete (
-    idRarete INT PRIMARY KEY AUTO_INCREMENT,
-    nomRarete ENUM('COMMON', 'UNCOMMON', 'RARE', 'HOLO_RARE', 'ULTRA_RARE', 'SECRET_RARE', 'SECRET_ART_ILLUSTRATION') NOT NULL
-);
-
-CREATE TABLE Qualite (
-    idQualite INT PRIMARY KEY AUTO_INCREMENT,
-    description VARCHAR(255) NOT NULL
+    id BIGINT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
 );
 
 
 CREATE TABLE Etat (
-    idEtat INT PRIMARY KEY AUTO_INCREMENT,
-    estDegradee BOOLEAN NOT NULL
+    name VARCHAR(50) PRIMARY KEY
 );
 
 
 CREATE TABLE TypeCarte (
-    idTypeCarte INT PRIMARY KEY AUTO_INCREMENT,
-    type VARCHAR(255) NOT NULL
+    name VARCHAR(50) PRIMARY KEY
+);
+
+
+CREATE TABLE Rarete (
+    name VARCHAR(50) PRIMARY KEY
+);
+
+
+CREATE TABLE GradePSA (
+    name VARCHAR(50) PRIMARY KEY
 );
 
 
 CREATE TABLE Carte (
-    idCarte INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(255) NOT NULL,
-    collectionId INT,
-    prix DECIMAL(10, 2) NOT NULL,
-    qualiteId INT,
-    etatId INT,
-    typeCarteId INT,
-    rareteId INT,
-    FOREIGN KEY (collectionId) REFERENCES Collection(idCollection),
-    FOREIGN KEY (qualiteId) REFERENCES Qualite(idQualite),
-    FOREIGN KEY (etatId) REFERENCES Etat(idEtat),
-    FOREIGN KEY (typeCarteId) REFERENCES TypeCarte(idTypeCarte),
-    FOREIGN KEY (rareteId) REFERENCES Rarete(idRarete)
+    id BIGINT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    collectionId BIGINT,
+    price DECIMAL(10, 2),
+    gradePsa VARCHAR(50),
+    etatName VARCHAR(50),
+    typeCarte VARCHAR(50),
+    rareteName VARCHAR(50),
+    image VARCHAR(255),
+    FOREIGN KEY (collectionId) REFERENCES Collection(id),
+    FOREIGN KEY (gradePsa) REFERENCES GradePSA(name),
+    FOREIGN KEY (etatName) REFERENCES Etat(name),
+    FOREIGN KEY (TypeCarte) REFERENCES TypeCarte(name),
+    FOREIGN KEY (rareteName) REFERENCES Rarete(name)
 );
 
-
-CREATE TABLE Inventaire (
-    idInventaire INT PRIMARY KEY AUTO_INCREMENT,
-    carteId INT NOT NULL,
-    quantite INT DEFAULT 1,
-    FOREIGN KEY (carteId) REFERENCES Carte(idCarte)
-);
-
-
-CREATE TABLE Transaction (
-    idTransaction INT PRIMARY KEY AUTO_INCREMENT,
-    dateTransaction DATE NOT NULL,
-    montant DECIMAL(10, 2) NOT NULL,
-    proprietaire VARCHAR(255) NOT NULL
-);
 
 CREATE TABLE Employe (
-    idEmploye INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(255) NOT NULL, 
-    prenom VARCHAR(255) NOT NULL,
-    role ENUM('ADMIN', 'STAFF') DEFAULT 'STAFF' NOT NULL, 
-    dateEmbauche DATE NOT NULL 
+    id BIGINT PRIMARY KEY,
+    firstname VARCHAR(255),
+    lastname VARCHAR(255),
+    hireDate DATE
 );
 
+
 CREATE TABLE Connexion (
-    idConnexion INT PRIMARY KEY AUTO_INCREMENT,
-    idEmploye INT NOT NULL,
-    courriel VARCHAR(255) NOT NULL,
-    motDePasse VARCHAR(255) NOT NULL,
-    statut ENUM('A', 'I') DEFAULT 'A' NOT NULL,
-    dateConnexion DATETIME NOT NULL,
-    FOREIGN KEY (idEmploye) REFERENCES Employe(idEmploye) ON DELETE CASCADE
+    id BIGINT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    status VARCHAR(50),
+    lastConnection TIMESTAMP,
+    employeeId BIGINT,
+    FOREIGN KEY (employeId) REFERENCES Employe(id)
 );
+
+
+INSERT INTO Etat (name) VALUES
+    ('Mint'),
+    ('NearMint'),
+    ('Excellent'),
+    ('Good'),
+    ('LightlyPlayed'),
+    ('Played'),
+    ('Poor');
+
+
+INSERT INTO TypeCarte (name) VALUES
+    ('Grass'),
+    ('Lightning'),
+    ('Dark'),
+    ('Fairy'),
+    ('Psychic'),
+    ('Fire'),
+    ('Water'),
+    ('Fighting'),
+    ('Metal'),
+    ('Colorless'),
+    ('Dragon');
+
+
+INSERT INTO Rarete (name) VALUES
+    ('Common'),
+    ('Uncommon'),
+    ('Rare'),
+    ('HoloRare'),
+    ('UltraRare'),
+    ('SecretRare'),
+    ('SecretArtIllustration');
+
+
+INSERT INTO GradePSA (name) VALUES
+    ('PSA10'),
+    ('PSA9'),
+    ('PSA8'),
+    ('PSA7'),
+    ('PSA6'),
+    ('PSA5'),
+    ('PSA4'),
+    ('PSA3'),
+    ('PSA2'),
+    ('PSA1');
