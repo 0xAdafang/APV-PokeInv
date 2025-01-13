@@ -42,7 +42,7 @@ public class WestPanel extends JPanel {
         textPanel.setBackground(ColorManager.BackgroundColor);
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
 
-        JLabel bienvenue = new JLabel("  Bienvenue!! ", SwingConstants.CENTER);
+        JLabel bienvenue = new JLabel("  Bienvenue ", SwingConstants.CENTER);
         bienvenue.setForeground(Color.WHITE);
         bienvenue.setFont(new Font("Arial", Font.BOLD, 30));
 
