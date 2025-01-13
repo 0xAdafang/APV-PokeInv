@@ -45,6 +45,7 @@ public class NorthPanel extends JPanel {
         JPanel logoPanel = new JPanel(
                 new GridBagLayout());
         logoPanel.setBackground(ColorManager.BackgroundColor);
+        gbcWEST.insets = new java.awt.Insets(0, 50, 0, 0);
         logoPanel.add(ImagePokeballLabel, gbcWEST);
         gbcWEST.gridy = 1;
         gbcWEST.insets = new java.awt.Insets(10, 15, 20, 0);
