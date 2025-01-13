@@ -1,9 +1,9 @@
 package com.pokeinv.Model.tables;
 
-import com.pokeinv.Model.entity.Employee;
+import com.pokeinv.Model.entity.Employe;
 import com.pokeinv.View.admin.components.buttons.DeleteButton;
 import com.pokeinv.View.admin.components.buttons.EditButton;
-import com.pokeinv.controller.EmployeeController;
+import com.pokeinv.controller.EmployeController;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,18 +15,18 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class EmployeeActionsEditor extends AbstractCellEditor implements TableCellEditor {
+public class EmployeActionsEditor extends AbstractCellEditor implements TableCellEditor {
 
     private final JButton update;
     private final JButton delete;
     private final JPanel panel = new JPanel();
-    private final EmployeeController employeeController;
-    private EmployeesTableModel model;
+    private final EmployeController employeController;
+    private EmployesTableModel model;
     private int rowIndex;
     private Color backgroudSelection;
 
-    public EmployeeActionsEditor(EmployeeController employeeController) {
-        this.employeeController = employeeController;
+    public EmployeActionsEditor(EmployeController employeController) {
+        this.employeController = employeController;
         update = new EditButton();
         delete = new DeleteButton();
         panel.add(update);
@@ -43,13 +43,13 @@ public class EmployeeActionsEditor extends AbstractCellEditor implements TableCe
     private void initActions() {
         update.addActionListener(e -> {
             panel.setBackground(backgroudSelection);
-            Employee employee = model.getEmployeeAt(rowIndex);
-            employeeController.updateEmployeeRequest(employee);
+            Employe employee = model.getEmployeeAt(rowIndex);
+            employeController.updateEmployeeRequest(employee);
         });
         delete.addActionListener(e -> {
             panel.setBackground(backgroudSelection);
-            Employee employee = model.getEmployeeAt(rowIndex);
-            employeeController.deleteEmployee(employee.getId());
+            Employe employee = model.getEmployeeAt(rowIndex);
+            employeController.deleteEmployee(employee.getId());
 
         });
     }
@@ -67,7 +67,7 @@ public class EmployeeActionsEditor extends AbstractCellEditor implements TableCe
 
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-        this.model = (EmployeesTableModel) table.getModel();
+        this.model = (EmployesTableModel) table.getModel();
         this.rowIndex = table.convertRowIndexToModel(row);
         this.backgroudSelection = table.getSelectionBackground();
         if (isSelected) {

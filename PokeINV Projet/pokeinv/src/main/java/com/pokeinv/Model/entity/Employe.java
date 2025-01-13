@@ -2,13 +2,13 @@ package com.pokeinv.Model.entity;
 
 import java.util.Date;
 
-public class Employee {
+public class Employe {
     private Long id;
     private String firstname;
     private String lastname;
     private Date hireDate;
 
-    public Employee(Long id, String firstname, String lastname, Date hireDate) {
+    public Employe(Long id, String firstname, String lastname, Date hireDate) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;

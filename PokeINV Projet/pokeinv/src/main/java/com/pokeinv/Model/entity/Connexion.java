@@ -10,15 +10,15 @@ public class Connexion {
     private String status;
     private Date lastConnection;
 
-    private Employee employee;
+    private Employe employe;
 
-    public Connexion(Long id, String email, String password, String status, Date lastConnection, Employee employee) {
+    public Connexion(Long id, String email, String password, String status, Date lastConnection, Employe employee) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.status = status;
         this.lastConnection = lastConnection;
-        this.employee = employee;
+        this.employe = employee;
     }
 
     public Long getId() {
@@ -61,12 +61,12 @@ public class Connexion {
         this.lastConnection = lastConnection;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Employe getEmployee() {
+        return employe;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployee(Employe employee) {
+        this.employe = employee;
     }
 
     @Override
@@ -77,7 +77,7 @@ public class Connexion {
                 ", password='" + password + '\'' +
                 ", status='" + status + '\'' +
                 ", lastConnection=" + lastConnection +
-                ", employee=" + employee +
+                ", employee=" + employe +
                 '}';
     }
 }

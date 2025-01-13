@@ -1,32 +1,32 @@
 package com.pokeinv.Model.tables;
 
-import com.pokeinv.Model.entity.Employee;
+import com.pokeinv.Model.entity.Employe;
 import com.pokeinv.service.DataFixtures;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 import java.util.Objects;
 
-public class EmployeesTableModel extends AbstractTableModel {
+public class EmployesTableModel extends AbstractTableModel {
 
-    private static EmployeesTableModel instance;
+    private static EmployesTableModel instance;
     private final String[] nomsDesColonnes = {"ID", "Nom", "Prénom", "Date d'embauche", "Actions"};
-    private List<Employee> employeeList;
+    private List<Employe> employeList;
 
-    private EmployeesTableModel() {
-        this.employeeList = DataFixtures.getEmployees();
+    private EmployesTableModel() {
+        this.employeList = DataFixtures.getEmployes();
     }
 
-    public static EmployeesTableModel getInstance() {
+    public static EmployesTableModel getInstance() {
         if (instance == null) {
-            instance = new EmployeesTableModel();
+            instance = new EmployesTableModel();
         }
         return instance;
     }
 
     @Override
     public int getRowCount() {
-        return employeeList.size();
+        return employeList.size();
     }
 
     @Override
@@ -41,7 +41,7 @@ public class EmployeesTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Employee employee = employeeList.get(rowIndex);
+        Employe employee = employeList.get(rowIndex);
         return switch (columnIndex) {
             case 0 -> employee.getId();
             case 1 -> employee.getFirstname();
@@ -57,33 +57,33 @@ public class EmployeesTableModel extends AbstractTableModel {
         return columnIndex == 4;
     }
 
-    public void updateData(List<Employee> nouvelEmployee) {
-        this.employeeList = nouvelEmployee;
+    public void updateData(List<Employe> nouvelEmploye) {
+        this.employeList = nouvelEmploye;
         fireTableDataChanged();
     }
 
-    public Employee getEmployeeAt(int row) {
-        return employeeList.get(row);
+    public Employe getEmployeeAt(int row) {
+        return employeList.get(row);
     }
 
-    public void addCard(Employee employee) {
-        employeeList.add(employee);
+    public void addCard(Employe employe) {
+        employeList.add(employe);
     }
 
     public void removeCardAt(int row) {
-        employeeList.remove(row);
+        employeList.remove(row);
         fireTableDataChanged();
     }
 
     public void filtrerEmployeesParNom(String nom) {
         if (nom.equals("ASC")) {
-            employeeList = employeeList.stream().filter(employee -> employee.getLastname() != null).toList();
+            employeList = employeList.stream().filter(employe -> employe.getLastname() != null).toList();
             fireTableDataChanged();
         }
     }
 
-    public void filtrerEmployeesParId(Long id) {
-        employeeList = employeeList.stream().filter(employee -> Objects.equals(employee.getId(), id)).toList();
+    public void filtrerEmployesParId(Long id) {
+        employeList = employeList.stream().filter(employe -> Objects.equals(employe.getId(), id)).toList();
         fireTableDataChanged();
     }
 }

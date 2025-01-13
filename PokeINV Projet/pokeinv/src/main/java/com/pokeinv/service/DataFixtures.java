@@ -69,15 +69,15 @@ public class DataFixtures {
         return collections;
     }
 
-    public static List<Employee> getEmployees() {
-        List<Employee> employees = new ArrayList<>();
+    public static List<Employe> getEmployes() {
+        List<Employe> employees = new ArrayList<>();
 
         // Adding 5 employees to the list
-        employees.add(new Employee(1L, "John", "Doe", new Date(122, 5, 15))); // Hire date: 15 June 2022
-        employees.add(new Employee(2L, "Jane", "Smith", new Date(120, 3, 10))); // Hire date: 10 April 2020
-        employees.add(new Employee(3L, "Mike", "Brown", new Date(118, 1, 25))); // Hire date: 25 February 2018
-        employees.add(new Employee(4L, "Emily", "Davis", new Date(121, 8, 5))); // Hire date: 5 September 2021
-        employees.add(new Employee(5L, "James", "Wilson", new Date(123, 10, 20))); // Hire date: 20 November 2023
+        employees.add(new Employe(1L, "John", "Doe", new Date(122, 5, 15))); // Hire date: 15 June 2022
+        employees.add(new Employe(2L, "Jane", "Smith", new Date(120, 3, 10))); // Hire date: 10 April 2020
+        employees.add(new Employe(3L, "Mike", "Brown", new Date(118, 1, 25))); // Hire date: 25 February 2018
+        employees.add(new Employe(4L, "Emily", "Davis", new Date(121, 8, 5))); // Hire date: 5 September 2021
+        employees.add(new Employe(5L, "James", "Wilson", new Date(123, 10, 20))); // Hire date: 20 November 2023
 
         return employees;
     }
@@ -91,8 +91,8 @@ public class DataFixtures {
         return null;
     }
 
-    public static Employee getEmployee(Long id) {
-        for (Employee employee : getEmployees()) {
+    public static Employe getEmploye(Long id) {
+        for (Employe employee : getEmployes()) {
             if (Objects.equals(employee.getId(), id)) {
                 return employee;
             }
@@ -104,8 +104,8 @@ public class DataFixtures {
         cartes.removeIf(card -> Objects.equals(card.getId(), id));
     }
 
-    public static void deleteEmployee(Long id) {
-        getEmployees().removeIf(employee -> Objects.equals(employee.getId(), id));
+    public static void deleteEmploye(Long id) {
+        getEmployes().removeIf(employe -> Objects.equals(employe.getId(), id));
     }
 
     public static void updateCard(Long id, Carte card) {

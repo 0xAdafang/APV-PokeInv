@@ -1,7 +1,7 @@
 package com.pokeinv.View.admin.parts.tables;
 
 import com.pokeinv.Model.tables.*;
-import com.pokeinv.controller.EmployeeController;
+import com.pokeinv.controller.EmployeController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,12 +10,12 @@ public class EmployeesTable extends JTable {
 
     public EmployeesTable() {
 
-        EmployeesTableModel model = EmployeesTableModel.getInstance();
-        EmployeeController employeeController = new EmployeeController();
+        EmployesTableModel model = EmployesTableModel.getInstance();
+        EmployeController employeeController = new EmployeController();
         this.setModel(model);
 
         this.getColumnModel().getColumn(4).setCellRenderer(new EmployeeActionsRenderer());
-        this.getColumnModel().getColumn(4).setCellEditor(new EmployeeActionsEditor(employeeController));
+        this.getColumnModel().getColumn(4).setCellEditor(new EmployeActionsEditor(employeeController));
         this.setRowHeight(45);
         this.setDefaultRenderer(Object.class, new TableRenderer());
         this.setBackground(new Color(0, 26, 47));
