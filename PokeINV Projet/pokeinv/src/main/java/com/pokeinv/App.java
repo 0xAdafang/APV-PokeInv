@@ -12,6 +12,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         FlatLightLaf.setup();
         MainView interfacePrincipale = new MainView();
+        interfacePrincipale.setMinimumSize(new Dimension(800, 600));
 
         JFrame.setDefaultLookAndFeelDecorated(true);
         interfacePrincipale.getRootPane().putClientProperty("JRootPane.titleBarBackground", ColorManager.TitleBarBackground);
