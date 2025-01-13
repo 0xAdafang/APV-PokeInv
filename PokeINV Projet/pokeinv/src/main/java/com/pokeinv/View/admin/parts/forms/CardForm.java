@@ -1,5 +1,6 @@
 package com.pokeinv.View.admin.parts.forms;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.Model.entity.*;
 import com.pokeinv.Model.form.CollectionCellRenderer;
 import com.pokeinv.View.shared.ColorManager;
@@ -46,6 +47,7 @@ public class CardForm extends JPanel {
     }
 
     private void initForm() {
+        FlatLightLaf.setup();
         setLayout(new BorderLayout());
         JPanel errorPanel = new JPanel();
         error = new JLabel();
@@ -54,13 +56,14 @@ public class CardForm extends JPanel {
         errorPanel.setBackground(ColorManager.BackgroundColor);
         errorPanel.setPreferredSize(new Dimension(errorPanel.getWidth(), 40));
         add(errorPanel, BorderLayout.NORTH);
-        java.util.List<Collection> collections = DataFixtures.getCollections();
         form.setBackground(ColorManager.BackgroundColor);
-        form.setForeground(ColorManager.customColor(255, 255, 255));
+        form.setForeground(Color.WHITE);
 
         initFields();
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10);
+
+        Dimension dimensionChamps = new Dimension(200, 25);
 
         // champs NAME
         gbc.gridx = 0;
@@ -68,9 +71,13 @@ public class CardForm extends JPanel {
         gbc.anchor = GridBagConstraints.WEST;
 
         JLabel nameLabel = new JLabel("Nom :");
+        nameLabel.setForeground(Color.WHITE);
         form.add(nameLabel, gbc);
         gbc.gridx = 1;
-        nameField = new JTextField(name, 15);
+        nameField = new JTextField(name, 17);
+        nameField.setPreferredSize(dimensionChamps);
+        nameField.setBackground(Color.WHITE);
+        nameField.setForeground(Color.BLACK);
         form.add(nameField, gbc);
 
         // champs COLLECTION
@@ -78,37 +85,47 @@ public class CardForm extends JPanel {
         gbc.gridx = 0;
 
         JLabel collectionLabel = new JLabel("Collection :");
+        collectionLabel.setForeground(Color.WHITE);
         form.add(collectionLabel, gbc);
         gbc.gridx = 1;
-        collectionField = new JComboBox<>(new DefaultComboBoxModel<>(collections.toArray(new Collection[0])));
+        JComboBox<String> collectionField = new JComboBox<>();
+        for (Collection collection : DataFixtures.getCollections()) {
+            collectionField.addItem(collection.getName());
+        }
+        collectionField.setBackground(Color.WHITE);
+        collectionField.setForeground(Color.BLACK);
         collectionField.setRenderer(new CollectionCellRenderer());
-        collectionField.setSelectedItem(collection);
-        collectionField.setPreferredSize(new Dimension(164, 22));
-        form.add(collectionField, gbc);
+        collectionField.setPreferredSize(dimensionChamps);
 
+        form.add(collectionField, gbc);
 
         // champs PRIX
         gbc.gridy = 2;
         gbc.gridx = 0;
 
         JLabel priceLabel = new JLabel("Prix :");
+        priceLabel.setForeground(Color.WHITE);
         form.add(priceLabel, gbc);
         gbc.gridx = 1;
-        priceField = new JTextField(String.valueOf(price), 15);
+        priceField = new JTextField(String.valueOf(price), 17);
+        priceField.setPreferredSize(dimensionChamps);
+        priceField.setBackground(Color.WHITE);
+        priceField.setForeground(Color.BLACK);
         form.add(priceField, gbc);
-
 
         // champs TYPE_DE_CARTE
         gbc.gridy = 3;
         gbc.gridx = 0;
 
         JLabel typeLabel = new JLabel("Type de carte :");
+        typeLabel.setForeground(Color.WHITE);
         form.add(typeLabel, gbc);
 
         gbc.gridx = 1;
         typeField = new JComboBox<>(TypeCarte.values());
-        typeField.setPreferredSize(new Dimension(164, 22));
-        typeField.setSelectedItem(type);
+        typeField.setPreferredSize(dimensionChamps);
+        typeField.setBackground(Color.WHITE);
+        typeField.setForeground(Color.BLACK);
         form.add(typeField, gbc);
 
         // champs ÉTAT
@@ -116,11 +133,14 @@ public class CardForm extends JPanel {
         gbc.gridx = 0;
 
         JLabel etatLabel = new JLabel("État de la carte :");
+        etatLabel.setForeground(Color.WHITE);
         form.add(etatLabel, gbc);
 
         gbc.gridx = 1;
         etatField = new JComboBox<>(Etat.values());
-        etatField.setPreferredSize(new Dimension(164, 22));
+        etatField.setPreferredSize(dimensionChamps);
+        etatField.setBackground(Color.WHITE);
+        etatField.setForeground(Color.BLACK);
         etatField.setSelectedItem(etat);
         form.add(etatField, gbc);
 
@@ -129,11 +149,14 @@ public class CardForm extends JPanel {
         gbc.gridx = 0;
 
         JLabel gradeLabel = new JLabel("Grade PSA de la carte:");
+        gradeLabel.setForeground(Color.WHITE);
         form.add(gradeLabel, gbc);
 
         gbc.gridx = 1;
         gradeField = new JComboBox<>(GradePSA.values());
-        gradeField.setPreferredSize(new Dimension(164, 22));
+        gradeField.setPreferredSize(dimensionChamps);
+        gradeField.setBackground(Color.WHITE);
+        gradeField.setForeground(Color.BLACK);
         gradeField.setSelectedItem(grade);
         form.add(gradeField, gbc);
 
@@ -142,14 +165,16 @@ public class CardForm extends JPanel {
         gbc.gridx = 0;
 
         JLabel rareteLabel = new JLabel("Rareté de la carte:");
+        rareteLabel.setForeground(Color.WHITE);
         form.add(rareteLabel, gbc);
 
         gbc.gridx = 1;
         rareteField = new JComboBox<>(Rarete.values());
-        rareteField.setPreferredSize(new Dimension(164, 22));
+        rareteField.setPreferredSize(dimensionChamps);
+        rareteField.setBackground(Color.WHITE);
+        rareteField.setForeground(Color.BLACK);
         rareteField.setSelectedItem(rarete);
         form.add(rareteField, gbc);
-
 
         // champs IMAGE
         gbc.gridy = 7;
@@ -164,11 +189,11 @@ public class CardForm extends JPanel {
         }
         gbc.gridx = 1;
         JPanel imageFieldPanel = getImagePanel();
+        imageFieldPanel.setBackground(Color.WHITE);
         form.add(imageFieldPanel, gbc);
 
         add(form, BorderLayout.CENTER);
     }
-
 
     private void initFields() {
         if (card != null) {
