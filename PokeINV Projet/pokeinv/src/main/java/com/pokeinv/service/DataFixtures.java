@@ -29,36 +29,36 @@ public class DataFixtures {
         collections.add(jungle);
         collections.add(fossil);
         collections.add(teamRocket);
-        cartes.add(new Carte(1L, "Pikachu", baseSet, 150.0, GradePSA.PSA10, Etat.MINT, TypeCarte.LIGHTENING,
-                Rarete.RARE, "pikachu.jpg"));
-        cartes.add(new Carte(2L, "Charizard", baseSet, 2500.0, GradePSA.PSA9, Etat.NEAR_MINT, TypeCarte.FIRE,
-                Rarete.SECRET_RARE, "charizard.jpg"));
-        cartes.add(new Carte(3L, "Bulbasaur", baseSet, 120.0, GradePSA.PSA8, Etat.EXCELLENT, TypeCarte.GRASS,
-                Rarete.COMMON, "bulbasaur.jpg"));
-        cartes.add(new Carte(4L, "Squirtle", baseSet, 100.0, GradePSA.PSA7, Etat.GOOD, TypeCarte.WATER, Rarete.UNCOMMON,
+        cartes.add(new Carte(1L, "Pikachu", baseSet, 150.0, GradePSA.PSA10, Etat.Mint, TypeCarte.LIGHTENING,
+                Rarete.Rare, "pikachu.jpg"));
+        cartes.add(new Carte(2L, "Charizard", baseSet, 2500.0, GradePSA.PSA9, Etat.NearMint, TypeCarte.FIRE,
+                Rarete.SecretRare, "charizard.jpg"));
+        cartes.add(new Carte(3L, "Bulbasaur", baseSet, 120.0, GradePSA.PSA8, Etat.Excellent, TypeCarte.GRASS,
+                Rarete.Common, "bulbasaur.jpg"));
+        cartes.add(new Carte(4L, "Squirtle", baseSet, 100.0, GradePSA.PSA7, Etat.Good, TypeCarte.WATER, Rarete.Uncommon,
                 "squirtle.jpg"));
-        cartes.add(new Carte(5L, "Eevee", jungle, 180.0, GradePSA.PSA10, Etat.MINT, TypeCarte.COLORLESS,
-                Rarete.HOLO_RARE, "eevee.jpg"));
-        cartes.add(new Carte(6L, "Mewtwo", fossil, 300.0, GradePSA.PSA9, Etat.NEAR_MINT, TypeCarte.PSYCHIC,
-                Rarete.ULTRA_RARE, "mewtwo.jpg"));
-        cartes.add(new Carte(7L, "Gengar", fossil, 500.0, GradePSA.PSA8, Etat.EXCELLENT, TypeCarte.DARK,
-                Rarete.SECRET_ART_ILLUSTRATION, "gengar.jpg"));
-        cartes.add(new Carte(8L, "Machamp", baseSet2, 200.0, GradePSA.PSA7, Etat.GOOD, TypeCarte.FIGHTING, Rarete.RARE,
+        cartes.add(new Carte(5L, "Eevee", jungle, 180.0, GradePSA.PSA10, Etat.Mint, TypeCarte.COLORLESS,
+                Rarete.HoloRare, "eevee.jpg"));
+        cartes.add(new Carte(6L, "Mewtwo", fossil, 300.0, GradePSA.PSA9, Etat.Excellent, TypeCarte.PSYCHIC,
+                Rarete.UltraRare, "mewtwo.jpg"));
+        cartes.add(new Carte(7L, "Gengar", fossil, 500.0, GradePSA.PSA8, Etat.NearMint, TypeCarte.DARK,
+                Rarete.SecretArtIllustration, "gengar.jpg"));
+        cartes.add(new Carte(8L, "Machamp", baseSet2, 200.0, GradePSA.PSA7, Etat.Good, TypeCarte.FIGHTING, Rarete.Rare,
                 "machamp.jpg"));
-        cartes.add(new Carte(9L, "Dragonite", teamRocket, 1000.0, GradePSA.PSA6, Etat.LIGHTLY_PLAYED, TypeCarte.DRAGON,
-                Rarete.SECRET_RARE, "dragonite.jpg"));
-        cartes.add(new Carte(10L, "Jigglypuff", jungle, 50.0, GradePSA.PSA5, Etat.PLAYED, TypeCarte.FAIRY,
-                Rarete.COMMON, "jigglypuff.jpg"));
-        cartes.add(new Carte(11L, "Raichu Alolan", unifiedMinds, 150.0, GradePSA.PSA10, Etat.MINT, TypeCarte.LIGHTENING,
-                Rarete.RARE, "raichuAlolan.jpg"));
-        cartes.add(new Carte(12L, "Zekrom", blackAndWhite, 2000.0, GradePSA.PSA9, Etat.NEAR_MINT, TypeCarte.DRAGON,
-                Rarete.SECRET_ART_ILLUSTRATION, "zekrom.jpg"));
-        cartes.add(new Carte(11L, "Raichu Alolan", unifiedMinds, 150.0, GradePSA.PSA10, Etat.MINT, TypeCarte.LIGHTENING,
-                Rarete.RARE, "raichuAlolan.jpg"));
-        cartes.add(new Carte(12L, "Zekrom", blackAndWhite, 2000.0, GradePSA.PSA9, Etat.NEAR_MINT, TypeCarte.DRAGON,
-                Rarete.SECRET_ART_ILLUSTRATION, "zekrom.jpg"));
-        cartes.add(new Carte(13L, "Reshiram", blackAndWhite, 2000.0, GradePSA.PSA9, Etat.NEAR_MINT, TypeCarte.DRAGON,
-                Rarete.SECRET_ART_ILLUSTRATION, "reshiram.jpg"));
+        cartes.add(new Carte(9L, "Dragonite", teamRocket, 1000.0, GradePSA.PSA6, Etat.LightlyPlayed, TypeCarte.DRAGON,
+                Rarete.SecretRare, "dragonite.jpg"));
+        cartes.add(new Carte(10L, "Jigglypuff", jungle, 50.0, GradePSA.PSA5, Etat.Poor, TypeCarte.FAIRY,
+                Rarete.Common, "jigglypuff.jpg"));
+        cartes.add(new Carte(11L, "Raichu Alolan", unifiedMinds, 150.0, GradePSA.PSA10, Etat.Mint, TypeCarte.LIGHTENING,
+                Rarete.Rare, "raichuAlolan.jpg"));
+        cartes.add(new Carte(12L, "Zekrom", blackAndWhite, 2000.0, GradePSA.PSA9, Etat.NearMint, TypeCarte.DRAGON,
+                Rarete.SecretArtIllustration, "zekrom.jpg"));
+        cartes.add(new Carte(11L, "Raichu Alolan", unifiedMinds, 150.0, GradePSA.PSA10, Etat.Mint, TypeCarte.LIGHTENING,
+                Rarete.Rare, "raichuAlolan.jpg"));
+        cartes.add(new Carte(12L, "Zekrom", blackAndWhite, 2000.0, GradePSA.PSA9, Etat.NearMint, TypeCarte.DRAGON,
+                Rarete.SecretArtIllustration, "zekrom.jpg"));
+        cartes.add(new Carte(13L, "Reshiram", blackAndWhite, 2000.0, GradePSA.PSA9, Etat.NearMint, TypeCarte.DRAGON,
+                Rarete.SecretArtIllustration, "reshiram.jpg"));
         return cartes;
     }
 
