@@ -3,6 +3,7 @@ package com.pokeinv.service;
 import com.pokeinv.Model.entity.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -68,6 +69,19 @@ public class DataFixtures {
         return collections;
     }
 
+    public static List<Employee> getEmployees() {
+        List<Employee> employees = new ArrayList<>();
+
+        // Adding 5 employees to the list
+        employees.add(new Employee(1L, "John", "Doe", new Date(122, 5, 15))); // Hire date: 15 June 2022
+        employees.add(new Employee(2L, "Jane", "Smith", new Date(120, 3, 10))); // Hire date: 10 April 2020
+        employees.add(new Employee(3L, "Mike", "Brown", new Date(118, 1, 25))); // Hire date: 25 February 2018
+        employees.add(new Employee(4L, "Emily", "Davis", new Date(121, 8, 5))); // Hire date: 5 September 2021
+        employees.add(new Employee(5L, "James", "Wilson", new Date(123, 10, 20))); // Hire date: 20 November 2023
+
+        return employees;
+    }
+
     public static Carte getCard(int id) {
         for (Carte card : cartes) {
             if (card.getId() == id) {
@@ -77,8 +91,21 @@ public class DataFixtures {
         return null;
     }
 
+    public static Employee getEmployee(Long id) {
+        for (Employee employee : getEmployees()) {
+            if (Objects.equals(employee.getId(), id)) {
+                return employee;
+            }
+        }
+        return null;
+    }
+
     public static void deleteCard(Long id) {
         cartes.removeIf(card -> Objects.equals(card.getId(), id));
+    }
+
+    public static void deleteEmployee(Long id) {
+        getEmployees().removeIf(employee -> Objects.equals(employee.getId(), id));
     }
 
     public static void updateCard(Long id, Carte card) {
@@ -90,4 +117,6 @@ public class DataFixtures {
             }
         }
     }
+
+
 }

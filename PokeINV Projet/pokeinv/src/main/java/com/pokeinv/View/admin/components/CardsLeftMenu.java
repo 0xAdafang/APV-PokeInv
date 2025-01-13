@@ -22,7 +22,7 @@ public class CardsLeftMenu extends JPanel {
 
         JButton pokemonsButton = new LeftMenuButton("Gestion Pokemons", true);
         pokemonsButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/pokemon.svg")));
-
+        pokemonsButton.addActionListener(e -> adminView.showCards());
         JButton addButton = new LeftMenuButton("Ajouter", false, true);
         addButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/plus-square.svg")));
         addButton.addActionListener(e -> {
@@ -36,7 +36,7 @@ public class CardsLeftMenu extends JPanel {
 
         JButton employeeButton = new LeftMenuButton("Gestion Employés");
         employeeButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/people.svg")));
-
+        employeeButton.addActionListener(e -> adminView.showEmployees());
 
         setForeground(ColorManager.customColor(150, 150, 150));
         setBackground(ColorManager.BackgroundColor);

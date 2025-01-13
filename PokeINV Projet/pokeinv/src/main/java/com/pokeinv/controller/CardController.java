@@ -6,9 +6,8 @@ import com.pokeinv.Model.tables.CardsTableModel;
 import com.pokeinv.View.admin.parts.forms.CardFormDialog;
 import com.pokeinv.service.DataFixtures;
 
-import java.util.List;
-
 import javax.swing.*;
+import java.util.List;
 
 public class CardController {
 
@@ -17,6 +16,10 @@ public class CardController {
     public CardController() {
         this.model = CardsTableModel.getInstance();
 
+    }
+
+    public static List<Carte> getAllCards() {
+        return DataFixtures.getCards();
     }
 
     public Carte getCard(int id) {
@@ -48,10 +51,6 @@ public class CardController {
 
     public void filtrerCardsParType(TypeCarte type) {
         model.filtrerCardsParType(type);
-    }
-
-    public static List<Carte> getAllCards() {
-        return DataFixtures.getCards();
     }
 
 }

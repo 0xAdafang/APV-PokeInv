@@ -1,17 +1,17 @@
-package com.pokeinv.View.admin.parts.pokemons;
+package com.pokeinv.View.admin.parts.employees;
 
 import com.pokeinv.View.admin.AdminView;
-import com.pokeinv.View.admin.parts.tables.CardsTable;
+import com.pokeinv.View.admin.parts.tables.EmployeesTable;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 
-public class AdminCardsView extends JPanel {
+public class AdminEmployeesView extends JPanel {
 
     private AdminView adminView;
 
-    public AdminCardsView(AdminView adminView) {
+    public AdminEmployeesView(AdminView adminView) {
         this.adminView = adminView;
         initialiserComposantsAdmin();
         setVisible(true);
@@ -22,7 +22,7 @@ public class AdminCardsView extends JPanel {
 
         setLayout(new BorderLayout());
         WestPanel westPanel = new WestPanel(adminView);
-        CardsTable table = new CardsTable();
+        EmployeesTable table = new EmployeesTable();
         JScrollPane main = new JScrollPane(table);
         main.setBorder(new MatteBorder(1, 1, 1, 1, new Color(28, 28, 51)));
         add(main, BorderLayout.CENTER);

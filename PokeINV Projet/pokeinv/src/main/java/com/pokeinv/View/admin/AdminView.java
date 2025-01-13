@@ -2,6 +2,7 @@ package com.pokeinv.View.admin;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.pokeinv.View.admin.parts.dashboard.DashboardView;
+import com.pokeinv.View.admin.parts.employees.AdminEmployeesView;
 import com.pokeinv.View.admin.parts.pokemons.AdminCardsView;
 import com.pokeinv.View.admin.parts.pokemons.NorthPanel;
 import com.pokeinv.View.shared.ColorManager;
@@ -13,6 +14,7 @@ public class AdminView extends JPanel {
 
     public DashboardView dashboardView;
     public AdminCardsView adminCardsView;
+    public AdminEmployeesView adminEmployeesView;
     private CardLayout cardLayout;
     private JPanel cardPanel;
 
@@ -36,9 +38,11 @@ public class AdminView extends JPanel {
 
         dashboardView = new DashboardView(this);
         adminCardsView = new AdminCardsView(this);
+        adminEmployeesView = new AdminEmployeesView(this);
 
         cardPanel.add(dashboardView, "DASHBOARD");
         cardPanel.add(adminCardsView, "CARDS");
+        cardPanel.add(adminEmployeesView, "EMPLOYEES");
 
         mainPanel.add(cardPanel, BorderLayout.CENTER);
 
@@ -56,5 +60,9 @@ public class AdminView extends JPanel {
 
     public void showCards() {
         cardLayout.show(cardPanel, "CARDS");
+    }
+
+    public void showEmployees() {
+        cardLayout.show(cardPanel, "EMPLOYEES");
     }
 }
