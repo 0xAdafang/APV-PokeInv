@@ -1,6 +1,6 @@
 package com.pokeinv;
 
-import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.pokeinv.View.MainView;
 import com.pokeinv.View.shared.ColorManager;
 
@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        FlatLightLaf.setup();
+        FlatDarkLaf.setup();
         MainView interfacePrincipale = new MainView();
 
         JFrame.setDefaultLookAndFeelDecorated(true);

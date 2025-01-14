@@ -1,125 +1,103 @@
 package com.pokeinv.View.shared.Composants;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-
-import com.pokeinv.View.login.LoginView;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.pokeinv.View.shared.ColorManager;
 
-public class LoginForm {
-    private JPanel panelLogin;
-    private JTextField userJTextField;
-    private JPasswordField passJTextField;
-    private JLabel notification;
+import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
+import java.awt.*;
 
-    public LoginForm(LoginView mainFrame) {
+public class LoginForm extends JPanel {
+    private final JButton buttonLogin;
+    private final JTextField userJTextField;
+    private final JPasswordField passJTextField;
+
+    public LoginForm() {
+        setLayout(new BorderLayout());
+
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+
+        JLabel errorLabel = new JLabel("Pour afficher les erreurs");
+        errorLabel.setOpaque(true);
+        errorLabel.setBorder(new CompoundBorder(
+                new MatteBorder(0, 5, 0, 0, new Color(80, 1, 1)),
+                new EmptyBorder(5, 5, 5, 5)
+        ));
+        errorLabel.setForeground(new Color(80, 0, 0));
+        errorLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        errorLabel.setBackground(new Color(31, 1, 1));
+        errorLabel.setVisible(false);
 
         JLabel userJLabel = new JLabel("Nom d'utilisateur");
-        userJLabel.setOpaque(true);
-        userJLabel.setBackground(ColorManager.BackgroundColor);
-        userJLabel.setForeground(Color.WHITE);
-        userJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        userJLabel.setAlignmentX(0.5f);
-
         JLabel passJLabel = new JLabel("Mot de passe");
-        passJLabel.setOpaque(true);
-        passJLabel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        passJLabel.setBackground(ColorManager.BackgroundColor);
-        passJLabel.setForeground(Color.WHITE);
-        passJLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        passJLabel.setAlignmentX(0.5f);
 
         userJTextField = new JTextField(17);
         passJTextField = new JPasswordField(17);
 
-        JButton buttonLogin = new JButton("Se connecter");
+        JPanel form = new JPanel(new GridBagLayout());
+        form.setBackground(new Color(28, 28, 51));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 10, 5, 10);
+
+        // ERREUR
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
+        form.add(errorLabel, gbc);
+
+        // USERNAME
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+
+        form.add(userJLabel, gbc);
+        gbc.gridx = 1;
+        form.add(userJTextField, gbc);
+
+        // PASSWORD
+        gbc.gridy = 2;
+        gbc.gridx = 0;
+
+        form.add(passJLabel, gbc);
+        gbc.gridx = 1;
+        form.add(passJTextField, gbc);
+
+        buttonLogin = new JButton("Se connecter");
         buttonLogin.setOpaque(true);
         buttonLogin.setBackground(ColorManager.ColorButtonsBlue);
         buttonLogin.setForeground(Color.WHITE);
         buttonLogin.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         buttonLogin.setFocusPainted(false);
+        buttonLogin.setIcon(new FlatSVGIcon("icons/login.svg"));
+        buttonLogin.setIconTextGap(15);
 
+        gbc.gridx = 0;
+        gbc.gridy = 3;  // Décalé d'une ligne vers le bas
+        gbc.gridwidth = 2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.insets = new Insets(15, 10, 5, 10);
 
-        // organisation des buttons
-        JPanel labelButtons = new JPanel();
-        labelButtons.setLayout(new FlowLayout(FlowLayout.CENTER));
-        labelButtons.setBackground(ColorManager.BackgroundColor);
-        labelButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        labelButtons.add(buttonLogin);
-
-        notification = new JLabel();
-
-        // organisation des composants
-        panelLogin = new JPanel(new GridLayout(6, 2));
-        panelLogin.add(userJLabel, BorderLayout.CENTER);
-        panelLogin.add(userJTextField, BorderLayout.CENTER);
-        panelLogin.add(passJLabel, BorderLayout.CENTER);
-        panelLogin.add(passJTextField, BorderLayout.CENTER);
-        panelLogin.add(Box.createRigidArea(new Dimension(0, 10)));
-        panelLogin.add(labelButtons, BorderLayout.SOUTH);
-        panelLogin.add(notification);
-        panelLogin.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        buttonLogin.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String username = userJTextField.getText();
-                String password = new String(passJTextField.getPassword());
-
-                if (username.equals("admin") && password.equals("admin")) {
-                    try {
-                        mainFrame.afficherConnexionReussieAdmin(mainFrame);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-
-                } else if (username.equals("employe") && password.equals("employe")) {
-                    try {
-                        mainFrame.afficherConnexionReussieEmploye(mainFrame);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-
-                } else if (username.equals("") || password.equals("")) {
-                    notification.setText("Veuillez remplir tous les champs.");
-                    notification.setForeground(Color.RED);
-                    notification.add(Box.createRigidArea(new Dimension(0, 10)));
-                    notification.setAlignmentX(0.5f);
-                    userJTextField.setText("");
-                    userJTextField.setMaximumSize(userJTextField.getPreferredSize());
-                    passJTextField.setText("");
-                    passJTextField.setMaximumSize(userJTextField.getPreferredSize());
-                    return;
-                } else {
-                    notification.setText("Nom d'utilisateur ou mot de passe incorrect.");
-                    notification.setForeground(Color.RED);
-                    notification.add(Box.createRigidArea(new Dimension(0, 10)));
-                    notification.setAlignmentX(0.5f);
-                    userJTextField.setText("");
-                    userJTextField.setMaximumSize(userJTextField.getPreferredSize());
-                    passJTextField.setText("");
-                    passJTextField.setMaximumSize(userJTextField.getPreferredSize());
-                }
-            }
-        });
+        form.add(buttonLogin, gbc);
+        add(form, BorderLayout.CENTER);
     }
 
-    public JPanel getPanel() {
-        return panelLogin;
+
+    public JButton getButtonLogin() {
+        return buttonLogin;
+    }
+
+    public JTextField getUserJTextField() {
+        return userJTextField;
+    }
+
+    public JPasswordField getPassJTextField() {
+        return passJTextField;
     }
 }

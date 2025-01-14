@@ -1,22 +1,25 @@
 package com.pokeinv.View;
 
+import com.pokeinv.View.admin.AdminView;
+import com.pokeinv.View.employe.EmployeView;
 import com.pokeinv.View.login.LoginView;
 import com.pokeinv.View.shared.Composants.Notification;
 import com.pokeinv.View.shared.SoundPlayer;
+import com.pokeinv.events.login.LoginSuccessEvent;
+import com.pokeinv.events.login.LoginSuccessListener;
 
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class MainView extends JFrame {
+public class MainView extends JFrame implements LoginSuccessListener {
 
     private static Clip clip;
-    private LoginView interfacePrincipaleLogin;
+    private final CardLayout cardLayout;
+    private final JPanel viewContainer;
 
-    public MainView() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+    public MainView() throws IOException {
         setTitle("PokeINV");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -24,26 +27,36 @@ public class MainView extends JFrame {
         ImageIcon iconApp = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
         setIconImage(iconApp.getImage());
         setLocationRelativeTo(null);
-        setVisible(true);
 
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(new Color(28, 28, 51));
 
+        cardLayout = new CardLayout();
+        viewContainer = new JPanel(cardLayout);
+
         SoundPlayer.play("/musique/MusiqueCenter.wav", true);
+        LoginView loginView = new LoginView(this);
+        AdminView adminView = new AdminView();
+        EmployeView employeView = new EmployeView();
 
-        interfacePrincipaleLogin = new LoginView();
-        mainPanel.add(interfacePrincipaleLogin, BorderLayout.CENTER);
+        viewContainer.add(loginView, "LOGIN");
+        viewContainer.add(adminView, "ADMIN");
+        viewContainer.add(employeView, "EMPLOYEE");
 
+        mainPanel.add(viewContainer, BorderLayout.CENTER);
         add(mainPanel);
-        revalidate();
-        repaint();
         Notification.setMainFrame(this);
         setVisible(true);
-
     }
 
     public static Clip getClip() {
         return clip;
     }
 
+
+    @Override
+    public void loginSuccess(LoginSuccessEvent event) {
+        cardLayout.show(viewContainer, event.getRole());
+        Notification.showNotification("Heureux de vous revoir " + event.getRole() + " :)", Notification.SUCCESS);
+    }
 }
