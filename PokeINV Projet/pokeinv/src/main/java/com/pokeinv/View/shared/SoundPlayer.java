@@ -11,10 +11,10 @@ public class SoundPlayer {
     private static String path;
     private static Clip clip;
 
-    public static void play(String soundPath) {
+    public static Clip play(String soundPath) {
         path = soundPath;
         loop = false;
-        init();
+        return init();
     }
 
     public static Clip play(String soundPath, boolean loopPlay) {
