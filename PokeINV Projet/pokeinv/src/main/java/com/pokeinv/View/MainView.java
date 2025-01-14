@@ -34,7 +34,7 @@ public class MainView extends JFrame implements LoginSuccessListener {
         cardLayout = new CardLayout();
         viewContainer = new JPanel(cardLayout);
 
-        SoundPlayer.play("/musique/MusiqueCenter.wav", true);
+        clip = SoundPlayer.play("/musique/MusiqueCenter.wav", true);
         LoginView loginView = new LoginView(this);
         AdminView adminView = new AdminView();
         EmployeView employeView = new EmployeView();

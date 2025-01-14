@@ -9,6 +9,7 @@ public class SoundPlayer {
 
     private static boolean loop;
     private static String path;
+    private static Clip clip;
 
     public static void play(String soundPath) {
         path = soundPath;
@@ -16,13 +17,13 @@ public class SoundPlayer {
         init();
     }
 
-    public static void play(String soundPath, boolean loopPlay) {
+    public static Clip play(String soundPath, boolean loopPlay) {
         path = soundPath;
         loop = loopPlay;
-        init();
+        return init();
     }
 
-    private static void init() {
+    private static Clip init() {
         try {
             URL url = SoundPlayer.class.getResource(path);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(url);
@@ -31,9 +32,11 @@ public class SoundPlayer {
             clip.open(audioStream);
             if (loop) clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
+            return clip;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return null;
     }
 
 }
