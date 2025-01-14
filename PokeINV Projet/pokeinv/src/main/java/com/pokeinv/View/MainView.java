@@ -16,13 +16,13 @@ public class MainView extends JFrame {
 
     public MainView() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         setTitle("PokeINV");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setMinimumSize(new Dimension(800, 600));
         ImageIcon iconApp = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
         setIconImage(iconApp.getImage());
         setLocationRelativeTo(null);
         setVisible(true);
-        setMinimumSize(new Dimension(800, 600));
 
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(new Color(28, 28, 51));
