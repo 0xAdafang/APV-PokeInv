@@ -37,9 +37,9 @@ public class MainView extends JFrame {
         add(mainPanel);
         revalidate();
         repaint();
-
-        setVisible(true);
         Notification.setMainFrame(this);
+        setVisible(true);
+
     }
 
     public static Clip getClip() {

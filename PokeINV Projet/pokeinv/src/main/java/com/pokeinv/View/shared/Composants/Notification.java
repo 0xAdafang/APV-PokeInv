@@ -1,13 +1,18 @@
 package com.pokeinv.View.shared.Composants;
 
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.pokeinv.View.shared.SoundPlayer;
 
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
-import java.net.URL;
 
 public class Notification {
+    public static int SUCCESS = 0;
+    public static int ERROR = 1;
+    public static int INFO = 2;
+    private static int type;
     private static JFrame mainFrame;
 
     public static void setMainFrame(JFrame frame) {
@@ -23,32 +28,107 @@ public class Notification {
         }
     }
 
-    private static JPanel getContainer(String message) {
-        JPanel container = new JPanel();
-        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-//        container.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        container.setBorder(new MatteBorder(1, 1, 1, 1, new Color(60, 60, 75, 100)));
-        container.setOpaque(true);
-        container.setBackground(new Color(28, 28, 51));
-        container.setForeground(Color.WHITE);
-        URL imageUrl = Notification.class.getResource("/icons/bell.png");
-        String htmlMessage = """
-                             <html>
-                                <body style='width: 300 px;padding:0;margin:0'>
-                                <h2 style="padding:5px;margin:0;border-bottom:1px solid #3C3C4B1D">
-                                <img src="%s" width="20" height="20" style='margin-right:40px;'>&nbsp;&nbsp;&nbsp;Notification</h2>
-                                                  
-                                <div style="padding:15px">
-                                    <p>%s</p>
-                                </div>
-                                </body>
-                             </html>
-                             """.formatted(imageUrl, message);
+    public static void showNotification(String message, int notificationType) {
+        type = notificationType;
+        if (mainFrame != null) {
+            NotificationDialog notification = new NotificationDialog(message);
+            notification.setLocationRelativeToOwner(mainFrame);
+            notification.setVisible(true);
+            System.out.println(notificationType);
+            SoundPlayer.play("/notifications/notification_info.wav");
+        }
+    }
 
-        JLabel label = new JLabel(htmlMessage, SwingConstants.LEFT);
-        label.setForeground(Color.WHITE);
-        container.add(label);
+    public static JPanel getNotificationHeader() {
+        JPanel northPanel = new JPanel();
+        northPanel.setOpaque(true);
+        northPanel.setBackground(new Color(28, 28, 51, 230));
+        northPanel.setForeground(Color.WHITE);
+
+
+        JLabel title = new JLabel("Notification");
+        title.setIcon(new FlatSVGIcon(Notification.class.getResource("/icons/bell.svg")));
+        title.setIconTextGap(10);
+        title.setForeground(Color.WHITE);
+
+        title.setFont(new Font(Font.DIALOG, Font.BOLD, 12));
+        northPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        northPanel.add(title);
+        return northPanel;
+    }
+
+    private static JPanel getNotificationBody(String message) {
+        JPanel centerPanel = new JPanel(new BorderLayout());
+        centerPanel.setBorder(new CompoundBorder(
+                new MatteBorder(1, 0, 0, 0, new Color(60, 60, 75, 50)),
+                BorderFactory.createEmptyBorder(10, 10, 10, 10)
+        ));
+
+        centerPanel.add(getNotificationTypeIcon(), BorderLayout.WEST);
+
+        JPanel messagePanel = getMessagePanel(message);
+
+        centerPanel.setOpaque(true);
+        centerPanel.setBackground(new Color(28, 28, 51, 230));
+        centerPanel.setForeground(Color.WHITE);
+        centerPanel.add(messagePanel);
+        return centerPanel;
+    }
+
+    private static JPanel getMessagePanel(String message) {
+        JPanel messagePanel = new JPanel(new BorderLayout());
+        messagePanel.setBackground(new Color(28, 28, 51, 0));
+        messagePanel.setForeground(Color.WHITE);
+
+        JTextArea messageContainer = new JTextArea(message);
+        messageContainer.setWrapStyleWord(true);
+        messageContainer.setLineWrap(true);
+        messageContainer.setEditable(false);
+        messageContainer.setOpaque(false);
+        messageContainer.setForeground(Color.WHITE);
+        messageContainer.setFont(new Font(Font.DIALOG, Font.PLAIN, 12));
+        messagePanel.add(messageContainer, BorderLayout.CENTER);
+        return messagePanel;
+    }
+
+    private static JPanel getContainer(String message) {
+
+        JPanel container = new JPanel(new BorderLayout());
+        container.setBorder(
+                new MatteBorder(1, 1, 1, 1,
+                        new Color(60, 60, 75, 100)
+                ));
+        container.setOpaque(true);
+        container.setBackground(new Color(28, 28, 51, 230));
+        container.setForeground(Color.WHITE);
+
+        container.add(getNotificationHeader(), BorderLayout.NORTH);
+        container.add(getNotificationBody(message), BorderLayout.CENTER);
         return container;
+    }
+
+    private static JPanel getNotificationTypeIcon() {
+
+        JPanel iconPanel = new JPanel();
+        JLabel icon = new JLabel();
+        icon.setFont(new Font("Arial", Font.BOLD, 20));
+        iconPanel.setBackground(new Color(28, 28, 51, 0));
+        iconPanel.setForeground(Color.WHITE);
+        String urlPath = null;
+
+        if (type == Notification.SUCCESS) {
+            urlPath = "icons/notification-success.svg";
+        }
+        if (type == Notification.ERROR) {
+            urlPath = "icons/notification-error.svg";
+        }
+        if (type == Notification.INFO) {
+            urlPath = "icons/notification-info.svg";
+        }
+        FlatSVGIcon svgIcon = new FlatSVGIcon(urlPath, 35, 35);
+        icon.setIcon(svgIcon);
+        iconPanel.add(icon);
+        return iconPanel;
     }
 
     private static class NotificationDialog extends JDialog {
@@ -65,7 +145,7 @@ public class Notification {
             JPanel container = getContainer(message);
             add(container, BorderLayout.CENTER);
 
-            Timer timer = new Timer(30000, e -> dispose());
+            Timer timer = new Timer(3000, e -> dispose());
             timer.setRepeats(false);
             timer.start();
 
@@ -81,11 +161,12 @@ public class Notification {
             int notificationWidth = getWidth();
             int notificationHeight = getHeight();
 
-            int notificationX = ownerX + ownerWidth - notificationWidth - 10;
-            int notificationY = ownerY + ownerHeight - notificationHeight - 10;
+            int notificationX = ownerX + ownerWidth - notificationWidth - 20;
+            int notificationY = ownerY + ownerHeight - notificationHeight - 20;
 
             setLocation(notificationX, notificationY);
         }
+
 
     }
 }
