@@ -18,7 +18,7 @@ public class LoginForm extends JPanel {
         setLayout(new BorderLayout());
 
         JPanel centerPanel = new JPanel();
-        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+        centerPanel.setLayout(new BorderLayout());
 
         JLabel errorLabel = new JLabel("Pour afficher les erreurs");
         errorLabel.setOpaque(true);
@@ -96,7 +96,12 @@ public class LoginForm extends JPanel {
         gbc.insets = new Insets(15, 10, 5, 10);
 
         form.add(buttonLogin, gbc);
-        add(form, BorderLayout.CENTER);
+        centerPanel.add(form, BorderLayout.CENTER);
+
+        // SLEEPING PIKACHU
+        JPanel bottomPanel = getRightBottomIllustration();
+        add(centerPanel, BorderLayout.CENTER);
+        add(bottomPanel, BorderLayout.SOUTH);
     }
 
     public JButton getButtonLogin() {
@@ -109,5 +114,25 @@ public class LoginForm extends JPanel {
 
     public JPasswordField getPassJTextField() {
         return passJTextField;
+    }
+
+    private JPanel getRightBottomIllustration() {
+        ImageIcon sleepingPikachu = new ImageIcon(getClass().getResource("/icons/Pikachu.png"));
+        Image sleepingPikachuImage = sleepingPikachu.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
+        JLabel illustration = new JLabel();
+        illustration.setIcon(new ImageIcon(sleepingPikachuImage));
+        illustration.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 110));
+        illustration.setBackground(new Color(28, 28, 51));
+        illustration.setOpaque(true);
+        illustration.setPreferredSize(new Dimension(140, 140));
+
+        JPanel bottomPanel = new JPanel(new BorderLayout());
+        JPanel bottomEastPanel = new JPanel();
+        bottomEastPanel.add(illustration);
+        bottomEastPanel.setBackground(new Color(28, 28, 51));
+        bottomEastPanel.setPreferredSize(new Dimension(140, 140));
+        bottomPanel.add(bottomEastPanel, BorderLayout.EAST);
+        bottomPanel.setBackground(new Color(28, 28, 51));
+        return bottomPanel;
     }
 }
