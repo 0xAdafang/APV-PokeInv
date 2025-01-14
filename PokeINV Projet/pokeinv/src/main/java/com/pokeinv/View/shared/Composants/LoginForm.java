@@ -7,6 +7,8 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class LoginForm extends JPanel {
     private final JButton buttonLogin;
@@ -32,18 +34,9 @@ public class LoginForm extends JPanel {
         JLabel userJLabel = new JLabel("Nom d'utilisateur");
         JLabel passJLabel = new JLabel("Mot de passe");
 
-        userJTextField = new JTextField(17);
-        passJTextField = new JPasswordField(17);
-        userJTextField.setBackground(new Color(35, 35, 70));
-        userJTextField.setBorder(new CompoundBorder(
-                new MatteBorder(0, 0, 1, 0, new Color(0, 95, 120)),
-                new EmptyBorder(5, 5, 5, 5)
-        ));
-        passJTextField.setBackground(new Color(35, 35, 70));
-        passJTextField.setBorder(new CompoundBorder(
-                new MatteBorder(0, 0, 1, 0, new Color(0, 95, 120)),
-                new EmptyBorder(5, 5, 5, 5)
-        ));
+        userJTextField = buildUserTextField();
+        passJTextField = buildPassTextField();
+
         JPanel form = new JPanel(new GridBagLayout());
         form.setBackground(new Color(28, 28, 51));
         GridBagConstraints gbc = new GridBagConstraints();
@@ -107,6 +100,65 @@ public class LoginForm extends JPanel {
         JPanel bottomPanel = getRightBottomIllustration();
         add(centerPanel, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);
+    }
+
+    private JPasswordField buildPassTextField() {
+        JPasswordField passField = new JPasswordField(17);
+        passField.setBackground(new Color(21, 21, 21, 50));
+        passField.setBorder(new CompoundBorder(
+                new MatteBorder(0, 0, 1, 0, new Color(0, 95, 120)),
+                new EmptyBorder(5, 5, 5, 5)
+        ));
+        passField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                passField.setBorder(new CompoundBorder(
+                        new MatteBorder(0, 0, 3, 0, new Color(0, 95, 120)),
+                        new EmptyBorder(5, 5, 5, 5)
+                ));
+                passField.setBackground(new Color(35, 35, 70, 137));
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                passField.setBorder(new CompoundBorder(
+                        new MatteBorder(0, 0, 1, 0, new Color(0, 95, 120)),
+                        new EmptyBorder(5, 5, 5, 5)
+                ));
+                passField.setBackground(new Color(21, 21, 21, 50));
+            }
+        });
+
+        return passField;
+    }
+
+    private JTextField buildUserTextField() {
+        JTextField userField = new JTextField(17);
+        userField.setBorder(new CompoundBorder(
+                new MatteBorder(0, 0, 1, 0, new Color(0, 95, 120)),
+                new EmptyBorder(5, 5, 5, 5)
+        ));
+        userField.setBackground(new Color(21, 21, 21, 50));
+        userField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                userField.setBorder(new CompoundBorder(
+                        new MatteBorder(0, 0, 3, 0, new Color(0, 95, 120)),
+                        new EmptyBorder(5, 5, 5, 5)
+                ));
+                userField.setBackground(new Color(35, 35, 70, 137));
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                userField.setBorder(new CompoundBorder(
+                        new MatteBorder(0, 0, 1, 0, new Color(0, 95, 120)),
+                        new EmptyBorder(5, 5, 5, 5)
+                ));
+                userField.setBackground(new Color(21, 21, 21, 50));
+            }
+        });
+        return userField;
     }
 
     private JLabel getLogo() {
