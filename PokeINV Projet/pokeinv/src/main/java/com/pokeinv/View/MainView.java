@@ -2,12 +2,14 @@ package com.pokeinv.View;
 
 import com.pokeinv.View.login.LoginView;
 import com.pokeinv.View.shared.Composants.Notification;
+import com.pokeinv.View.shared.SoundPlayer;
 
-import javax.sound.sampled.*;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.net.URL;
 
 public class MainView extends JFrame {
 
@@ -27,12 +29,7 @@ public class MainView extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(new Color(28, 28, 51));
 
-        URL url = getClass().getResource("/musique/MusiqueCenter.wav");
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(url);
-        clip = AudioSystem.getClip();
-        clip.open(audioStream);
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
-        clip.start();
+        SoundPlayer.play("/musique/MusiqueCenter.wav", true);
 
         interfacePrincipaleLogin = new LoginView();
         mainPanel.add(interfacePrincipaleLogin, BorderLayout.CENTER);

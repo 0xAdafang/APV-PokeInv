@@ -1,8 +1,7 @@
 package com.pokeinv.View.shared.Composants;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import com.pokeinv.View.shared.SoundPlayer;
+
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
@@ -20,7 +19,7 @@ public class Notification {
             NotificationDialog notification = new NotificationDialog(message);
             notification.setLocationRelativeToOwner(mainFrame);
             notification.setVisible(true);
-            notification.playSound();
+            SoundPlayer.play("/notifications/notification_info.wav");
         }
     }
 
@@ -88,22 +87,5 @@ public class Notification {
             setLocation(notificationX, notificationY);
         }
 
-        private void playSound() {
-            try {
-
-                try {
-
-                    URL url = getClass().getResource("/notifications/notification_info.wav");
-                    AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(url);
-                    Clip clip = AudioSystem.getClip();
-                    clip.open(audioInputStream);
-                    clip.start();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 }
