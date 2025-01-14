@@ -43,7 +43,7 @@ public class LoginForm extends JPanel {
 
         // Logo
         ImageIcon ImagePokeball = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
-        Image ImagePokeballImage = ImagePokeball.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+        Image ImagePokeballImage = ImagePokeball.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
         JLabel logo = new JLabel();
         logo.setIcon(new ImageIcon(ImagePokeballImage));
         logo.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 110));
@@ -55,7 +55,7 @@ public class LoginForm extends JPanel {
 
         // ERREUR
         gbc.gridx = 0;
-        gbc.gridy = 0;
+        gbc.gridy = 1;
         gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.CENTER;
@@ -63,7 +63,7 @@ public class LoginForm extends JPanel {
 
         // USERNAME
         gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridy = 2;
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.WEST;
 
@@ -72,7 +72,7 @@ public class LoginForm extends JPanel {
         form.add(userJTextField, gbc);
 
         // PASSWORD
-        gbc.gridy = 2;
+        gbc.gridy = 3;
         gbc.gridx = 0;
 
         form.add(passJLabel, gbc);
@@ -89,7 +89,7 @@ public class LoginForm extends JPanel {
         buttonLogin.setIconTextGap(15);
 
         gbc.gridx = 0;
-        gbc.gridy = 3; // Décalé d'une ligne vers le bas
+        gbc.gridy = 4; // Décalé d'une ligne vers le bas
         gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.CENTER;
