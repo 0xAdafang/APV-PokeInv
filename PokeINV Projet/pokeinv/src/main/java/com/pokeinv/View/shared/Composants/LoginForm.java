@@ -1,7 +1,6 @@
 package com.pokeinv.View.shared.Composants;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import com.pokeinv.View.shared.ColorManager;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
@@ -35,20 +34,23 @@ public class LoginForm extends JPanel {
 
         userJTextField = new JTextField(17);
         passJTextField = new JPasswordField(17);
-
+        userJTextField.setBackground(new Color(35, 35, 70));
+        userJTextField.setBorder(new CompoundBorder(
+                new MatteBorder(0, 0, 1, 0, new Color(0, 95, 120)),
+                new EmptyBorder(5, 5, 5, 5)
+        ));
+        passJTextField.setBackground(new Color(35, 35, 70));
+        passJTextField.setBorder(new CompoundBorder(
+                new MatteBorder(0, 0, 1, 0, new Color(0, 95, 120)),
+                new EmptyBorder(5, 5, 5, 5)
+        ));
         JPanel form = new JPanel(new GridBagLayout());
         form.setBackground(new Color(28, 28, 51));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10);
 
-        // Logo
-        ImageIcon ImagePokeball = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
-        Image ImagePokeballImage = ImagePokeball.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
-        JLabel logo = new JLabel();
-        logo.setIcon(new ImageIcon(ImagePokeballImage));
-        logo.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 110));
-        logo.setBackground(new Color(28, 28, 51));
-        logo.setOpaque(true);
+        // LOGO
+        JLabel logo = getLogo();
         gbc.gridx = 1;
         gbc.gridy = 0;
         form.add(logo, gbc);
@@ -79,29 +81,66 @@ public class LoginForm extends JPanel {
         gbc.gridx = 1;
         form.add(passJTextField, gbc);
 
-        buttonLogin = new JButton("Se connecter");
-        buttonLogin.setOpaque(true);
-        buttonLogin.setBackground(ColorManager.ColorButtonsBlue);
-        buttonLogin.setForeground(Color.WHITE);
-        buttonLogin.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        buttonLogin.setFocusPainted(false);
-        buttonLogin.setIcon(new FlatSVGIcon("icons/login.svg"));
-        buttonLogin.setIconTextGap(15);
+        // LOGIN BUTTON
+        buttonLogin = getLoginButton();
 
-        gbc.gridx = 0;
-        gbc.gridy = 4; // Décalé d'une ligne vers le bas
-        gbc.gridwidth = 2;
+        gbc.gridx = 1;
+        gbc.gridy = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(15, 10, 5, 10);
-
+        gbc.insets = new Insets(10, 10, 5, 10);
         form.add(buttonLogin, gbc);
+
+        // CLEAR BUTTON
+        JButton clearButton = getClearButton();
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.insets = new Insets(10, 10, 5, 10);
+        form.add(clearButton, gbc);
+
         centerPanel.add(form, BorderLayout.CENTER);
 
         // SLEEPING PIKACHU
         JPanel bottomPanel = getRightBottomIllustration();
         add(centerPanel, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);
+    }
+
+    private JLabel getLogo() {
+        JLabel logo = new JLabel();
+        ImageIcon ImagePokeball = new ImageIcon(getClass().getResource("/icons/IconApp.png"));
+        Image ImagePokeballImage = ImagePokeball.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
+        logo.setIcon(new ImageIcon(ImagePokeballImage));
+        logo.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 110));
+        logo.setBackground(new Color(28, 28, 51));
+        logo.setOpaque(true);
+        return logo;
+    }
+
+    private JButton getLoginButton() {
+        JButton buttonLogin = new JButton("Se connecter");
+        buttonLogin.setOpaque(true);
+        buttonLogin.setBackground(new Color(0, 95, 120));
+        buttonLogin.setForeground(Color.WHITE);
+        buttonLogin.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        buttonLogin.setFocusPainted(false);
+        buttonLogin.setIcon(new FlatSVGIcon("icons/login.svg", 20, 20));
+        buttonLogin.setIconTextGap(15);
+        return buttonLogin;
+    }
+
+    private JButton getClearButton() {
+        JButton clearButton = new JButton("Effacer");
+        clearButton.setOpaque(true);
+        clearButton.setBackground(new Color(35, 35, 70));
+        clearButton.setForeground(Color.WHITE);
+        clearButton.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        clearButton.setFocusPainted(false);
+        clearButton.setIcon(new FlatSVGIcon("icons/trash.svg", 20, 20));
+        return clearButton;
     }
 
     public JButton getButtonLogin() {
