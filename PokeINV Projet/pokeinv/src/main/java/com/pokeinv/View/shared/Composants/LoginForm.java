@@ -192,6 +192,11 @@ public class LoginForm extends JPanel {
         clearButton.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         clearButton.setFocusPainted(false);
         clearButton.setIcon(new FlatSVGIcon("icons/trash.svg", 20, 20));
+
+        clearButton.addActionListener(e -> {
+            userJTextField.setText("");
+            passJTextField.setText("");
+        });
         return clearButton;
     }
 
